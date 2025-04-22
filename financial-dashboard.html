@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard Case Study - Anmol Rohilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #0056b3;
+            --accent-color: #1A6AFF;
+            --text-color: #333;
+            --text-light: #666;
+            --background-light: #f8f9fa;
+            --white: #fff;
+            --transition: all 0.3s ease;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Containers */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        /* Case Study Header */
+        .case-header {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            background: linear-gradient(45deg, #f3f4f6, #ffffff);
+        }
+
+        .case-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .case-description {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .case-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .case-meta-item {
+            text-align: center;
+        }
+
+        .case-meta-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .case-meta-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .case-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .case-meta-pill {
+            background-color: var(--background-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Problem Statement Section */
+        .problem-section {
+            background-color: var(--white);
+        }
+
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-color);
+        }
+
+        .section-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Research Section */
+        .research-section {
+            background-color: var(--background-light);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .research-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+
+        .research-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .research-list {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .research-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .findings-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .findings-list {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        .findings-list li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .findings-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Design Section */
+        .design-section {
+            background-color: var(--white);
+        }
+
+        .branding-container {
+            margin-top: 2rem;
+        }
+
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 1rem;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow);
+        }
+
+        .typography-container {
+            margin-top: 3rem;
+        }
+
+        .font-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .font-card {
+            flex: 0 0 48%;
+            padding: 2rem;
+            background-color: var(--background-light);
+            border-radius: 10px;
+        }
+
+        .font-card h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .font-sample {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .design-feature {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: var(--background-light);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .design-feature h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Improvements Section */
+        .improvements-section {
+            background-color: var(--background-light);
+        }
+
+        .improvements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .improvement-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .improvement-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .improvement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .improvement-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .improvement-card p {
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Next Project Section */
+        .next-project {
+            background-color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .next-project h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .next-project-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .next-project-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .case-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .case-meta {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .font-display {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .font-card {
+                flex: 0 0 100%;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AR</div>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="case-header">
+        <div class="section-container">
+            <h1>Financial Dashboard Redesign</h1>
+            <p class="case-description">A centralized and connected Finance Datahub with integrated artificial Intelligence for a Consumer Healthcare client</p>
+            
+            <div class="case-meta">
+                <div class="case-meta-item">
+                    <h3>My Role</h3>
+                    <div class="case-meta-pills">
+                        <span class="case-meta-pill">UI Design</span>
+                        <span class="case-meta-pill">Interaction Design</span>
+                        <span class="case-meta-pill">User Interview</span>
+                        <span class="case-meta-pill">Ideation</span>
+                    </div>
+                </div>
+                
+                <div class="case-meta-item">
+                    <h3>Team</h3>
+                    <p>User Experience Consultant</p>
+                    <p>Sr. UX Designer</p>
+                    <p>Director of Product</p>
+                </div>
+                
+                <div class="case-meta-item">
+                    <h3>Tools Used</h3>
+                    <div class="case-meta-pills">
+                        <span class="case-meta-pill">Figma</span>
+                        <span class="case-meta-pill">Material Design</span>
+                        <span class="case-meta-pill">AI Integration</span>
+                        <span class="case-meta-pill">Prototyping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="problem-section">
+        <div class="section-container">
+            <h2 class="section-title">Problem Statement</h2>
+            <div class="problem-content">
+                <p class="section-text">To transform company's global finance data and analytics ecosystem with Data Platform integration and enable faster and actionable financial data services with digital enablement.</p>
+                
+                <div class="findings-card">
+                    <h3>Key Challenges</h3>
+                    <ul class="findings-list">
+                        <li>Generic site with basic dashboards, some forms and limited cross team collaboration</li>
+                        <li>Offline & highly manual business processes via emails and attachments</li>
+                        <li>Offline collaboration, majority via phone calls and email</li>
+                        <li>Limited understanding of user activity and interactions and personalization of the site</li>
+                        <li>Limited reporting, analytics and tracking of KPIs, SLAs and vendor queries</li>
+                        <li>Time intensive to search for information on resolving issues related to reconciliation, financial close and other financial processes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-section">
+        <div class="section-container">
+            <h2 class="section-title">Research</h2>
+            
+            <div class="research-card">
+                <h3>User Survey</h3>
+                <p class="section-text">Conducted user surveys to gain a comprehensive understanding of user needs, behaviors, and pain points at scale. The goal was to identify patterns in user challenges, prioritize features that users found most valuable, and quantify their satisfaction with the current system.</p>
+                
+                <h4 class="section-subtitle">Survey Design</h4>
+                <ul class="research-list">
+                    <li><strong>Platform Used:</strong> Google Forms, Typeform, and SurveyMonkey</li>
+                    <li><strong>Number of Participants:</strong> Reached out to 50 users, with 38 completing the survey (76% response rate)</li>
+                </ul>
+                
+                <h4 class="section-subtitle">Survey Sections</h4>
+                <ul class="research-list">
+                    <li><strong>Demographics:</strong> Role, experience with financial tools, and comfort with AI</li>
+                    <li><strong>Current Pain Points:</strong> Challenges with existing platforms, such as navigation, task management, or data overload</li>
+                    <li><strong>Feature Wishlist:</strong> Preferences for new features like AI insights, customized dashboards, or predictive analytics</li>
+                    <li><strong>Usability:</strong> Ratings on ease of use and satisfaction with the current system</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="design-section">
+        <div class="section-container">
+            <h2 class="section-title">Design</h2>
+            
+            <div class="branding-container">
+                <h3 class="section-subtitle">Branding</h3>
+                
+                <h4 class="section-subtitle">Color Palette</h4>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background-color: #1A6AFF;">#1A6AFF</div>
+                    <div class="color-swatch" style="background-color: #BEE5DF;">#BEE5DF</div>
+                    <div class="color-swatch" style="background-color: #9C4CFA;">#9C4CFA</div>
+                    <div class="color-swatch" style="background-color: #FA854F;">#FA854F</div>
+                    <div class="color-swatch" style="background-color: #FF96A7;">#FF96A7</div>
+                    <div class="color-swatch" style="background-color: #D2E4C7;">#D2E4C7</div>
+                    <div class="color-swatch" style="background-color: #F9EBB2;">#F9EBB2</div>
+                    <div class="color-swatch" style="background-color: #AEEFC5;">#AEEFC5</div>
+                </div>
+            </div>
+            
+            <div class="typography-container">
+                <h4 class="section-subtitle">Typography</h4>
+                <div class="font-display">
+                    <div class="font-card">
+                        <h4>Primary Font</h4>
+                        <div class="font-sample" style="font-family: 'Helvetica Neue', sans-serif;">Aa</div>
+                        <p>Neue Haas Grotesk Display Pro</p>
+                    </div>
+                    <div class="font-card">
+                        <h4>Secondary Font</h4>
+                        <div class="font-sample" style="font-family: 'Helvetica Neue', sans-serif;">Aa</div>
+                        <p>Helvetica Neue</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="design-feature">
+                <h3>Personalized Experience</h3>
+                <p class="section-text">I designed a dashboard experience tailored to finance users, integrating key components such as a calendar to manage meetings, report deadlines, and task reminders. The platform incorporates AI-powered insights and alerts, offering personalized recommendations and real-time updates on critical reports. This ensures users stay informed and proactive while fostering seamless cross-team collaboration by centralizing key tasks and shared data within an intuitive interface.</p>
+                <img src="images/kenvue-financial-dashboard.jpg" alt="Financial Dashboard" class="feature-image" onerror="this.src='https://via.placeholder.com/1200x600?text=Financial+Dashboard'">
+                <p>See your day or week at a glance to plan ahead for important tasks</p>
+                <p>Search across reports, resources, and other integrated systems</p>
+                <p>Key notifications across System of Engagement are surfaced up front, including AI insights and suggestions</p>
+            </div>
+            
+            <div class="design-feature">
+                <h3>AI Integration</h3>
+                <p class="section-text">I designed and integrated an AI-driven chatbot to help teams quickly access actionable insights by answering key business questions. This chatbot empowers users to explore trends, identify root causes, and make data-driven decisions without needing advanced analytics expertise.</p>
+                <img src="images/chat.jpg" alt="AI Chatbot" class="feature-image" onerror="this.src='https://via.placeholder.com/1200x600?text=AI+Chatbot'">
+                <p>Here's how it works:</p>
+                <ul class="research-list">
+                    <li>The chatbot leverages AI to process large datasets and surface relevant answers in real-time</li>
+                    <li>It is tailored to support a wide range of queries related to sales, performance, and customer behavior</li>
+                    <li>It enables users to drill deeper into metrics, uncover anomalies, and understand the "why" behind trends</li>
+                </ul>
+                <p>This tool was designed to reduce reliance on analysts for everyday queries, enabling faster decision-making and improving efficiency.</p>
+            </div>
+            
+            <div class="design-feature">
+                <h3>Team Insights</h3>
+                <p class="section-text">I focused on creating systems that not only enable users to track their progress seamlessly but also provide visibility into team activities and overall workflow efficiency. Integrating capabilities to monitor KPIs, such as the number of tasks left, ensures stakeholders can align priorities effectively while facilitating strategic decision-making.</p>
+                <img src="images/team-insights.jpg" alt="Team Insights" class="feature-image" onerror="this.src='https://via.placeholder.com/1200x600?text=Team+Insights'">
+                <p>Collaborate with your team and easily see tasks and status information to ensure smooth deliverable planning</p>
+                <p>The system recognizes monthly close process is coming up and auto-creates tasks so you can assign owners</p>
+                <p>Assign tasks to your team members to notify them in real time</p>
+            </div>
+            
+            <div class="design-feature">
+                <h3>Performance Analysis</h3>
+                <p class="section-text">To address the lack of effective KPI tracking and reporting for finance teams, I designed a streamlined dashboard that provides a clear, at-a-glance view of key metrics and trends. AI-powered insights highlight actionable data and potential business impacts, helping users focus on what matters most.</p>
+                <img src="images/performance-analysis.jpg" alt="Performance Analysis" class="feature-image" onerror="this.src='https://via.placeholder.com/1200x600?text=Performance+Analysis'">
+                <p>AI analyzes key data and reports to surface actionable insights and impact to the business</p>
+                <p>System learns based on user feedback content they want to see</p>
+                <p>Ability to drill into more detailed reports by clicking on a metric</p>
+                <p>Trend at a glance to provide insights on underperforming brands with a geographical overview</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="improvements-section">
+        <div class="section-container">
+            <h2 class="section-title">Improvement Highlights</h2>
+            
+            <div class="improvements-grid">
+                <div class="improvement-card">
+                    <div class="improvement-image">
+                        <img src="images/empowered.jpg" alt="Empowered User" onerror="this.src='https://via.placeholder.com/150x150?text=Empowered'">
+                    </div>
+                    <h3>Empowered</h3>
+                    <p>Janelle is feeling empowered because she can view key highlights for the day and build an action plan.</p>
+                </div>
+                
+                <div class="improvement-card">
+                    <div class="improvement-image">
+                        <img src="images/confident.jpg" alt="Confident User" onerror="this.src='https://via.placeholder.com/150x150?text=Confident'">
+                    </div>
+                    <h3>Confident</h3>
+                    <p>Janelle is confident and assured because she has visibility into her team's project progress.</p>
+                </div>
+                
+                <div class="improvement-card">
+                    <div class="improvement-image">
+                        <img src="images/knowledgeable.jpg" alt="Knowledgeable User" onerror="this.src='https://via.placeholder.com/150x150?text=Knowledgeable'">
+                    </div>
+                    <h3>Knowledgeable</h3>
+                    <p>Janelle is feeling knowledgeable because she can easily identify problems and drill down to learn more.</p>
+                </div>
+                
+                <div class="improvement-card">
+                    <div class="improvement-image">
+                        <img src="images/foresight.jpg" alt="User with Foresight" onerror="this.src='https://via.placeholder.com/150x150?text=Foresight'">
+                    </div>
+                    <h3>Foresight</h3>
+                    <p>Janelle has foresight because data is served up to her via AI reports and insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next-project">
+        <div class="section-container">
+            <h2>Next Project</h2>
+            <a href="mutual-funds.html" class="next-project-link">View Mutual Funds Project →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/anmolrohilla" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Anmolrohilla03" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            </div>
+            <p class="copyright">© 2024 by Anmol Rohilla. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

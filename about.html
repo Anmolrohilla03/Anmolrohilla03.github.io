@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Anmol Rohilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #0056b3;
+            --text-color: #333;
+            --text-light: #666;
+            --background-light: #f8f9fa;
+            --white: #fff;
+            --transition: all 0.3s ease;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Containers */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        /* Header */
+        .page-header {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            background: linear-gradient(45deg, #f3f4f6, #ffffff);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .page-description {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .download-resume {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .download-resume:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background-color: var(--background-light);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-item {
+            text-align: center;
+        }
+
+        .tool-logo {
+            height: 80px;
+            width: 80px;
+            margin: 0 auto 1.5rem;
+            object-fit: contain;
+        }
+
+        /* Reads Section */
+        .reads-section {
+            background-color: var(--white);
+        }
+
+        .reads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .read-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .read-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .read-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .read-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .read-content {
+            padding: 2rem;
+        }
+
+        .read-content h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .read-content p {
+            color: var(--text-light);
+        }
+
+        /* Hobbies Section */
+        .hobbies-section {
+            background-color: var(--background-light);
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 300px;
+        }
+
+        .hobby-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hobby-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .hobby-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AR</div>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="section-container">
+            <h1>About Me</h1>
+            <p class="page-description">Learn more about my journey, skills, and interests</p>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="section-container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Hello There!</h2>
+                    <p>I once took a class on wireframing and realized it was something that came naturally, and I enjoyed it. Following it, I came across an improper use of layout, color, typography, icons, visual hierarchy on one of the websites and it felt like fingernails across a chalkboard which helped me develop an interest in visual design.</p>
+                    
+                    <p>This further led to my curiosity about UX/UI trends and empathy towards studying customer behavior. Hence, I decided to follow my path in designing.</p>
+                    
+                    <p>I am a designer with intellectual creativity. I am passionate about working in an interactive environment where fun, creativity, and value form a great team.</p>
+
+                    <a href="#" class="download-resume">Download Resume</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/profilepic.JPG" alt="Anmol Rohilla" onerror="this.src='https://via.placeholder.com/500x500?text=Anmol+Rohilla'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="section-container">
+            <h2 class="section-title">Tools Expertise</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <img src="images/figma-logo.webp" alt="Figma" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Figma'">
+                    <h3>Figma</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/sketch-logo.png" alt="Sketch" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Sketch'">
+                    <h3>Sketch</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/adobe-xd.png" alt="Adobe XD" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Adobe+XD'">
+                    <h3>Adobe XD</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/photoshop.png" alt="Photoshop" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Photoshop'">
+                    <h3>Photoshop</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/illustrator.png" alt="Illustrator" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Illustrator'">
+                    <h3>Illustrator</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/pendo.png" alt="Pendo" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Pendo'">
+                    <h3>Pendo</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reads-section">
+        <div class="section-container">
+            <h2 class="section-title">Favorite Reads</h2>
+            <div class="reads-grid">
+                <div class="read-card">
+                    <div class="read-image">
+                        <img src="images/emotional-design.jpg" alt="Emotional Design" onerror="this.src='https://via.placeholder.com/400x200?text=Emotional+Design'">
+                    </div>
+                    <div class="read-content">
+                        <h3>Emotional Design</h3>
+                        <p>This article dives into the emotional side of design and how UX can go beyond functionality to create meaningful, emotionally engaging experiences.</p>
+                    </div>
+                </div>
+                <div class="read-card">
+                    <div class="read-image">
+                        <img src="images/usability-heuristics.jpg" alt="Usability Heuristics" onerror="this.src='https://via.placeholder.com/400x200?text=Usability+Heuristics'">
+                    </div>
+                    <div class="read-content">
+                        <h3>10 Usability Heuristics for User Interface Design</h3>
+                        <p>Nielsen Norman Group is one of the leading voices in UX research. This article outlines Heuristics for UI.</p>
+                    </div>
+                </div>
+                <div class="read-card">
+                    <div class="read-image">
+                        <img src="images/microinteractions.jpg" alt="Microinteractions" onerror="this.src='https://via.placeholder.com/400x200?text=Microinteractions'">
+                    </div>
+                    <div class="read-content">
+                        <h3>The Power of Microinteractions in UX Design</h3>
+                        <p>Microinteractions are small but powerful tools that enhance user experience by offering feedback, guidance, and delight. This article explains how to incorporate them effectively in UI design.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hobbies-section">
+        <div class="section-container">
+            <h2 class="section-title">Hobbies</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-image">
+                        <img src="images/gaming.jpg" alt="Gaming" onerror="this.src='https://via.placeholder.com/400x300?text=Gaming'">
+                    </div>
+                    <div class="hobby-title">Gaming</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-image">
+                        <img src="images/dancing.jpg" alt="Dancing" onerror="this.src='https://via.placeholder.com/400x300?text=Dancing'">
+                    </div>
+                    <div class="hobby-title">Dancing</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-image">
+                        <img src="images/painting.jpg" alt="Painting" onerror="this.src='https://via.placeholder.com/400x300?text=Painting'">
+                    </div>
+                    <div class="hobby-title">Painting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/anmolrohilla" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Anmolrohilla03" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            </div>
+            <p class="copyright">© 2024 by Anmol Rohilla. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
