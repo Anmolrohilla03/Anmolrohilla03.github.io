@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Style Guide: Pycube | Anmol Rohilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --primary-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            --secondary-color: #636e72;
+            --accent-color: #a48cf0;
+            --text-color: #2d3436;
+            --text-light: #636e72;
+            --background-light: #f8f9fa;
+            --white: #fff;
+            --transition: all 0.3s ease;
+            --shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background-light);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            background: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Design System Elements */
+        .elements-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f1f1f1 100%);
+        }
+
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1200px) {
+            .elements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .elements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .element-card {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .element-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 32px 32px 0;
+            border-color: transparent #805AD5 transparent transparent;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .element-card::after {
+            content: "→";
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transform: rotate(45deg);
+            transition: all 0.2s ease;
+        }
+
+        .element-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-color: #CBD5E0;
+        }
+
+        .element-card:hover::before,
+        .element-card:hover::after {
+            opacity: 1;
+        }
+
+        .element-icon {
+            font-size: 1.5rem;
+            color: #805AD5;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .element-card:hover .element-icon {
+            transform: scale(1.1);
+        }
+
+        .element-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: #1A202C;
+            font-weight: 600;
+        }
+
+        .element-card p {
+            color: #4A5568;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .element-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .elements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .element-card {
+                padding: 2rem;
+            }
+
+            .element-card::after {
+                content: "Tap to view";
+            }
+        }
+
+        /* Component Detail Sections */
+        .component-section {
+            padding: 80px 0;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .component-section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f1f1f1 100%);
+        }
+
+        .component-header {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .component-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .component-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .element-card {
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .element-card:hover .element-icon {
+            transform: translateY(-3px);
+        }
+
+        .element-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .component-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+
+        .component-preview {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            background: white;
+        }
+
+        .component-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+
+        .component-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .component-code {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #333;
+            overflow-x: auto;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        /* Typography Section Styles */
+        .typography-section {
+            padding: 80px 0;
+            background: #FFFFFF;
+        }
+
+        .typography-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .typography-intro {
+            display: grid;
+            grid-template-columns: 58% 42%;
+            gap: 32px;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        .typography-intro-content {
+            max-width: 600px;
+        }
+
+        .typography-eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #805AD5;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .typography-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1A202C;
+            line-height: 1.2;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .typography-intro p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #4A5568;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .font-preview-box {
+            background: #F7FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            color: #2D3748;
+            font-weight: 500;
+        }
+
+        .font-preview-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .font-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1A202C;
+        }
+
+        .font-meta {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-left: auto;
+        }
+
+        .font-preview-content {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .font-preview-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .font-weight-label {
+            font-size: 0.875rem;
+            color: #718096;
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .font-sample {
+            font-size: 1.125rem;
+            color: #2D3748;
+        }
+
+        .weight-regular {
+            font-weight: 400;
+        }
+
+        .weight-medium {
+            font-weight: 500;
+        }
+
+        .weight-semibold {
+            font-weight: 600;
+        }
+
+        .typography-intro-image {
+            width: 100%;
+            max-width: 450px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 4px;
+            background: #FFFFFF;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .typography-image-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;  /* Double height to accommodate both parts */
+            transition: transform 300ms ease-in-out;
+        }
+
+        .typography-intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Hover indicator */
+        .typography-intro-image::after {
+            content: "Hover to view more styles";
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(128, 90, 213, 0.9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 200ms ease;
+        }
+
+        .typography-intro-image:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Desktop hover effects */
+        @media (hover: hover) {
+            .typography-intro-image:hover .typography-image-wrapper {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Mobile styles */
+        @media (hover: none) {
+            .typography-intro-image::after {
+                content: "Tap to view more styles";
+                opacity: 1;
+            }
+
+            .typography-intro-image.active .typography-image-wrapper {
+                transform: translateY(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .typography-intro {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-bottom: 32px;
+            }
+
+            .typography-grid {
+                gap: 16px;
+            }
+
+            .typography-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .typography-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .typography-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 1.5rem;
+        }
+
+        .typography-card {
+            padding: 1.75rem;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .typography-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #805AD5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .typography-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+            border-color: #CBD5E0;
+        }
+
+        .typography-card:hover::before {
+            opacity: 1;
+        }
+
+        .typography-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .typography-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: #4A5568;
+            font-size: 1rem;
+            line-height: 1.6;
+            transition: transform 0.3s ease;
+        }
+
+        .typography-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #805AD5;
+            transition: all 0.3s ease;
+        }
+
+        .typography-card:hover .typography-list li {
+            transform: translateX(8px);
+            transition-delay: calc(0.05s * var(--li-index));
+        }
+
+        .typography-card:hover .typography-list li::before {
+            transform: scale(1.2);
+            background: #6B46C1;
+        }
+
+        /* Design Tokens Section Styles */
+        .tokens-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .tokens-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .tokens-intro {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .tokens-intro h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        .tokens-intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .tokens-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .token-card {
+            background: #FAFAFA;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .token-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .token-thumbnail {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .token-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .token-title {
+            flex-grow: 1;
+        }
+
+        .token-title h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .token-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .token-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .token-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .tokens-footer {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .tokens-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Typography Content Styles */
+        .typography-content-container {
+            max-width: 800px;
+            margin: 60px 0;
+        }
+
+        .typography-description {
+            color: #6B7280;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 100%;
+        }
+
+        .type-scale-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .type-scale-section {
+            padding: 1.5rem 0;
+        }
+
+        .type-scale-section:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .type-scale-title {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .type-scale-value {
+            color: #6B7280;
+            font-size: 1.1rem;
+            line-height: 2;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.01em;
+        }
+
+        .code-tokens-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .typography-content-container {
+                margin: 40px 0;
+            }
+
+            .type-scale-card {
+                padding: 2rem;
+            }
+
+            .type-scale-section {
+                padding: 1.25rem 0;
+            }
+
+            .typography-card {
+                padding: 1.75rem;
+            }
+        }
+
+        .color-system-header {
+            max-width: 800px;
+            margin: 0 auto 64px;
+            text-align: center;
+        }
+
+        .color-system-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1A202C;
+        }
+
+        .color-system-header p {
+            font-size: 1.125rem;
+            color: #4A5568;
+            line-height: 1.7;
+        }
+
+        .color-system-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .color-subsection {
+            margin-bottom: 48px;
+            background: #FAFAFA;
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .color-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .color-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1A202C;
+        }
+
+        .color-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4A5568;
+        }
+
+        .color-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .color-image {
+            max-width: 450px;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .color-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .color-image:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .foundation-caption {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #718096;
+            margin-top: 1rem;
+            line-height: 1.5;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .color-image:hover .foundation-caption {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .color-image {
+                max-width: 100%;
+                margin-top: 2rem;
+            }
+
+            .color-image img {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+        }
+
+        .semantic-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .color-badge {
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .color-badge:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-badge.primary {
+            background: var(--primary-color);
+        }
+
+        .color-badge.secondary {
+            background: var(--secondary-color);
+        }
+
+        .color-badge.accent {
+            background: var(--accent-color);
+        }
+
+        .color-badge.text {
+            background: var(--text-color);
+        }
+
+        .code-block {
+            background: #2D3748;
+            color: #E2E8F0;
+            padding: 24px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .color-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .color-subsection {
+                padding: 24px;
+                margin-bottom: 32px;
+            }
+
+            .color-system-header {
+                margin-bottom: 48px;
+            }
+
+            .color-system-header h2 {
+                font-size: 2rem;
+            }
+
+            .semantic-badges {
+                justify-content: center;
+            }
+
+            .color-badge {
+                padding: 10px 20px;
+            }
+        }
+
+        .semantic-examples {
+            margin-top: 3rem;
+            padding: 0 1rem;
+        }
+
+        .semantic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .semantic-example {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .semantic-example:hover {
+            transform: translateY(-2px);
+        }
+
+        .semantic-example h4 {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .semantic-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .semantic-button.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .semantic-input {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .semantic-input input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .semantic-input input.focused {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(164, 140, 240, 0.1);
+        }
+
+        .semantic-alert {
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .semantic-alert.success {
+            background: #C6F6D5;
+            color: #2F855A;
+        }
+
+        .semantic-alert.warning {
+            background: #FEFCBF;
+            color: #975A16;
+        }
+
+        .semantic-alert.error {
+            background: #FED7D7;
+            color: #C53030;
+        }
+
+        .semantic-alert.info {
+            background: #BEE3F8;
+            color: #2B6CB0;
+        }
+
+        @media (max-width: 768px) {
+            .semantic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .semantic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .color-boxes-section {
+            margin-top: 24px;
+            margin-bottom: 32px;
+            padding: 0;
+        }
+
+        .color-section-title {
+            font-size: 1.1rem;
+            color: #1A202C;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .color-boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .color-box {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .color-box:hover {
+            transform: translateY(-2px);
+        }
+
+        .color-swatch {
+            height: 60px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 8px 12px;
+        }
+
+        .color-name {
+            display: block;
+            font-size: 0.75rem;
+            color: #4A5568;
+            margin-bottom: 2px;
+        }
+
+        .color-hex {
+            display: block;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #1A202C;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .color-boxes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .color-swatch {
+                height: 50px;
+            }
+        }
+
+        .color-usage-examples {
+            margin: 32px 0;
+            padding: 24px;
+            background: #FAFAFA;
+            border-radius: 12px;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .example-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .example-label {
+            font-size: 0.875rem;
+            color: #4A5568;
+            margin-bottom: 4px;
+        }
+
+        .demo-button {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .demo-button.primary {
+            background: #01042E;
+            color: #FFFFFF;
+        }
+
+        .demo-button.primary:hover {
+            background: #020642;
+            color: #FFFFFF;
+            border: none;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .demo-button.secondary {
+            background: transparent;
+            color: #01042E;
+            border: 2px solid #01042E;
+        }
+
+        .demo-button.secondary:hover {
+            background: #F0F4FF;
+            color: #01042E;
+            border: 1px solid #8E9BCC;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .demo-alert {
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .demo-alert.success {
+            background: #198754;
+            color: white;
+        }
+
+        .demo-alert.warning {
+            background: #FFC107;
+            color: #1A202C;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .color-usage-examples {
+                padding: 16px;
+                margin: 24px 0;
+            }
+        }
+
+        .button-demo-container .demo-button:not(:disabled):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(1, 4, 46, 0.15);
+        }
+
+        .button-demo-container .demo-button:not(:disabled):active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(1, 4, 46, 0.1);
+        }
+
+        .button-demo-container .demo-button:nth-child(2):hover {
+            background: rgba(1, 4, 46, 0.05);
+        }
+
+        .button-demo-container .demo-button:nth-child(3):hover {
+            color: #020642;
+            text-decoration: underline;
+        }
+
+        .hover-state {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .button-demo-container {
+                margin-top: 32px;
+            }
+            
+            .typography-intro {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">AR</a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <span class="project-tag">Design System</span>
+                <h1>Design Style Guide – Pycube</h1>
+                <p>At Pycube, I led the development of a unified design style guide to solve inconsistencies across the product ecosystem. I built a system of scalable foundations — typography, colors, components, tokens — and collaborated with developers to bring a robust React component library to life. This project streamlined design workflows, improved accessibility, and accelerated our product delivery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="elements-section">
+        <div class="container">
+            <h2 class="section-title">Design System Elements</h2>
+            <div class="elements-grid">
+                <a href="#typography" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h3>Typography</h3>
+                    <p>Defined scalable font styles for headings, subheadings, and body content using modular type scales.</p>
+                </a>
+
+                <a href="#colors" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Color System</h3>
+                    <p>Created accessible and consistent color tokens including primary, secondary, accent, and state indicators.</p>
+                </a>
+
+                <a href="#buttons" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-square"></i>
+                    </div>
+                    <h3>Buttons</h3>
+                    <p>Built button components with consistent padding, sizing, states, and responsiveness using variants.</p>
+                </a>
+
+                <a href="#forms" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-check-square"></i>
+                    </div>
+                    <h3>Forms & Fields</h3>
+                    <p>Designed form inputs, checkboxes, and radio groups with standardized spacing and validation states.</p>
+                </a>
+
+                <a href="#spacing" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Spacing Tokens</h3>
+                    <p>Established an 8pt spacing system for consistent margins and paddings across components.</p>
+                </a>
+
+                <a href="#icons" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-icons"></i>
+                    </div>
+                    <h3>Icon Library</h3>
+                    <p>Integrated scalable icons that match the visual language and ensured consistency across UI.</p>
+                </a>
+
+                <a href="#shadows" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Elevation & Shadows</h3>
+                    <p>Defined consistent shadow levels and elevation states to create visual hierarchy and depth in the interface.</p>
+                </a>
+
+                <a href="#animations" class="element-card">
+                    <div class="element-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Motion & Transitions</h3>
+                    <p>Created smooth, purposeful animations and transitions that enhance user interaction and feedback.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="typography" class="typography-section">
+        <div class="typography-container">
+            <div class="typography-intro">
+                <div class="typography-intro-content">
+                    <div class="typography-eyebrow">Design System Foundations</div>
+                    <h2>Typography</h2>
+                    <p>I crafted a modular typography system using the Poppins font family, establishing a clear visual hierarchy through carefully defined type scales. This system ensures consistent readability and brand expression across all our digital products.</p>
+                </div>
+                <div class="typography-intro-image">
+                    <div class="typography-image-wrapper">
+                        <img src="images/typo.png" alt="Typography scale showing complete type system from headings to captions" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="typography-grid">
+                <div class="typography-card">
+                    <h3>System Features</h3>
+                    <ul class="typography-list">
+                        <li>Each button type is designed with interactive hover states to provide visual feedback and guide user actions. Hover effects increase the intuitiveness of interactive elements without cluttering the design.</li>
+                        <li>Interactive states for better user feedback</li>
+                        <li>Accessible color contrast and focus states</li>
+                    </ul>
+                </div>
+
+                <div class="typography-card">
+                    <h3>Accessibility Considerations</h3>
+                    <ul class="typography-list">
+                        <li>Minimum body text size of 16px (1rem)</li>
+                        <li>Line height ratio of at least 1.5 for optimal readability</li>
+                        <li>Sufficient color contrast with background elements</li>
+                        <li>Consistent vertical spacing for content scanning</li>
+                        <li>Font used: Poppins (accessible sans-serif)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="colors" class="component-section">
+        <div class="typography-container">
+            <div class="typography-intro">
+                <div class="typography-intro-content">
+                    <div class="typography-eyebrow">Design System Foundations</div>
+                    <h2>Color System</h2>
+                    <p>Our color system defines accessible, consistent colors across UI components, modularized into semantic tokens like Primary, Secondary, Accent, and Text. The system includes a comprehensive set of color scales for each token, ensuring consistent usage across different UI states and contexts.</p>
+
+                    <div class="color-boxes-section">
+                        <h3 class="color-section-title">Main Colors</h3>
+                        <div class="color-boxes-grid">
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #01042E;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Primary Color</span>
+                                    <span class="color-hex">#01042E</span>
+                                </div>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #F2F4F3;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Background Color</span>
+                                    <span class="color-hex">#F2F4F3</span>
+                                </div>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #3A3A3A;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Text Color</span>
+                                    <span class="color-hex">#3A3A3A</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="color-section-title">Semantic Colors</h3>
+                        <div class="color-boxes-grid">
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #198754;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Success</span>
+                                    <span class="color-hex">#198754</span>
+                                </div>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #FFC107;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Warning</span>
+                                    <span class="color-hex">#FFC107</span>
+                                </div>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #DC3545;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Alert</span>
+                                    <span class="color-hex">#DC3545</span>
+                                </div>
+                            </div>
+                            <div class="color-box">
+                                <div class="color-swatch" style="background-color: #0D6EFD;"></div>
+                                <div class="color-info">
+                                    <span class="color-name">Info</span>
+                                    <span class="color-hex">#0D6EFD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="typography-intro-image color-image">
+                    <img src="images/swatches.svg" alt="Color swatches showing the complete color palette" style="object-position: center top; height: 400px; object-fit: cover;" />
+                    <p class="foundation-caption">Color swatches showing the complete palette system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="buttons" class="component-section">
+        <div class="typography-container">
+            <div class="typography-intro">
+                <div class="typography-intro-content">
+                    <div class="typography-eyebrow">Design System Components</div>
+                    <h2>Button System</h2>
+                    <p>Our button system supports consistent UI actions with scalable styles and interactive states. We built primary, secondary, and tertiary variants to address different levels of emphasis while maintaining accessibility and visual hierarchy.</p>
+
+
+                    <div style="margin-top: 32px;">
+                        <div class="typography-card" style="width: 100%;">
+                            <h3>System Features</h3>
+                            <ul class="typography-list">
+                                <li>Interactive states for better user feedback</li>
+                                <li>Accessible color contrast and focus states</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typography-intro-image button-demo-container" style="height: auto;">
+                    <style>
+                        .button-variants .demo-button {
+                            transition: all 0.2s ease;
+                            height: 44px;
+                            width: 100%;
+                            padding: 0 32px;
+                            border-radius: 6px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            font-size: 0.875rem;
+                        }
+                        
+                        /* Primary Button */
+                        .button-variants .demo-button.primary {
+                            background: #01042E;
+                            color: #FFFFFF;
+                            border: none;
+                            transition: all 0.2s ease;
+                        }
+                        
+                        .button-variants .demo-button.primary:hover {
+                            background: #020642;
+                            color: #FFFFFF;
+                            border: none;
+                            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+                            transform: translateY(-2px);
+                        }
+
+                        /* Secondary Button */
+                        .button-variants .demo-button.secondary {
+                            background: transparent;
+                            color: #01042E;
+                            border: 2px solid #01042E;
+                            transition: all 0.2s ease;
+                        }
+                        
+                        .button-variants .demo-button.secondary:hover {
+                            background: #F0F4FF;
+                            color: #01042E;
+                            border: 1px solid #8E9BCC;
+                            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+                            transform: translateY(-2px);
+                        }
+
+                        /* Tertiary Button */
+                        .button-variants .demo-button.tertiary {
+                            background: transparent;
+                            color: #01042E;
+                            border: none;
+                            transition: all 0.2s ease;
+                        }
+                        
+                        .button-variants .demo-button.tertiary:hover {
+                            color: #01042E;
+                            text-decoration: underline;
+                            transform: translateY(-2px);
+                        }
+
+                        /* Remove any conflicting hover styles */
+                        .button-demo-container .demo-button:not(:disabled):hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 4px 12px rgba(1, 4, 46, 0.15);
+                        }
+                    </style>
+
+                    <!-- Button Variants Row -->
+                    <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); margin-bottom: 16px;">
+                        <div style="background: #F8F9FA; border-radius: 8px; padding: 24px;">
+                            <div class="button-variants" style="display: flex; flex-direction: column; gap: 32px;">
+                                <!-- Primary Button -->
+                                <div class="button-group">
+                                    <span style="display: block; color: #64748B; font-size: 0.875rem; margin-bottom: 8px;">Primary</span>
+                                    <button class="demo-button primary">
+                                        Submit Application
+                                    </button>
+                                </div>
+
+                                <!-- Secondary Button -->
+                                <div class="button-group">
+                                    <span style="display: block; color: #64748B; font-size: 0.875rem; margin-bottom: 8px;">Secondary</span>
+                                    <button class="demo-button secondary">
+                                        Learn More
+                                    </button>
+                                </div>
+
+                                <!-- Tertiary Button -->
+                                <div class="button-group">
+                                    <span style="display: block; color: #64748B; font-size: 0.875rem; margin-bottom: 8px;">Tertiary</span>
+                                    <button class="demo-button tertiary">
+                                        Skip
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="foundation-caption" style="margin: 24px auto; text-align: center; font-size: 0.75rem; color: #6B7280; line-height: 1.5; max-width: 90%; padding: 0 16px 24px;">
+                        Each button type is designed with interactive hover states to provide visual feedback and guide user actions. Hover effects increase the intuitiveness of interactive elements without cluttering the design.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inputs" class="component-section">
+        <div class="typography-container">
+            <div class="typography-intro">
+                <div class="typography-intro-content">
+                    <div class="typography-eyebrow">Design System Components</div>
+                    <h2>Input Fields</h2>
+                    <p>Our form input system provides consistent, accessible, and intuitive user interactions. Each input type is designed with clear visual feedback and maintains a cohesive appearance across different states and variations.</p>
+
+                    <div style="margin-top: 32px;">
+                        <div class="typography-card" style="width: 100%;">
+                            <h3>System Features</h3>
+                            <ul class="typography-list">
+                                <li>Consistent 44px height across all input types</li>
+                                <li>Clear visual feedback for all interactive states</li>
+                                <li>Built-in error handling with red borders (#DC2626) and background tint</li>
+                                <li>Success states with green borders (#10B981) for valid inputs</li>
+                                <li>Required field indicators with red asterisk (*)</li>
+                                <li>Helpful error messages below invalid inputs</li>
+                                <li>WCAG 2.1 compliant focus indicators</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="typography-intro-image input-demo-container" style="height: auto;">
+                    <style>
+                        .input-variants {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 24px;
+                        }
+
+                        .input-group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 8px;
+                        }
+
+                        .input-label {
+                            font-size: 0.875rem;
+                            color: #64748B;
+                            font-weight: 500;
+                        }
+
+                        .input-field {
+                            height: 44px;
+                            width: 100%;
+                            padding: 0 16px;
+                            border: 1px solid #E2E8F0;
+                            border-radius: 6px;
+                            font-size: 0.875rem;
+                            color: #01042E;
+                            transition: all 0.2s ease;
+                            background: white;
+                        }
+
+                        .input-field:hover {
+                            border-color: #8E9BCC;
+                        }
+
+                        .input-field:focus {
+                            outline: none;
+                            border-color: #01042E;
+                            box-shadow: 0 0 0 2px rgba(1, 4, 46, 0.1);
+                        }
+
+                        /* Disabled state */
+                        .input-field:disabled {
+                            background-color: #F1F5F9;
+                            border-color: #E2E8F0;
+                            color: #94A3B8;
+                            cursor: not-allowed;
+                        }
+
+                        .input-field:disabled::placeholder {
+                            color: #94A3B8;
+                        }
+
+                        /* Error states */
+                        .input-field.error {
+                            border-color: #DC2626;
+                            background-color: #FEF2F2;
+                        }
+
+                        .input-field.error:hover, 
+                        .input-field.error:focus {
+                            border-color: #DC2626;
+                            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+                        }
+
+                        .error-message {
+                            color: #DC2626;
+                            font-size: 0.75rem;
+                            margin-top: 4px;
+                        }
+
+                        .required-label::after {
+                            content: "*";
+                            color: #DC2626;
+                            margin-left: 4px;
+                        }
+
+                        .search-input-wrapper {
+                            position: relative;
+                        }
+
+                        .search-input-wrapper .input-field {
+                            padding-left: 40px;
+                        }
+
+                        .search-icon {
+                            position: absolute;
+                            left: 16px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: #64748B;
+                        }
+
+                        .combobox-wrapper {
+                            position: relative;
+                        }
+
+                        .combobox-wrapper::after {
+                            content: '';
+                            position: absolute;
+                            right: 16px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            border-top: 5px solid #64748B;
+                            pointer-events: none;
+                        }
+
+                        .date-input-wrapper {
+                            position: relative;
+                        }
+
+                        .date-input-wrapper .input-field {
+                            padding-right: 40px;
+                        }
+
+                        .calendar-icon {
+                            position: absolute;
+                            right: 16px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            color: #64748B;
+                        }
+                    </style>
+
+                    <!-- Input Fields Container -->
+                    <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); margin-bottom: 16px;">
+                        <div style="background: #F8F9FA; border-radius: 8px; padding: 24px;">
+                            <div class="input-variants">
+                                <!-- Character Validation Error -->
+                                <div class="input-group">
+                                    <label class="input-label required-label">Company Name</label>
+                                    <input type="text" class="input-field error" placeholder="Enter company name" value="123456">
+                                    <span class="error-message">Please use letters only - numbers are not allowed</span>
+                                </div>
+
+                                <!-- Success state example -->
+                                <div class="input-group">
+                                    <label class="input-label required-label">Email Address</label>
+                                    <input type="email" class="input-field" placeholder="Enter your email" value="john.doe@example.com" style="border-color: #10B981;">
+                                </div>
+
+                                <!-- Search Input -->
+                                <div class="input-group">
+                                    <label class="input-label">Search</label>
+                                    <div class="search-input-wrapper">
+                                        <i class="fas fa-search search-icon"></i>
+                                        <input type="search" class="input-field" placeholder="Search for a service">
+                                    </div>
+                                </div>
+
+                                <!-- ComboBox Input -->
+                                <div class="input-group">
+                                    <label class="input-label">Country</label>
+                                    <div class="combobox-wrapper">
+                                        <select class="input-field">
+                                            <option value="" disabled selected>Select your country</option>
+                                            <option value="us">United States</option>
+                                            <option value="uk">United Kingdom</option>
+                                            <option value="ca">Canada</option>
+                                            <option value="au">Australia</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Date Picker Input -->
+                                <div class="input-group">
+                                    <label class="input-label">Appointment Date</label>
+                                    <div class="date-input-wrapper">
+                                        <input type="date" class="input-field">
+                                        <i class="fas fa-calendar calendar-icon"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Disabled Input -->
+                                <div class="input-group">
+                                    <label class="input-label">Account ID</label>
+                                    <input type="text" class="input-field" placeholder="System generated ID" disabled value="ACC-2024-0123">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="components" class="component-section">
+        <div class="typography-container">
+            <div class="typography-intro">
+                <div class="typography-intro-content">
+                    <div class="typography-eyebrow">Design System Components</div>
+                    <h2>Building Reusable Components</h2>
+                    <p>Reusable components are the building blocks of a scalable design system. By creating consistent, modular components with well-defined properties and states, we ensure design consistency while accelerating development workflows.</p>
+
+                    <div style="margin-top: 32px; display: flex; gap: 48px; align-items: center;">
+                        <div style="flex: 1;">
+                            <div class="typography-card" style="width: 100%;">
+                                <h3>Component Creation Process</h3>
+                                <ul class="typography-list">
+                                    <li>Define base styles and auto-layout constraints</li>
+                                    <li>Create interactive states (hover, focus, disabled)</li>
+                                    <li>Set up component properties and variants</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="flex: 1; background: #F8F9FA; border-radius: 8px; padding: 16px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);">
+                            <img src="images/button-component.gif" alt="Button component creation process" style="width: 100%; height: auto; border-radius: 4px;" />
+                            <p class="foundation-caption" style="margin-top: 8px; text-align: center;">Building a Button component with variant states in Figma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="icons" class="component-section">
+        <div class="container">
+            <div class="component-header">
+                <h2>Icon System</h2>
+                <p>Our icon system uses consistent weights and sizes across the interface.</p>
+            </div>
+            <div class="component-content">
+                <div class="component-image">
+                    <img src="images/Icons.svg" alt="Icon library showing different categories and sizes" />
+                    <p class="image-caption">Comprehensive icon library with consistent styling</p>
+                </div>
+                <div class="component-preview" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <i class="fas fa-home" style="font-size: 2rem; color: var(--accent-color);"></i>
+                    <i class="fas fa-user" style="font-size: 2rem; color: var(--accent-color);"></i>
+                    <i class="fas fa-cog" style="font-size: 2rem; color: var(--accent-color);"></i>
+                    <i class="fas fa-bell" style="font-size: 2rem; color: var(--accent-color);"></i>
+                    <i class="fas fa-heart" style="font-size: 2rem; color: var(--accent-color);"></i>
+                    <i class="fas fa-star" style="font-size: 2rem; color: var(--accent-color);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">My Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Design Token Creation</h3>
+                    <p>Defined comprehensive design tokens and created component variants in Figma to establish a single source of truth for our design language.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>CSS Generation</h3>
+                    <p>Utilized Variables2CSS plugin to automatically generate a root CSS file with all tokens, ensuring perfect translation from design to development.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Component Library</h3>
+                    <p>Collaborated with developers to build a reusable React component library, focusing on accessibility and consistent implementation.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>Focused on improving accessibility, reducing design debt, and speeding up the design-to-development handoff process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tokens-section">
+        <div class="tokens-container">
+            <div class="tokens-intro">
+                <h2>Design Tokens and Variables at Pycube</h2>
+                <p>Our design system is built on a foundation of carefully crafted design tokens that ensure consistency and scalability across the platform. These tokens are transformed into CSS variables, making the design-to-development handoff seamless and maintainable.</p>
+            </div>
+
+            <div class="tokens-grid">
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <div class="token-thumbnail">
+                            <img src="images/Typography.svg" alt="Typography tokens preview" />
+                        </div>
+                        <div class="token-title">
+                            <h3>Typography Tokens</h3>
+                        </div>
+                    </div>
+                    <ul class="token-list">
+                        <li>Font sizes from headings to captions (2.5rem to 0.875rem)</li>
+                        <li>Line heights optimized for readability</li>
+                        <li>Font weights for different text styles</li>
+                        <li>Letter spacing for enhanced legibility</li>
+                    </ul>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <div class="token-thumbnail">
+                            <img src="images/Color System.svg" alt="Color system preview" />
+                        </div>
+                        <div class="token-title">
+                            <h3>Color Tokens</h3>
+                        </div>
+                    </div>
+                    <ul class="token-list">
+                        <li>Primary and secondary brand colors</li>
+                        <li>Semantic colors for states and feedback</li>
+                        <li>Neutral color scale for UI elements</li>
+                        <li>Accessibility-compliant contrast ratios</li>
+                    </ul>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <div class="token-thumbnail">
+                            <img src="images/spacing.svg" alt="Spacing system preview" />
+                        </div>
+                        <div class="token-title">
+                            <h3>Spacing Tokens</h3>
+                        </div>
+                    </div>
+                    <ul class="token-list">
+                        <li>8pt grid system for consistent spacing</li>
+                        <li>Margin and padding variables</li>
+                        <li>Component-specific spacing rules</li>
+                        <li>Responsive spacing scales</li>
+                    </ul>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-card-header">
+                        <div class="token-thumbnail">
+                            <img src="images/elevation.svg" alt="Component tokens preview" />
+                        </div>
+                        <div class="token-title">
+                            <h3>Component Tokens</h3>
+                        </div>
+                    </div>
+                    <ul class="token-list">
+                        <li>Border radius and shadow values</li>
+                        <li>Interactive state definitions</li>
+                        <li>Animation timing functions</li>
+                        <li>Component-specific variants</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tokens-footer">
+                <p>Using Variables2CSS, we automatically generate clean CSS variables from our design tokens, ensuring perfect translation from Figma to code. This streamlined process has significantly reduced development time and maintained consistency across our product ecosystem.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add touch support for the typography image
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageContainer = document.querySelector('.typography-intro-image');
+            
+            if (imageContainer) {
+                imageContainer.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            }
+        });
+
+        // Add index to list items for staggered animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.typography-list').forEach(list => {
+                list.querySelectorAll('li').forEach((li, index) => {
+                    li.style.setProperty('--li-index', index + 1);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
