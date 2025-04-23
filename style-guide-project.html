@@ -702,25 +702,6 @@
             padding: 0 2rem;
         }
 
-        .tokens-intro {
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            text-align: center;
-        }
-
-        .tokens-intro h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-            line-height: 1.2;
-        }
-
-        .tokens-intro p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-light);
-        }
-
         .tokens-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -872,6 +853,7 @@
             .typography-card {
                 padding: 1.75rem;
             }
+
         }
 
         .color-system-header {
@@ -1893,6 +1875,42 @@
         .token-slide-image {
             flex: 1;
             min-height: 380px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .token-slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .token-slide-image:hover img {
+            transform: translateY(calc(-100% + 380px)); /* Slides to show the bottom portion while staying within container */
+        }
+        
+        .token-slide-image::after {
+            content: 'Hover to see more';
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .token-slide-image:hover::after {
+            opacity: 1;
         }
         
         .token-carousel-controls {
@@ -1952,6 +1970,380 @@
             .token-slide-image {
                 min-height: 300px;
             }
+        }
+
+        /* Carousel Styles */
+        .tokens-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 48px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .carousel-control:hover {
+            background: #f7fafc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-control.prev {
+            left: -48px;
+        }
+
+        .carousel-control.next {
+            right: -48px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: #CBD5E0;
+            cursor: pointer;
+            padding: 0;
+            transition: background-color 0.2s ease;
+        }
+
+        .carousel-dot.active {
+            background: #805AD5;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slide {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+
+            .carousel-control {
+                display: none;
+            }
+        }
+
+        /* Design Tokens Section -->
+        #design-tokens {
+            padding-top: 48px;
+            padding-bottom: 48px;
+            margin-top: 24px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f1f1f1 100%);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        #design-tokens .typography-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        #design-tokens .typography-intro-content {
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        #design-tokens .typography-eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #805AD5;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        #design-tokens h2 {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+            color: #1A202C;
+        }
+
+        #design-tokens p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4A5568;
+        }
+
+        #design-tokens .token-single-carousel-container {
+            position: relative;
+            width: 100%;
+            margin: 0 auto 48px;
+            max-width: 1200px;
+        }
+
+        #design-tokens .token-single-carousel {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        #design-tokens .token-slide {
+            width: 100%;
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        #design-tokens .token-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #design-tokens .token-slide-content {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            padding: 32px 0;
+        }
+
+        #design-tokens .token-slide-text {
+            flex: 1;
+        }
+
+        #design-tokens .token-slide-text h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #1A202C;
+            position: relative;
+        }
+
+        #design-tokens .token-slide-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #805AD5;
+        }
+
+        #design-tokens .token-slide-text p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #4A5568;
+            margin-bottom: 24px;
+        }
+
+        #design-tokens .token-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #design-tokens .token-features li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #4A5568;
+        }
+
+        #design-tokens .token-features li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #805AD5;
+        }
+
+        #design-tokens .token-slide-image {
+            flex: 1;
+            min-height: 380px;
+        }
+
+        #design-tokens .token-carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 32px;
+            gap: 16px;
+        }
+
+        #design-tokens .token-indicators {
+            display: flex;
+            gap: 12px;
+        }
+
+        #design-tokens .token-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background-color: #E2E8F0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #design-tokens .token-indicator.active {
+            background-color: #805AD5;
+            transform: scale(1.2);
+        }
+
+        #design-tokens .token-nav-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #4A5568;
+        }
+
+        #design-tokens .token-nav-button:hover {
+            background: #805AD5;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            #design-tokens .token-slide-content {
+                flex-direction: column;
+            }
+            
+            #design-tokens .token-slide-image {
+                min-height: 300px;
+            }
+        }
+
+        /* Carousel Styles */
+        #design-tokens .tokens-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #design-tokens .carousel-slides {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #design-tokens .carousel-slide {
+            flex: 0 0 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 48px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        #design-tokens .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        #design-tokens .carousel-control:hover {
+            background: #f7fafc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #design-tokens .carousel-control.prev {
+            left: -48px;
+        }
+
+        #design-tokens .carousel-control.next {
+            right: -48px;
+        }
+
+        #design-tokens .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        #design-tokens .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: #CBD5E0;
+            cursor: pointer;
+            padding: 0;
+            transition: background-color 0.2s ease;
+        }
+
+        #design-tokens .carousel-dot.active {
+            background: #805AD5;
+        }
+
+        @media (max-width: 768px) {
+            #design-tokens .carousel-slide {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+
+            #design-tokens .carousel-control {
+                display: none;
+            }
+        }
+
+        .tokens-section, .tokens-container, .tokens-grid, .token-card, .tokens-footer {
+            display: none;
         }
     </style>
 </head>
@@ -2534,7 +2926,7 @@
                 <div style="flex: 1.25; position: sticky; top: 100px;">
                     <div style="background: #F8F9FA; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
                         <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 4px; display: block;">
-                            <source src="videos/making a component and autolayout!.mp4" type="video/mp4">
+                            <source src="videos/quick make a component.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <p style="margin-top: 12px; text-align: center; font-size: 0.875rem; color: #718096;">Building a component with auto-layout in Figma</p>
@@ -2640,440 +3032,114 @@
     <!-- Making Variants Section -->
     <section id="variants" class="component-section" style="padding-top: 24px;">
         <div class="typography-container">
-            <div style="display: flex; gap: 40px; align-items: flex-start;">
-                <!-- Left Column: Text + Variants Process Card -->
-                <div style="flex: 1;">
-                    <div class="typography-intro-content" style="margin-bottom: 24px;">
-                        <div class="typography-eyebrow">Design System Components</div>
-                        <h2>Making Variants</h2>
-                        <p>Variants allow us to create flexible, multi-state components that respond to different contexts and user interactions. By designing component variants as an interconnected system, we reduce design inconsistencies and enable faster implementation by developers.</p>
-                    </div>
-                    
-                    <div style="background: white; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #1A202C;">Variant Creation Benefits</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+                <div>
+                    <h2>Making Variants</h2>
+                    <p style="color: #4A5568; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Variants allow us to create flexible, multi-state components that respond to different contexts and user interactions. By designing component variants as an interconnected system, we reduce design inconsistencies and enable faster implementation by developers.
+                    </p>
+                    <div style="background: white; border-radius: 12px; padding: 32px; margin: 0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 24px; color: #1A202C;">Component Creation Process</h3>
                         <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="position: relative; padding-left: 1.75rem; margin-bottom: 1rem; color: #4A5568;">
-                                <span style="position: absolute; left: 0; top: 0.25rem; width: 8px; height: 8px; border-radius: 50%; background: #805AD5;"></span>
-                                All states managed in a single component
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 20px; gap: 16px;">
+                                <span style="width: 8px; height: 8px; background: #805AD5; border-radius: 50%; margin-top: 8px; flex-shrink: 0;"></span>
+                                <span style="color: #4A5568; font-size: 1.125rem;">Define base styles and auto-layout constraints</span>
                             </li>
-                            <li style="position: relative; padding-left: 1.75rem; margin-bottom: 1rem; color: #4A5568;">
-                                <span style="position: absolute; left: 0; top: 0.25rem; width: 8px; height: 8px; border-radius: 50%; background: #805AD5;"></span>
-                                Easy implementation for developers with clear props
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 20px; gap: 16px;">
+                                <span style="width: 8px; height: 8px; background: #805AD5; border-radius: 50%; margin-top: 8px; flex-shrink: 0;"></span>
+                                <span style="color: #4A5568; font-size: 1.125rem;">Create interactive states (hover, focus, disabled)</span>
                             </li>
-                            <li style="position: relative; padding-left: 1.75rem; margin-bottom: 1rem; color: #4A5568;">
-                                <span style="position: absolute; left: 0; top: 0.25rem; width: 8px; height: 8px; border-radius: 50%; background: #805AD5;"></span>
-                                Consistent styling across different states and sizes
-                            </li>
-                            <li style="position: relative; padding-left: 1.75rem; margin-bottom: 1rem; color: #4A5568;">
-                                <span style="position: absolute; left: 0; top: 0.25rem; width: 8px; height: 8px; border-radius: 50%; background: #805AD5;"></span>
-                                Single source of truth for all component variations
+                            <li style="display: flex; align-items: flex-start; margin-bottom: 0; gap: 16px;">
+                                <span style="width: 8px; height: 8px; background: #805AD5; border-radius: 50%; margin-top: 8px; flex-shrink: 0;"></span>
+                                <span style="color: #4A5568; font-size: 1.125rem;">Set up component properties and variants</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Right Column: Video -->
-                <div style="flex: 1.25; position: sticky; top: 100px;">
-                    <div style="background: #F8F9FA; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
-                        <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 4px; display: block;">
-                            <source src="videos/variantfinal.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p style="margin-top: 12px; text-align: center; font-size: 0.875rem; color: #718096;">Creating component variants with different states in Figma</p>
-                    </div>
+                <div style="background: #F8F9FA; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+                    <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 4px; display: block;">
+                        <source src="videos/v (online-video-cutter.com).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p style="margin-top: 12px; text-align: center; font-size: 0.875rem; color: #718096;">Creating component variants with different states in Figma</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Design Tokens Section -->
-    <section id="design-tokens" class="component-section" style="padding-top: 80px; padding-bottom: 64px; margin-top: 40px; background: linear-gradient(135deg, #f8f9ff 0%, #f1f1f1 100%); border-top: 1px solid rgba(0, 0, 0, 0.05);">
+    <section id="design-tokens" class="component-section" style="padding-top: 48px; padding-bottom: 48px; margin-top: 24px; background: linear-gradient(135deg, #f8f9ff 0%, #f1f1f1 100%); border-top: 1px solid rgba(0, 0, 0, 0.05);">
         <div class="typography-container">
-            <div class="typography-intro-content" style="margin-bottom: 48px; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
-                <div class="typography-eyebrow">Design System Foundations</div>
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Design Tokens</h2>
-                <p style="font-size: 1.125rem; line-height: 1.7; color: #4A5568;">Design tokens are the atomic elements of our design system — named values that store visual attributes like colors, typography, and spacing. By centralizing these values as tokens, we created a single source of truth that maintains consistency across platforms and enables rapid theming and customization.</p>
+            <div class="typography-intro-content" style="margin-bottom: 32px; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+                <div class="typography-eyebrow" style="margin-bottom: 1rem;">Design System Foundations</div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 0.75rem;">Design Tokens</h2>
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #4A5568;">Design tokens are the atomic elements of our design system — named values that store visual attributes like colors, typography, and spacing. By centralizing these values as tokens, we created a single source of truth that maintains consistency across platforms and enables rapid theming and customization.</p>
             </div>
-            
-            <style>
-                .token-card-zigzag {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 64px;
-                    gap: 48px;
-                }
-                
-                .token-card-zigzag:last-child {
-                    margin-bottom: 0;
-                }
-                
-                .token-card-zigzag:nth-child(even) {
-                    flex-direction: row-reverse;
-                }
-                
-                .token-image-container {
-                    flex: 1;
-                    position: relative;
-                    overflow: hidden;
-                    border-radius: 12px;
-                    height: 300px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                    transition: all 0.3s ease;
-                }
-                
-                .token-image-container:hover {
-                    transform: scale(1.02);
-                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-                }
-                
-                .token-content {
-                    flex: 1;
-                    padding: 32px;
-                }
-                
-                .token-content h3 {
-                    font-size: 1.5rem;
-                    margin-bottom: 16px;
-                    color: #1A202C;
-                    position: relative;
-                }
-                
-                .token-content h3::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -8px;
-                    left: 0;
-                    width: 40px;
-                    height: 3px;
-                    background-color: #805AD5;
-                }
-                
-                .token-content p {
-                    font-size: 1.05rem;
-                    color: #4A5568;
-                    margin-bottom: 24px;
-                    line-height: 1.7;
-                }
-                
-                .token-features {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
-                }
-                
-                .token-features li {
-                    position: relative;
-                    padding-left: 28px;
-                    margin-bottom: 12px;
-                    font-size: 0.95rem;
-                    color: #4A5568;
-                }
-                
-                .token-features li::before {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 0.5rem;
-                    width: 6px;
-                    height: 6px;
-                    border-radius: 50%;
-                    background: #805AD5;
-                }
-                
-                .scroll-wrapper {
-                    position: relative;
-                    width: 100%;
-                    height: 100%;
-                    overflow: hidden;
-                }
-                
-                .scroll-image {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 200%;
-                    object-fit: cover;
-                    transition: transform 300ms ease-in-out;
-                }
-                
-                .token-image-container:hover .scroll-image {
-                    transform: translateY(-50%);
-                }
-                
-                .hover-hint {
-                    position: absolute;
-                    bottom: 12px;
-                    right: 12px;
-                    background: rgba(128, 90, 213, 0.9);
-                    color: white;
-                    padding: 6px 12px;
-                    border-radius: 4px;
-                    font-size: 0.75rem;
-                    z-index: 3;
-                    opacity: 0;
-                    transform: translateY(8px);
-                    transition: all 200ms ease;
-                }
-                
-                .token-image-container:hover .hover-hint {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                
-                @media (max-width: 768px) {
-                    .token-card-zigzag {
-                        flex-direction: column !important;
-                        gap: 32px;
-                        margin-bottom: 48px;
-                    }
-                    
-                    .token-image-container {
-                        width: 100%;
-                        height: 250px;
-                    }
-                    
-                    .token-content {
-                        padding: 16px 0;
-                    }
-                }
-                
-                /* Token Carousel Styles */
-                .token-carousel-section {
-                    margin-bottom: 64px;
-                }
-                
-                .token-carousel-header {
-                    margin-bottom: 24px;
-                    text-align: left;
-                }
-                
-                .token-carousel-header h3 {
-                    font-size: 1.5rem;
-                    margin-bottom: 8px;
-                    color: #1A202C;
-                    position: relative;
-                }
-                
-                .token-carousel-header h3::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -8px;
-                    left: 0;
-                    width: 40px;
-                    height: 3px;
-                    background-color: #805AD5;
-                }
-                
-                .token-carousel-header p {
-                    font-size: 1rem;
-                    color: #4A5568;
-                    line-height: 1.5;
-                    max-width: 800px;
-                }
-                
-                .token-carousel-container {
-                    position: relative;
-                    margin: 0 -12px;
-                }
-                
-                .token-carousel {
-                    display: flex;
-                    overflow-x: auto;
-                    scroll-behavior: smooth;
-                    -webkit-overflow-scrolling: touch;
-                    scroll-snap-type: x mandatory;
-                    padding: 12px 12px 24px;
-                    /* Hide scrollbar */
-                    scrollbar-width: none; /* Firefox */
-                    -ms-overflow-style: none; /* IE and Edge */
-                }
-                
-                .token-carousel::-webkit-scrollbar {
-                    display: none; /* Chrome, Safari, Opera */
-                }
-                
-                .token-carousel-item {
-                    flex: 0 0 300px;
-                    scroll-snap-align: start;
-                    margin-right: 20px;
-                    border-radius: 8px;
-                    overflow: hidden;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    background: #FFFFFF;
-                }
-                
-                .token-carousel-item:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-                }
-                
-                .token-carousel-image {
-                    height: 200px;
-                    overflow: hidden;
-                    position: relative;
-                    background: #F8F9FA;
-                }
-                
-                .token-carousel-image img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                
-                .token-carousel-caption {
-                    padding: 16px;
-                    background: white;
-                    font-size: 0.875rem;
-                    color: #4A5568;
-                    text-align: center;
-                }
-                
-                .carousel-nav-buttons {
-                    position: absolute;
-                    top: 50%;
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    pointer-events: none;
-                    transform: translateY(-50%);
-                    z-index: 5;
-                }
-                
-                .carousel-nav-button {
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.9);
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    border: none;
-                    pointer-events: auto;
-                    transition: all 0.2s ease;
-                    margin: 0 8px;
-                }
-                
-                .carousel-nav-button:hover {
-                    background: #805AD5;
-                    color: white;
-                }
-                
-                .carousel-nav-button i {
-                    font-size: 1rem;
-                }
-                
-                @media (max-width: 768px) {
-                    .token-carousel-item {
-                        flex: 0 0 85%;
-                    }
-                }
-            </style>
-            
+
             <!-- Zigzag layout for tokens -->
             <div>
                 <!-- Single-view Token Carousel -->
-                <div class="token-single-carousel-container">
+                <div class="token-single-carousel-container" style="margin-bottom: 24px;">
                     <div class="token-single-carousel">
                         <!-- Slide 1: Primitive Colors -->
                         <div class="token-slide" id="slide-colors">
-                            <div class="token-slide-content">
+                            <div class="token-slide-content" style="padding: 24px 0;">
                                 <div class="token-slide-text">
-                                    <h3>Primitive Colors</h3>
-                                    <p>Color tokens form the foundation of our visual language, providing a consistent and accessible palette across interfaces. They include primary brand colors, neutrals for UI structure, and status indicators for feedback.</p>
-                                    <ul class="token-features">
-                                        <li>Primary and accent color scales for brand consistency</li>
-                                        <li>Neutral grays for UI structure and hierarchy</li>
-                                        <li>Semantic colors for system feedback and status</li>
-                                        <li>WCAG 2.1 AA compliant contrast ratios</li>
-                                    </ul>
-                                </div>
-                                <div class="token-slide-image">
-                                    <div style="width: 100%; height: 100%; background: linear-gradient(to right, #a48cf0, #805AD5); position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
-                                        <div style="position: absolute; bottom: 24px; left: 24px; right: 24px; display: flex; flex-wrap: wrap;">
-                                            <span style="height: 48px; width: 48px; background: #01042E; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #805AD5; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #D6BCFA; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #FAF5FF; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #4A5568; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #A0AEC0; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #E2E8F0; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                            <span style="height: 48px; width: 48px; background: #F7FAFC; border-radius: 4px; margin-right: 12px; margin-bottom: 12px;"></span>
-                                        </div>
+                                    <h3 style="font-size: 1.75rem; margin-bottom: 12px;">Primitive Colors</h3>
+                                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Color tokens form the foundation of our visual language, providing a consistent and accessible palette across interfaces. They include primary brand colors, neutrals for UI structure, and status indicators for feedback.</p>
+                                    <div style="background: #F7FAFC; border-radius: 8px; padding: 1rem; font-family: 'Monaco', monospace; font-size: 0.8rem;">
+                                        <pre style="margin: 0; color: #4A5568;"><code>primary-500: #01042E
+neutral-200: #E6E6EA
+accent-500: #805AD5</code></pre>
                                     </div>
+                                </div>
+                                <div class="token-slide-image" style="height: 280px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                                    <img src="images/primitivecolours.png" alt="Primitive Colors Examples" style="width: 100%; height: auto;">
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Slide 2: Primitive Typography -->
                         <div class="token-slide" id="slide-typography">
-                            <div class="token-slide-content">
+                            <div class="token-slide-content" style="padding: 24px 0;">
                                 <div class="token-slide-text">
-                                    <h3>Primitive Typography</h3>
-                                    <p>Typography tokens create a systematic approach to text styling, ensuring readability and visual hierarchy across all products and platforms. Our type system is built on a modular scale with consistent progression.</p>
-                                    <ul class="token-features">
-                                        <li>Font families, sizes, weights, and line heights</li>
-                                        <li>Type scale with consistent modular progression</li>
-                                        <li>Responsive text sizes across devices</li>
-                                        <li>Optimized letter spacing and paragraph settings</li>
-                                    </ul>
+                                    <h3 style="font-size: 1.75rem; margin-bottom: 12px;">Primitive Typography</h3>
+                                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Typography tokens were created to establish a consistent typographic system across all platforms. These primitive tokens define font families, sizes, weights, and line heights. By centralizing these styles as variables, I ensured scalable and responsive type usage across the design system, enabling clarity, readability, and rapid reuse in components and layouts.</p>
+                                    <div style="background: #F7FAFC; border-radius: 8px; padding: 1rem; font-family: 'Monaco', monospace; font-size: 0.8rem;">
+                                        <pre style="margin: 0; color: #4A5568;"><code>font-family: Poppins
+font-size-md: 16px
+font-weight-regular: Regular</code></pre>
+                                    </div>
                                 </div>
-                                <div class="token-slide-image">
-                                    <div style="width: 100%; height: 100%; background: #FFFFFF; position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
-                                        <div style="font-family: Inter, sans-serif; font-size: 36px; font-weight: 700; color: #1A202C; margin-bottom: 16px;">Heading 1</div>
-                                        <div style="font-family: Inter, sans-serif; font-size: 30px; font-weight: 700; color: #1A202C; margin-bottom: 16px;">Heading 2</div>
-                                        <div style="font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; color: #1A202C; margin-bottom: 16px;">Heading 3</div>
-                                        <div style="font-family: Inter, sans-serif; font-size: 18px; font-weight: 400; color: #4A5568; margin-bottom: 16px;">Body Text</div>
-                                        <div style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 400; color: #718096;">Small Text</div>
+                                <div class="token-slide-image" style="height: 280px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                                    <div class="typography-image-container" style="height: 100%; transition: transform 0.3s ease;">
+                                        <img src="images/Primitive Typography.png" alt="Primitive Typography Examples" style="width: 100%; height: auto;">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Slide 3: Semantic Tokens -->
                         <div class="token-slide" id="slide-semantic">
-                            <div class="token-slide-content">
+                            <div class="token-slide-content" style="padding: 24px 0;">
                                 <div class="token-slide-text">
-                                    <h3>Semantic Tokens</h3>
-                                    <p>Semantic tokens connect visual attributes with functional meaning, creating a vocabulary that bridges design and development. They communicate intent rather than just appearance.</p>
-                                    <ul class="token-features">
-                                        <li>Clear naming conventions for all token types</li>
-                                        <li>Status indicators for system feedback</li>
-                                        <li>Interactive state tokens for consistent behaviors</li>
-                                        <li>Context-specific variations for different environments</li>
-                                    </ul>
-                                </div>
-                                <div class="token-slide-image">
-                                    <div style="width: 100%; height: 100%; background: #F8F9FA; position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding: 32px;">
-                                        <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-around;">
-                                            <div style="margin-bottom: 16px;">
-                                                <div style="font-size: 16px; font-weight: 500; color: #718096; margin-bottom: 8px;">Primary</div>
-                                                <div style="height: 32px; background: #805AD5; border-radius: 3px;"></div>
-                                            </div>
-                                            <div style="margin-bottom: 16px;">
-                                                <div style="font-size: 16px; font-weight: 500; color: #718096; margin-bottom: 8px;">Success</div>
-                                                <div style="height: 32px; background: #38A169; border-radius: 3px;"></div>
-                                            </div>
-                                            <div style="margin-bottom: 16px;">
-                                                <div style="font-size: 16px; font-weight: 500; color: #718096; margin-bottom: 8px;">Warning</div>
-                                                <div style="height: 32px; background: #DD6B20; border-radius: 3px;"></div>
-                                            </div>
-                                            <div>
-                                                <div style="font-size: 16px; font-weight: 500; color: #718096; margin-bottom: 8px;">Error</div>
-                                                <div style="height: 32px; background: #E53E3E; border-radius: 3px;"></div>
-                                            </div>
-                                        </div>
+                                    <h3 style="font-size: 1.75rem; margin-bottom: 12px;">Semantic Tokens</h3>
+                                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Semantic tokens connect visual attributes with functional meaning, creating a vocabulary that bridges design and development. They communicate intent rather than just appearance.</p>
+                                    <div style="background: #F7FAFC; border-radius: 8px; padding: 1rem; font-family: 'Monaco', monospace; font-size: 0.8rem;">
+                                        <pre style="margin: 0; color: #4A5568;"><code>surface-primary: var(--primary-500)
+alert-error: var(--red-500)
+text-muted: var(--gray-600)</code></pre>
                                     </div>
+                                </div>
+                                <div class="token-slide-image" style="height: 280px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                                    <img src="images/semantictoken.png" alt="Semantic Tokens Examples" style="width: 100%; height: auto;">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Carousel Controls -->
-                    <div class="token-carousel-controls">
+                    <div class="token-carousel-controls" style="margin-top: 16px;">
                         <button class="token-nav-button prev"><i class="fas fa-chevron-left"></i></button>
                         <div class="token-indicators">
                             <button class="token-indicator active" data-slide="slide-colors"></button>
@@ -3083,269 +3149,23 @@
                         <button class="token-nav-button next"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
-                
-                <style>
-                    .token-single-carousel-container {
-                        position: relative;
-                        width: 100%;
-                        margin: 0 auto 48px;
-                        max-width: 1200px;
-                    }
-                    
-                    .token-single-carousel {
-                        width: 100%;
-                        overflow: hidden;
-                        border-radius: 8px;
-                    }
-                    
-                    .token-slide {
-                        width: 100%;
-                        display: none;
-                        animation: fadeIn 0.6s ease;
-                    }
-                    
-                    .token-slide.active {
-                        display: block;
-                    }
-                    
-                    @keyframes fadeIn {
-                        from { opacity: 0; transform: translateY(10px); }
-                        to { opacity: 1; transform: translateY(0); }
-                    }
-                    
-                    .token-slide-content {
-                        display: flex;
-                        flex-direction: row;
-                        gap: 40px;
-                        padding: 32px 0;
-                    }
-                    
-                    .token-slide-text {
-                        flex: 1;
-                    }
-                    
-                    .token-slide-text h3 {
-                        font-size: 2rem;
-                        margin-bottom: 16px;
-                        color: #1A202C;
-                        position: relative;
-                    }
-                    
-                    .token-slide-text h3::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -8px;
-                        left: 0;
-                        width: 60px;
-                        height: 4px;
-                        background-color: #805AD5;
-                    }
-                    
-                    .token-slide-text p {
-                        font-size: 1.125rem;
-                        line-height: 1.7;
-                        color: #4A5568;
-                        margin-bottom: 24px;
-                    }
-                    
-                    .token-features {
-                        list-style: none;
-                        padding: 0;
-                        margin: 0;
-                    }
-                    
-                    .token-features li {
-                        position: relative;
-                        padding-left: 28px;
-                        margin-bottom: 12px;
-                        font-size: 1rem;
-                        color: #4A5568;
-                    }
-                    
-                    .token-features li::before {
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        top: 0.5rem;
-                        width: 8px;
-                        height: 8px;
-                        border-radius: 50%;
-                        background: #805AD5;
-                    }
-                    
-                    .token-slide-image {
-                        flex: 1;
-                        min-height: 380px;
-                    }
-                    
-                    .token-carousel-controls {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        margin-top: 32px;
-                        gap: 16px;
-                    }
-                    
-                    .token-indicators {
-                        display: flex;
-                        gap: 12px;
-                    }
-                    
-                    .token-indicator {
-                        width: 12px;
-                        height: 12px;
-                        border-radius: 50%;
-                        border: none;
-                        background-color: #E2E8F0;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                    }
-                    
-                    .token-indicator.active {
-                        background-color: #805AD5;
-                        transform: scale(1.2);
-                    }
-                    
-                    .token-nav-button {
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        border: none;
-                        background: white;
-                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        color: #4A5568;
-                    }
-                    
-                    .token-nav-button:hover {
-                        background: #805AD5;
-                        color: white;
-                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    }
-                    
-                    @media (max-width: 768px) {
-                        .token-slide-content {
-                            flex-direction: column;
-                        }
-                        
-                        .token-slide-image {
-                            min-height: 300px;
-                        }
-                    }
-                </style>
-            </div>
-        </div>
-    </section>
-
-    <section class="process-section">
-        <div class="container">
-            <h2 class="section-title">My Process</h2>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Design Token Creation</h3>
-                    <p>Defined comprehensive design tokens and created component variants in Figma to establish a single source of truth for our design language.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>CSS Generation</h3>
-                    <p>Utilized Variables2CSS plugin to automatically generate a root CSS file with all tokens, ensuring perfect translation from design to development.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Component Library</h3>
-                    <p>Collaborated with developers to build a reusable React component library, focusing on accessibility and consistent implementation.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Continuous Improvement</h3>
-                    <p>Focused on improving accessibility, reducing design debt, and speeding up the design-to-development handoff process.</p>
-                </div>
             </div>
         </div>
     </section>
 
     <section class="tokens-section">
         <div class="tokens-container">
-            <div class="tokens-intro">
-                <h2>Design Tokens and Variables at Pycube</h2>
-                <p>Our design system is built on a foundation of carefully crafted design tokens that ensure consistency and scalability across the platform. These tokens are transformed into CSS variables, making the design-to-development handoff seamless and maintainable.</p>
-            </div>
-
             <div class="tokens-grid">
                 <div class="token-card">
-                    <div class="token-card-header">
-                        <div class="token-thumbnail">
-                            <img src="images/primitive%20typography.svg" alt="Typography tokens preview" />
-                        </div>
-                        <div class="token-title">
-                            <h3>Typography Tokens</h3>
-                        </div>
-                    </div>
-                    <ul class="token-list">
-                        <li>Font sizes from headings to captions (2.5rem to 0.875rem)</li>
-                        <li>Line heights optimized for readability</li>
-                        <li>Font weights for different text styles</li>
-                        <li>Letter spacing for enhanced legibility</li>
-                    </ul>
                 </div>
 
                 <div class="token-card">
-                    <div class="token-card-header">
-                        <div class="token-thumbnail">
-                            <img src="images/Color System.svg" alt="Color system preview" />
-                        </div>
-                        <div class="token-title">
-                            <h3>Color Tokens</h3>
-                        </div>
-                    </div>
-                    <ul class="token-list">
-                        <li>Primary and secondary brand colors</li>
-                        <li>Semantic colors for states and feedback</li>
-                        <li>Neutral color scale for UI elements</li>
-                        <li>Accessibility-compliant contrast ratios</li>
-                    </ul>
                 </div>
 
                 <div class="token-card">
-                    <div class="token-card-header">
-                        <div class="token-thumbnail">
-                            <img src="images/spacing.svg" alt="Spacing system preview" />
-                        </div>
-                        <div class="token-title">
-                            <h3>Spacing Tokens</h3>
-                        </div>
-                    </div>
-                    <ul class="token-list">
-                        <li>8pt grid system for consistent spacing</li>
-                        <li>Margin and padding variables</li>
-                        <li>Component-specific spacing rules</li>
-                        <li>Responsive spacing scales</li>
-                    </ul>
                 </div>
 
                 <div class="token-card">
-                    <div class="token-card-header">
-                        <div class="token-thumbnail">
-                            <img src="images/elevation.svg" alt="Component tokens preview" />
-                        </div>
-                        <div class="token-title">
-                            <h3>Component Tokens</h3>
-                        </div>
-                    </div>
-                    <ul class="token-list">
-                        <li>Border radius and shadow values</li>
-                        <li>Interactive state definitions</li>
-                        <li>Animation timing functions</li>
-                        <li>Component-specific variants</li>
-                    </ul>
                 </div>
             </div>
 
@@ -3354,6 +3174,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Making Variants Section -->
+    <div class="variant-section" style="margin-top: 48px;">
+        <div class="variant-content">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem; color: #1A202C;">Making Variants</h3>
+            <p style="color: #4A5568; font-size: 1.125rem; line-height: 1.7; margin-bottom: 2rem;">
+                I created component variants to handle different states, sizes, and themes systematically. This approach enabled consistent implementation across the product while reducing design debt and speeding up the development process.
+            </p>
+            <div style="background: #F8F9FA; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); height: 300px; overflow: hidden;">
+                <div class="variant-video-container" style="height: 100%; transition: transform 0.3s ease;">
+                    <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 4px; display: block;">
+                        <source src="videos/v (online-video-cutter.com).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <style>
+                    .variant-video-container:hover {
+                        transform: translateY(calc(-100% + 300px));
+                        transition: transform 4s ease;
+                    }
+                </style>
+                <p style="margin-top: 12px; text-align: center; font-size: 0.875rem; color: #718096;">Creating component variants with different states in Figma</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Add touch support for the typography image
@@ -3715,6 +3560,48 @@
                     }
                 }
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Token Carousel Functionality
+            const tokenCarousel = document.querySelector('.token-single-carousel');
+            const slides = document.querySelectorAll('.token-slide');
+            const indicators = document.querySelectorAll('.token-indicator');
+            const prevBtn = document.querySelector('.token-nav-button.prev');
+            const nextBtn = document.querySelector('.token-nav-button.next');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.style.display = 'none');
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                slides[index].style.display = 'block';
+                indicators[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Event Listeners
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => showSlide(index));
+            });
+
+            // Initialize first slide
+            showSlide(0);
         });
     </script>
 </body>
