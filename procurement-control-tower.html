@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Control Tower | Anmol Rohilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Import your existing styles */
+        @import url('styles.css');
+
+        /* Project-specific styles */
+        .project-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .project-category {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            color: var(--accent-color);
+        }
+
+        .back-to-home i {
+            margin-right: 0.5rem;
+        }
+
+        /* Diagram Styles */
+        .challenge-diagram {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.8s ease-out forwards 0.4s;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .diagram-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .diagram-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .diagram-item:hover .tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--text-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--text-color);
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .challenge-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Intro Section Styles */
+        .intro-section {
+            padding: 40px 0 60px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            min-height: calc(100vh - 400px);
+            display: flex;
+            align-items: center;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.8s ease-out forwards;
+            padding-right: 2rem;
+        }
+
+        .intro-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            max-width: 540px;
+        }
+
+        .intro-visual {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.8s ease-out forwards 0.2s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .placeholder-visual {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .placeholder-visual:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .visual-caption {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Add scroll-based animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .intro-section {
+                padding: 30px 0 40px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .intro-content {
+                padding-right: 0;
+            }
+
+            .intro-text {
+                max-width: 100%;
+            }
+        }
+
+        /* Color Accent styles */
+        .sketch-highlight {
+            position: relative;
+            display: inline;
+            color: #7A5AF8;
+            font-family: inherit;
+            font-weight: 500;
+            text-shadow: 0 0 1px rgba(122, 90, 248, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .sketch-highlight:hover {
+            color: #6445E6;
+            font-weight: 600;
+        }
+
+        /* Remove any existing sketch-related pseudo-elements */
+        .sketch-highlight::before,
+        .sketch-highlight::after {
+            display: none;
+        }
+
+        /* Updated Project Snapshot Styles */
+        .project-snapshot {
+            padding: 40px 0 80px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .snapshot-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .snapshot-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .snapshot-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .snapshot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(122, 90, 248, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header i {
+            font-size: 1.25rem;
+            color: #7A5AF8;
+            opacity: 0.9;
+        }
+
+        .snapshot-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .snapshot-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: white;
+            margin-bottom: 0.75rem;
+            border: none;
+        }
+
+        .snapshot-list li:hover {
+            transform: translateX(4px);
+            background: rgba(122, 90, 248, 0.04);
+        }
+
+        .snapshot-list .icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(122, 90, 248, 0.1);
+            border-radius: 6px;
+            color: #6445E6;
+        }
+
+        .snapshot-list li:hover .icon {
+            background: rgba(122, 90, 248, 0.15);
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+
+        .snapshot-list span:last-child {
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .project-snapshot {
+                padding: 20px 0 60px;
+            }
+            
+            .intro-section {
+                padding: 30px 0 40px;
+            }
+
+            .snapshot-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .snapshot-card {
+                padding: 1.5rem;
+            }
+
+            .snapshot-list li {
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Minimal Team Section */
+        .team-section {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .team-collaborators {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            background: rgba(122, 90, 248, 0.04);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .team-member::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #7A5AF8;
+            border-radius: 50%;
+        }
+
+        .role-summary {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 720px;
+        }
+
+        /* Design Process Section */
+        .process-section {
+            padding: 4rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .process-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 720px;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .process-step.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(122, 90, 248, 0.04);
+            border-radius: 12px;
+            color: #7A5AF8;
+            font-size: 1.5rem;
+        }
+
+        .step-title {
+            font-weight: 500;
+            color: #7A5AF8;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .step-description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .process-step {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 1rem;
+            }
+            
+            .step-icon {
+                margin: 0;
+            }
+        }
+
+        /* Discovery Section Styles */
+        .discovery-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .discovery-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 720px;
+            margin-bottom: 3rem;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .discovery-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .discovery-list li {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease-out;
+        }
+
+        .discovery-list li.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .discovery-icon {
+            font-size: 1.25rem;
+            color: #7A5AF8;
+            flex-shrink: 0;
+        }
+
+        .discovery-text {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .placeholder-board {
+            margin-top: 3rem;
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            background: #f8f9fa;
+            color: var(--text-light);
+        }
+
+        .placeholder-board i {
+            font-size: 2rem;
+            color: #adb5bd;
+            margin-bottom: 1rem;
+        }
+
+        .placeholder-title {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .placeholder-text {
+            font-size: 0.9rem;
+        }
+
+        .discovery-intro, .placeholder-board {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .discovery-intro.is-visible, .placeholder-board.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Add subtle hover effect to placeholder board */
+        .placeholder-board:hover {
+            border-color: #7A5AF8;
+            background: rgba(122, 90, 248, 0.02);
+        }
+
+        .placeholder-board:hover i {
+            color: #7A5AF8;
+        }
+
+        @media (max-width: 768px) {
+            .discovery-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AR</div>
+            <div class="menu">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <div class="project-container">
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i>
+                Back to Projects
+            </a>
+            <span class="project-category">Enterprise Operations</span>
+            <h1 class="project-title">Procurement Control Tower: Centralizing Workflows Across Teams</h1>
+        </div>
+    </header>
+
+    <section class="intro-section">
+        <div class="project-container">
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <p>I designed a <span class="sketch-highlight">centralized control tower</span> to unify procurement operations across teams—bringing together <span class="sketch-highlight">KPI dashboards</span>, task tracking, training materials, and reporting tools into a single, scalable interface. This platform was tailored to support <span class="sketch-highlight">cross-functional collaboration</span>, simplify daily workflows, and increase <span class="sketch-highlight">leadership visibility</span> across the procurement pipeline.</p>
+                    </div>
+                </div>
+                
+                <div class="intro-visual">
+                    <div class="placeholder-visual">
+                        <!-- Replace with actual visual -->
+                        <img src="images/procurement-dashboard.gif" alt="Procurement Control Tower Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <p class="visual-caption">Pycube Procurement Control Tower – Landing View</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-snapshot">
+        <div class="project-container">
+            <h2 class="section-label">What Wasn't Working and What I Set Out to Solve</h2>
+            <!-- Row 1: Challenge and Goal cards -->
+            <div class="snapshot-row">
+                <div class="snapshot-card" data-delay="0">
+                    <div class="card-header">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Challenge</h3>
+                    </div>
+                    <ul class="snapshot-list">
+                        <li>
+                            <span class="icon">🧩</span>
+                            <span>Scattered tools across teams (emails, spreadsheets, legacy dashboards)</span>
+                        </li>
+                        <li>
+                            <span class="icon">⏳</span>
+                            <span>Manual delays in reporting & task tracking</span>
+                        </li>
+                        <li>
+                            <span class="icon">🔄</span>
+                            <span>Miscommunication across departments</span>
+                        </li>
+                        <li>
+                            <span class="icon">👁️</span>
+                            <span>Limited visibility for leadership</span>
+                        </li>
+                        <li>
+                            <span class="icon">📂</span>
+                            <span>Training resources hard to access</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="snapshot-card" data-delay="100">
+                    <div class="card-header">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Goal</h3>
+                    </div>
+                    <ul class="snapshot-list">
+                        <li>
+                            <span class="icon">🧭</span>
+                            <span>Centralize dashboards, tasks, training, and documentation</span>
+                        </li>
+                        <li>
+                            <span class="icon">⚡</span>
+                            <span>Streamline workflows across procurement teams</span>
+                        </li>
+                        <li>
+                            <span class="icon">🧠</span>
+                            <span>Improve decision-making through visibility</span>
+                        </li>
+                        <li>
+                            <span class="icon">📈</span>
+                            <span>Build a scalable, intuitive, and efficient platform</span>
+                        </li>
+                        <li>
+                            <span class="icon">🔄</span>
+                            <span>Enable faster onboarding and cross-functional adoption</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="project-container">
+            <h2 class="section-label">Team & My Role</h2>
+            <div class="team-collaborators fade-in-section">
+                <div class="team-member">Product Manager</div>
+                <div class="team-member">Business Stakeholders</div>
+                <div class="team-member">Developers</div>
+                <div class="team-member">UX Designer (Me)</div>
+            </div>
+            <div class="role-summary fade-in-section">
+                I collaborated with stakeholders, managers, and developers throughout the design process — from discovery and wireframes to final UI handoff — ensuring clarity, feasibility, and alignment across teams.
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="project-container">
+            <h2 class="section-label">Design Process</h2>
+            <div class="process-intro fade-in-section">
+                I approached this project by aligning early with stakeholders, mapping workflows, and iterating quickly through sketches and wireframes before moving into detailed UI.
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in-section">
+                    <div class="step-icon">🔍</div>
+                    <div class="step-content">
+                        <div class="step-title">Discovery</div>
+                        <div class="step-description">Stakeholder interviews & problem mapping</div>
+                    </div>
+                </div>
+                <div class="process-step fade-in-section">
+                    <div class="step-icon">📊</div>
+                    <div class="step-content">
+                        <div class="step-title">Research</div>
+                        <div class="step-description">User flows & competitive analysis</div>
+                    </div>
+                </div>
+                <div class="process-step fade-in-section">
+                    <div class="step-icon">✏️</div>
+                    <div class="step-content">
+                        <div class="step-title">Wireframing</div>
+                        <div class="step-description">Low-fi layouts & user testing</div>
+                    </div>
+                </div>
+                <div class="process-step fade-in-section">
+                    <div class="step-icon">🎨</div>
+                    <div class="step-content">
+                        <div class="step-title">Design</div>
+                        <div class="step-description">UI design & interactive prototypes</div>
+                    </div>
+                </div>
+                <div class="process-step fade-in-section">
+                    <div class="step-icon">✅</div>
+                    <div class="step-content">
+                        <div class="step-title">Handoff</div>
+                        <div class="step-description">Documentation & developer support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discovery-section">
+        <div class="project-container">
+            <h2 class="section-label">Discovery & Ideation</h2>
+            <div class="discovery-intro fade-in-section">
+                To ground the design in user needs, I conducted interviews with stakeholders from procurement, operations, and finance. This phase helped identify usability gaps and opened up opportunities to streamline daily workflows across teams.
+            </div>
+            <div class="discovery-grid">
+                <div class="fade-in-section">
+                    <h3>Research Focus Areas</h3>
+                    <ul class="discovery-list">
+                        <li>
+                            <span class="discovery-icon">🎯</span>
+                            <span class="discovery-text">Understanding business goals and roles</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">🧭</span>
+                            <span class="discovery-text">Mapping current user flows and common tasks</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">⚠️</span>
+                            <span class="discovery-text">Spotting friction points and inefficiencies</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">🔍</span>
+                            <span class="discovery-text">Auditing underused vs. valuable features</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">💡</span>
+                            <span class="discovery-text">Collecting future-focused feature ideas</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fade-in-section">
+                    <h3>Top User Needs Identified</h3>
+                    <ul class="discovery-list">
+                        <li>
+                            <span class="discovery-icon">✅</span>
+                            <span class="discovery-text">Task management that's flexible and clear</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">📁</span>
+                            <span class="discovery-text">Structured document access</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">📰</span>
+                            <span class="discovery-text">Procurement-specific news and updates</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">🤖</span>
+                            <span class="discovery-text">AI-powered insights to boost decision-making</span>
+                        </li>
+                        <li>
+                            <span class="discovery-icon">🎓</span>
+                            <span class="discovery-text">In-app training modules for new users</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="placeholder-board fade-in-section">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-title">User Interview Notes – Sticky Board View</div>
+                <div class="placeholder-text">Insert interview board image here</div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="project-container">
+            <!-- Content sections will be added here -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/anmolrohilla" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Anmolrohilla03" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            </div>
+            <p class="copyright">© 2024 by Anmol Rohilla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update selector to include discovery section elements
+            const fadeElements = document.querySelectorAll(
+                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board'
+            );
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('snapshot-card')) {
+                            const delay = entry.target.dataset.delay || 0;
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, delay);
+                        } else if (entry.target.matches('.discovery-list li')) {
+                            // Add staggered delay for list items
+                            const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, index * 100);
+                        } else {
+                            entry.target.classList.add('is-visible');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => {
+                element.classList.add('fade-in-section');
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html> 
