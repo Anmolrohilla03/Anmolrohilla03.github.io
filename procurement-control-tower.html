@@ -511,8 +511,8 @@
 
         /* Discovery Section Styles */
         .discovery-section {
-            padding: 4rem 0;
-            background: white;
+            padding: 2rem 0 0; /* Add top padding, keep bottom at 0 */
+            margin-bottom: -1rem;
         }
 
         .discovery-intro {
@@ -524,10 +524,10 @@
         }
 
         .placeholder-board {
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem; /* Reduce from 2rem */
             border: 2px dashed #dee2e6;
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem; /* Reduce from 2rem */
             text-align: center;
             background: #f8f9fa;
             color: var(--text-light);
@@ -574,19 +574,21 @@
         .discovery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2rem; /* Reduce from 3rem */
+            margin-bottom: 1rem; /* Reduce from 2rem */
         }
 
         .discovery-list {
             list-style: none;
             padding: 0;
+            margin-bottom: 0;
         }
 
         .discovery-list li {
             opacity: 0;
             transform: translateX(-20px);
             transition: all 0.4s ease-out;
+            margin-bottom: 0.5rem; /* Add small gap between items */
         }
 
         .discovery-list li.is-visible {
@@ -611,6 +613,208 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+        }
+
+        /* Moodboard Section Styles */
+        .moodboard-section {
+            padding: 0 0 2rem; /* Reduce bottom padding */
+        }
+
+        .moodboard-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 720px;
+            margin-bottom: 1rem; /* Reduce from 1.5rem */
+        }
+
+        .visual-elements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem; /* Reduce from 2rem */
+        }
+
+        .visual-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem; /* Reduce from 2rem */
+        }
+
+        .visual-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(122, 90, 248, 0.04);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .visual-list li:hover {
+            transform: translateX(4px);
+            background: rgba(122, 90, 248, 0.08);
+        }
+
+        .visual-icon {
+            font-size: 1.25rem;
+        }
+
+        .visual-text {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .moodboard-image {
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .moodboard-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Fade animation for moodboard elements */
+        .moodboard-intro, .visual-list li, .moodboard-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .moodboard-intro.is-visible, 
+        .visual-list li.is-visible, 
+        .moodboard-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .visual-list {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .visual-list li {
+                width: 100%;
+            }
+        }
+
+        /* Style for placeholder moodboard grid */
+        .moodboard-grid {
+            margin: 2rem 0 3rem; /* Add space above and below grid */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .moodboard-card {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .moodboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 1rem;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .card-overlay span {
+            display: block;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .moodboard-card:hover .card-overlay span {
+            transform: translateY(-4px);
+        }
+
+        .placeholder-content {
+            text-align: center;
+            color: #adb5bd;
+        }
+
+        .placeholder-content i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .placeholder-content span {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .moodboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .moodboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Update section label spacing */
+        .section-label {
+            margin-bottom: 1rem;
+            margin-top: 0;
+            padding-top: 1rem; /* Add padding to section titles */
+        }
+
+        /* Adjust heading spacing */
+        h3 {
+            margin-bottom: 0.75rem; /* Add compact heading spacing */
+        }
+
+        /* Make list items more compact */
+        .discovery-list li:last-child {
+            margin-bottom: 0; /* Remove margin from last item */
+        }
+
+        .visual-elements {
+            margin-top: 2rem; /* Add space above list */
         }
     </style>
 </head>
@@ -849,6 +1053,85 @@
         </div>
     </section>
 
+    <section class="moodboard-section">
+        <div class="project-container">
+            <h2 class="section-label">Moodboard & Visual Direction</h2>
+            <div class="moodboard-intro fade-in-section">
+                <p>To align the visual tone and design consistency, I crafted a moodboard that reflects the themes of clarity, efficiency, and professionalism. These early visual explorations helped guide the color palette, iconography, and layout language for the control tower interface.</p>
+            </div>
+            <div class="moodboard-grid fade-in-section">
+                <div class="moodboard-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?w=400&h=400&fit=crop" alt="Color Palette Example">
+                        <div class="card-overlay">
+                            <span>Color Palette</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="moodboard-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400&h=400&fit=crop" alt="Grid Layout Example">
+                        <div class="card-overlay">
+                            <span>Grid Layout</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="moodboard-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=400&fit=crop" alt="Icon System Example">
+                        <div class="card-overlay">
+                            <span>Icon System</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="moodboard-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=400&h=400&fit=crop" alt="Typography Example">
+                        <div class="card-overlay">
+                            <span>Typography</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="moodboard-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" alt="Components Example">
+                        <div class="card-overlay">
+                            <span>Components</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="moodboard-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop" alt="Visual Style Example">
+                        <div class="card-overlay">
+                            <span>Visual Style</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="visual-elements fade-in-section">
+                <ul class="visual-list">
+                    <li>
+                        <span class="visual-icon">📐</span>
+                        <span class="visual-text">Clean grid structures</span>
+                    </li>
+                    <li>
+                        <span class="visual-icon">🎨</span>
+                        <span class="visual-text">Muted, enterprise-friendly colors</span>
+                    </li>
+                    <li>
+                        <span class="visual-icon">🔣</span>
+                        <span class="visual-text">Simplified icon language</span>
+                    </li>
+                    <li>
+                        <span class="visual-icon">✨</span>
+                        <span class="visual-text">Subtle accents to draw attention to key KPIs</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <main>
         <div class="project-container">
             <!-- Content sections will be added here -->
@@ -868,9 +1151,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Update selector to include discovery section elements
+            // Update selector to include moodboard section elements
             const fadeElements = document.querySelectorAll(
-                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board'
+                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card'
             );
             
             const observer = new IntersectionObserver((entries) => {
@@ -881,8 +1164,8 @@
                             setTimeout(() => {
                                 entry.target.classList.add('is-visible');
                             }, delay);
-                        } else if (entry.target.matches('.discovery-list li')) {
-                            // Add staggered delay for list items
+                        } else if (entry.target.matches('.discovery-list li, .visual-list li, .moodboard-card')) {
+                            // Add staggered delay for list items and cards
                             const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
                             setTimeout(() => {
                                 entry.target.classList.add('is-visible');
