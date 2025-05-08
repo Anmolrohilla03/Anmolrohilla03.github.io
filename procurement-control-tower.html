@@ -183,6 +183,19 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            border: 1px solid #dee2e6;
+        }
+
+        .placeholder-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1rem;
+            display: block;
         }
 
         .placeholder-visual:hover {
@@ -221,10 +234,20 @@
 
             .intro-content {
                 padding-right: 0;
+                order: 2; /* Move text below image on mobile */
+            }
+
+            .intro-visual {
+                order: 1; /* Move image above text on mobile */
             }
 
             .intro-text {
                 max-width: 100%;
+            }
+
+            .placeholder-visual {
+                max-width: 100%;
+                margin: 0 auto;
             }
         }
 
@@ -497,52 +520,18 @@
             line-height: 1.8;
             font-size: 1rem;
             max-width: 720px;
-            margin-bottom: 3rem;
-        }
-
-        .discovery-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .discovery-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .discovery-list li {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.4s ease-out;
-        }
-
-        .discovery-list li.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .discovery-icon {
-            font-size: 1.25rem;
-            color: #7A5AF8;
-            flex-shrink: 0;
-        }
-
-        .discovery-text {
-            color: var(--text-color);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
 
         .placeholder-board {
-            margin-top: 3rem;
+            margin-bottom: 3rem;
             border: 2px dashed #dee2e6;
             border-radius: 12px;
-            padding: 3rem;
+            padding: 2rem;
             text-align: center;
             background: #f8f9fa;
             color: var(--text-light);
+            max-width: 720px;
         }
 
         .placeholder-board i {
@@ -580,6 +569,41 @@
 
         .placeholder-board:hover i {
             color: #7A5AF8;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .discovery-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .discovery-list li {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease-out;
+        }
+
+        .discovery-list li.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .discovery-icon {
+            font-size: 1.25rem;
+            color: #7A5AF8;
+            flex-shrink: 0;
+        }
+
+        .discovery-text {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         @media (max-width: 768px) {
@@ -624,8 +648,7 @@
                 
                 <div class="intro-visual">
                     <div class="placeholder-visual">
-                        <!-- Replace with actual visual -->
-                        <img src="images/procurement-dashboard.gif" alt="Procurement Control Tower Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard" onerror="this.onerror=null; console.log('Image failed to load');" />
                     </div>
                     <p class="visual-caption">Pycube Procurement Control Tower – Landing View</p>
                 </div>
@@ -766,6 +789,11 @@
             <div class="discovery-intro fade-in-section">
                 To ground the design in user needs, I conducted interviews with stakeholders from procurement, operations, and finance. This phase helped identify usability gaps and opened up opportunities to streamline daily workflows across teams.
             </div>
+            <div class="placeholder-board fade-in-section">
+                <i class="fas fa-image"></i>
+                <div class="placeholder-title">User Interview Notes – Sticky Board View</div>
+                <div class="placeholder-text">Insert interview board image here</div>
+            </div>
             <div class="discovery-grid">
                 <div class="fade-in-section">
                     <h3>Research Focus Areas</h3>
@@ -817,11 +845,6 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="placeholder-board fade-in-section">
-                <i class="fas fa-image"></i>
-                <div class="placeholder-title">User Interview Notes – Sticky Board View</div>
-                <div class="placeholder-text">Insert interview board image here</div>
             </div>
         </div>
     </section>
