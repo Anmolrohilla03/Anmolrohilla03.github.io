@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Help Mobile Application | Anmol Rohilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('styles.css');
+
+        /* Hero Section */
+        .hero-section {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: rgba(122, 90, 248, 0.08);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        .hero-image {
+            margin-top: 4rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Challenge Section */
+        .challenge-section {
+            padding: 6rem 0;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Goals Section */
+        .goals-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .goal-item {
+            padding: 2rem;
+            background: #fff;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .goal-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            background: rgba(122, 90, 248, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+
+        /* Research Section */
+        .research-section {
+            padding: 6rem 0;
+        }
+
+        .research-image {
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* Wireframes Section */
+        .wireframes-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .wireframes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .wireframe-item {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Final Designs Section */
+        .final-designs-section {
+            padding: 6rem 0;
+        }
+
+        .designs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .design-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .design-item:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Reflections Section */
+        .reflections-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .reflection-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Back to Projects */
+        .back-to-projects {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section-grid,
+            .goals-grid,
+            .wireframes-grid,
+            .designs-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Add to your existing styles */
+        .challenge-content ul,
+        .research-content ul,
+        .reflection-content ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .challenge-content li,
+        .research-content li,
+        .reflection-content li {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .wireframe-item img,
+        .design-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .research-content {
+            margin-bottom: 3rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 1.5rem auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="project-container">
+            <div class="hero-content">
+                <h1 class="project-title">Community Help Mobile Application</h1>
+                <p class="project-subtitle">A mobile-first app that connects users with local communities, events, and shared resources.</p>
+                <div class="project-tags">
+                    <span class="tag">Mobile App</span>
+                    <span class="tag">UX Design</span>
+                    <span class="tag">Community Platform</span>
+                </div>
+                <div class="hero-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EApp Hero Screen%3C/text%3E%3C/svg%3E" alt="Community App Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="challenge-section">
+        <div class="project-container">
+            <h2>The Challenge</h2>
+            <div class="section-grid">
+                <div class="challenge-content">
+                    <p>In today's fast-paced world, local communities often struggle to maintain strong connections and effectively share resources. Many people want to help their neighbors but lack an efficient way to coordinate efforts. Traditional community boards and social media groups fall short in organizing local support systematically.</p>
+                    <p>The challenge was to create a mobile platform that would:</p>
+                    <ul>
+                        <li>Simplify the process of offering and requesting community help</li>
+                        <li>Build trust between community members</li>
+                        <li>Organize local events and resource sharing efficiently</li>
+                    </ul>
+                </div>
+                <div class="challenge-image">
+                    <!-- Challenge image placeholder -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="goals-section">
+        <div class="project-container">
+            <h2>Goals & Objectives</h2>
+            <div class="goals-grid">
+                <div class="goal-item">
+                    <div class="goal-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Increase Community Engagement</h3>
+                    <p>Create meaningful connections between neighbors</p>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Simplify Event Discovery</h3>
+                    <p>Make local events easily accessible</p>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Enable Resource Sharing</h3>
+                    <p>Facilitate community resource exchange</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-section">
+        <div class="project-container">
+            <h2>User Research</h2>
+            <div class="research-content">
+                <p>Through user interviews and community surveys, we identified key pain points in existing community support systems:</p>
+                <ul>
+                    <li>Difficulty in finding relevant local events and activities</li>
+                    <li>Lack of trust when sharing resources with unknown neighbors</li>
+                    <li>Inefficient communication channels for organizing community support</li>
+                    <li>No centralized platform for managing community initiatives</li>
+                </ul>
+            </div>
+            <div class="research-image">
+                <!-- Research image placeholder -->
+            </div>
+        </div>
+    </section>
+
+    <section class="wireframes-section">
+        <div class="project-container">
+            <h2>Low-Fidelity Wireframes</h2>
+            <div class="wireframes-grid">
+                <div class="wireframe-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EHome Screen Wireframe%3C/text%3E%3C/svg%3E" alt="Home Screen Wireframe">
+                </div>
+                <div class="wireframe-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EEvents Screen Wireframe%3C/text%3E%3C/svg%3E" alt="Events Screen Wireframe">
+                </div>
+                <div class="wireframe-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EProfile Screen Wireframe%3C/text%3E%3C/svg%3E" alt="Profile Screen Wireframe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-designs-section">
+        <div class="project-container">
+            <h2>Final Designs</h2>
+            <div class="designs-grid">
+                <div class="design-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EHome Screen%3C/text%3E%3C/svg%3E" alt="Home Screen">
+                </div>
+                <div class="design-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EEvents Screen%3C/text%3E%3C/svg%3E" alt="Events Screen">
+                </div>
+                <div class="design-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EResource Sharing%3C/text%3E%3C/svg%3E" alt="Resource Sharing Screen">
+                </div>
+                <div class="design-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 375 812'%3E%3Crect width='375' height='812' fill='%23F8F9FA'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23ADB5BD'%3EProfile Screen%3C/text%3E%3C/svg%3E" alt="Profile Screen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reflections-section">
+        <div class="project-container">
+            <div class="reflection-content">
+                <h2>Reflections & Outcomes</h2>
+                <p>This project taught valuable lessons about designing for community impact:</p>
+                <ul>
+                    <li>Trust is paramount in community applications - design must prioritize transparency and security</li>
+                    <li>Simple, intuitive interfaces encourage more community participation</li>
+                    <li>Flexible features that adapt to different community needs are essential</li>
+                    <li>User feedback throughout the design process helps create more meaningful solutions</li>
+                </ul>
+                <p>The final design successfully addresses the core challenges while maintaining simplicity and usability. The platform now serves as a bridge between neighbors, fostering stronger community bonds through technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="back-to-projects">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Projects
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/anmolrohilla" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Anmolrohilla03" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            </div>
+            <p class="copyright">© 2024 by Anmol Rohilla. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

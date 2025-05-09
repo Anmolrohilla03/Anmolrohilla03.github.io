@@ -13,7 +13,7 @@
 
         /* Project-specific styles */
         .project-header {
-            padding: 120px 0 60px;
+            padding: 80px 0 30px;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
@@ -138,9 +138,9 @@
 
         /* Intro Section Styles */
         .intro-section {
-            padding: 40px 0 60px;
+            padding: 20px 0 30px;
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: calc(100vh - 400px);
+            min-height: calc(100vh - 200px);
             display: flex;
             align-items: center;
         }
@@ -148,7 +148,7 @@
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -164,6 +164,7 @@
             line-height: 1.8;
             font-size: 1.1rem;
             max-width: 540px;
+            margin-bottom: 1rem;
         }
 
         .intro-visual {
@@ -188,6 +189,7 @@
             justify-content: center;
             min-height: 300px;
             border: 1px solid #dee2e6;
+            margin-bottom: 0.5rem;
         }
 
         .placeholder-visual img {
@@ -207,7 +209,7 @@
             text-align: center;
             color: var(--text-light);
             font-size: 0.9rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         /* Add scroll-based animation */
@@ -432,7 +434,7 @@
             max-width: 720px;
         }
 
-        /* Design Process Section */
+        /* Design Process Section Styles */
         .process-section {
             padding: 4rem 0;
             background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
@@ -476,6 +478,12 @@
             border-radius: 12px;
             color: #7A5AF8;
             font-size: 1.5rem;
+        }
+
+        .step-icon img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
         }
 
         .step-title {
@@ -1104,104 +1112,589 @@
             object-fit: cover;
         }
 
-        .hifi-ui-section {
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: -0.5rem 0 1.5rem;
+            font-style: italic;
+        }
+
+        /* High-Fidelity UI Section */
+        .hifi-section {
+            padding: 4rem 0;
             background: #fff;
-            padding: 2.5rem 0 2.5rem 0;
         }
-        .hifi-full-image-block {
-            margin-bottom: 2.2rem;
+
+        .hifi-hero {
+            margin-bottom: 6rem;
         }
-        .hifi-full-img-container {
+
+        .hifi-hero-layout {
+            display: grid;
+            grid-template-columns: 35% 65%; /* Swap ratio and put description first */
+            gap: 4rem;
+            align-items: stretch; /* Make both columns same height */
+        }
+
+        .hero-image {
             width: 100%;
-            background: #f8f9fa;
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(122,90,248,0.08);
-            overflow: hidden;
+            position: relative;
+            height: 100%; /* Fill full height */
         }
-        .hifi-full-img {
+
+        .hero-image img {
             width: 100%;
+            height: 100%; /* Fill container height */
             display: block;
-            border-radius: 18px;
-            transition: transform 0.25s;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            object-fit: contain; /* Maintain aspect ratio */
         }
-        .hifi-full-img-container:hover .hifi-full-img {
-            transform: scale(1.025);
+
+        /* Adjust highlight positions for larger image */
+        .highlight-tasks {
+            top: 15%;
+            left: 20%;
+            width: 50%;
+            height: 20%;
         }
-        .hifi-caption {
-            text-align: center;
-            color: #666;
-            font-size: 1.05rem;
-            margin-top: 0.7rem;
+
+        .highlight-resources {
+            top: 45%;
+            right: 10%;
+            width: 35%;
+            height: 20%;
         }
-        .hifi-zoomed-row {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+
+        .highlight-insights {
+            top: 10%;
+            right: 15%;
+            width: 40%;
+            height: 25%;
         }
-        .hifi-zoomed-tile {
-            background: #f8f9fa;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(122,90,248,0.08);
-            padding: 1.1rem 1rem 1.2rem 1rem;
-            max-width: 340px;
-            min-width: 220px;
-            flex: 1 1 260px;
+
+        .highlight-communication {
+            bottom: 10%;
+            left: 25%;
+            width: 45%;
+            height: 20%;
+        }
+
+        .feature-block {
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover states */
+        .feature-block:hover {
+            background: rgba(122, 90, 248, 0.05);
+        }
+
+        .feature-block[data-section="tasks"]:hover ~ .hero-image .highlight-tasks,
+        .feature-block[data-section="resources"]:hover ~ .hero-image .highlight-resources,
+        .feature-block[data-section="insights"]:hover ~ .hero-image .highlight-insights,
+        .feature-block[data-section="communication"]:hover ~ .hero-image .highlight-communication {
+            opacity: 1;
+        }
+
+        .hero-description {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            margin-bottom: 1.2rem;
+            justify-content: space-between;
+            padding: 1rem 0;
+            height: 100%;
         }
-        .hifi-zoomed-img-container {
+
+        .feature-block {
+            margin-bottom: 2rem;
+        }
+
+        .feature-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-block h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .feature-block p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hifi-hero-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-image {
+                height: auto;
+                min-height: 500px;
+            }
+        }
+
+        /* Feature Tiles */
+        .hifi-tiles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
+        .tile {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tile-content {
+            margin-bottom: 1rem;
+        }
+
+        .tile-image {
             width: 100%;
-            aspect-ratio: 4/3;
-            border-radius: 12px;
+            aspect-ratio: 16/9;
             overflow: hidden;
-            position: relative;
-            margin-bottom: 0.7rem;
-            background: #fff;
+            border-radius: 8px;
         }
-        .hifi-zoomed-img {
+
+        .tile-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(0.08) contrast(1.08);
-            transition: transform 0.22s;
+            transition: transform 0.3s ease;
+        }
+
+        .tile:hover .tile-image img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hifi-hero {
+                padding: 2rem 0;
+            }
+            
+            .hero-description p {
+                max-width: 100%;
+            }
+            
+            .hifi-tiles {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Image crops */
+        .crop-kpi { object-position: top; }
+        .crop-workflow { object-position: center; }
+        .crop-resources { object-position: bottom; }
+
+        /* Onboarding Section Styles */
+        .onboarding-section {
+            padding: 6rem 0;
+            background: #fff;
+        }
+
+        .onboarding-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .onboarding-image {
+            width: 100%;
             border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: zoom-in;
         }
-        .hifi-zoomed-img-container:hover .hifi-zoomed-img {
-            transform: scale(1.06);
+
+        .onboarding-image img {
+            width: 100%;
+            display: block;
+            transition: all 0.5s ease;
+            transform-origin: 25% 40%; /* Slightly adjusted focus point */
         }
-        .hifi-img-overlay {
+
+        .onboarding-image:hover img {
+            transform: scale(1.8); /* Increased zoom from 1.4 to 1.8 */
+        }
+
+        /* Remove previous overlay and other effects */
+        .onboarding-image::after {
+            display: none;
+        }
+
+        /* Smooth transition for text */
+        .onboarding-step {
+            transition: all 0.3s ease;
+        }
+
+        .onboarding-image:hover ~ .onboarding-content .onboarding-step:nth-child(2) {
+            background: rgba(122, 90, 248, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .onboarding-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .onboarding-step {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .step-number {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 1024px) {
+            .onboarding-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Support Section Styles */
+        .support-section {
+            padding: 6rem 0;
+            background: #fff;
+        }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .support-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .support-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .support-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .support-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* Design Critique Section Styles */
+        .critique-section {
+            padding: 6rem 0;
+            background: #fff;
+        }
+
+        .critique-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .critique-visual {
+            position: relative;
+            border-radius: 12px;
+            overflow: visible;
+            background: #f0f2f5; /* FigJam-like background */
+            padding: 2rem;
+        }
+
+        /* FigJam toolbar */
+        .figjam-toolbar {
             position: absolute;
-            inset: 0;
-            background: rgba(122,90,248,0.08);
-            border: 2.5px solid rgba(122,90,248,0.18);
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+        }
+
+        /* Sticky notes */
+        .sticky-feedback {
+            position: absolute;
+            width: 200px;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-yellow {
+            background: #FFF8E7;
+            border: 1px solid #FFE7A3;
+            top: 20%;
+            left: 15%;
+            transform: rotate(-2deg);
+        }
+
+        .sticky-purple {
+            background: #F4F0FF;
+            border: 1px solid #E6DEFF;
+            top: 30%;
+            right: 20%;
+            transform: rotate(1deg);
+        }
+
+        .sticky-green {
+            background: #E8FFF4;
+            border: 1px solid #BFEBD7;
+            bottom: 25%;
+            left: 25%;
+            transform: rotate(1deg);
+        }
+
+        /* Comment bubbles */
+        .critique-comment {
+            position: absolute;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            max-width: 220px;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        /* Connector lines with dots */
+        .connector {
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #E6DEFF;
+        }
+
+        .connector::before, .connector::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #7A5AF8;
+        }
+
+        .critique-mockup {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .critique-comment comment-1 {
+            top: 15%;
+            right: -20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .critique-comment comment-2 {
+            bottom: 20%;
+            left: -20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Comment connector lines */
+        .comment-1::before, .comment-2::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: #e0e0e0;
+        }
+
+        .comment-1::before {
+            left: -20px;
+            top: 50%;
+        }
+
+        .comment-2::before {
+            right: -20px;
+            top: 50%;
+        }
+
+        /* Comment author */
+        .comment-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #7A5AF8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .critique-feedback {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* Reduced from 2rem to bring elements closer */
+            background: #fff;
             border-radius: 12px;
-            pointer-events: none;
+            padding: 1.5rem;
         }
-        .hifi-zoomed-title {
-            font-weight: 700;
-            font-size: 1.08rem;
-            color: #222;
-            margin-bottom: 0.2rem;
-            text-align: center;
+
+        .feedback-points-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Reduced gap between points */
         }
-        .hifi-zoomed-caption {
-            font-size: 0.98rem;
-            color: #666;
-            text-align: center;
+
+        .feedback-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent; /* For hover effect */
         }
-        .hifi-crop1 { object-position: 0% 0%; }
-        .hifi-crop2 { object-position: 60% 30%; }
-        .hifi-crop3 { object-position: 80% 80%; }
-        @media (max-width: 900px) {
-            .hifi-zoomed-row { gap: 1.1rem; }
-            .hifi-zoomed-tile { max-width: 98vw; }
+
+        .feedback-point:hover {
+            background: rgba(122, 90, 248, 0.05);
+            border-left-color: var(--accent-color);
         }
-        @media (max-width: 600px) {
-            .hifi-zoomed-row { flex-direction: column; gap: 0.7rem; }
-            .hifi-zoomed-tile { max-width: 100vw; min-width: 0; }
+
+        .point-icon {
+            width: 28px; /* Slightly smaller icons */
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: rgba(122, 90, 248, 0.1);
+            color: var(--accent-color);
+        }
+
+        .point-text {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 1rem;
+            padding-top: 0.25rem; /* Align text with icon */
+        }
+
+        @media (max-width: 1024px) {
+            .critique-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .section-intro {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 1rem; /* Reduced from 2.5rem */
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(122, 90, 248, 0.1); /* Subtle separator */
+        }
+
+        .learnings-section {
+            padding: 6rem 0;
+            background: #fff;
+        }
+
+        .learnings-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reflection-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 3rem;
+            text-align: left; /* Ensure left alignment */
+        }
+
+        .takeaways-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .takeaway-item {
+            padding: 1.5rem;
+            background: rgba(122, 90, 248, 0.02);
+            border-radius: 12px;
+            border-left: 2px solid var(--accent-color);
+            transition: all 0.3s ease;
+            text-align: left; /* Ensure left alignment */
+        }
+
+        .takeaway-item:hover {
+            background: rgba(122, 90, 248, 0.05);
+            transform: translateX(5px);
+        }
+
+        .takeaway-title {
+            color: var(--text-color);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            text-align: left; /* Ensure left alignment */
+        }
+
+        .takeaway-desc {
+            color: var(--text-light);
+            line-height: 1.7;
+            text-align: left; /* Ensure left alignment */
+        }
+
+        .closing-thought {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(122, 90, 248, 0.1);
+            text-align: left; /* Changed from center to left */
+            font-style: italic;
         }
     </style>
 </head>
@@ -1233,7 +1726,7 @@
             <div class="intro-grid">
                 <div class="intro-content">
                     <div class="intro-text">
-                        <p>I designed a <span class="sketch-highlight">centralized control tower</span> to unify procurement operations across teams—bringing together <span class="sketch-highlight">KPI dashboards</span>, task tracking, training materials, and reporting tools into a single, scalable interface. This platform was tailored to support <span class="sketch-highlight">cross-functional collaboration</span>, simplify daily workflows, and increase <span class="sketch-highlight">leadership visibility</span> across the procurement pipeline.</p>
+                        <p>I designed a <span class="sketch-highlight">centralized control tower</span> to unify procurement operations across internal teams — bringing together <span class="sketch-highlight">KPI dashboards</span>, task tracking, training materials, and reporting tools into a single, scalable interface. This platform was tailored to support collaboration within the procurement department, simplify daily workflows, and increase <span class="sketch-highlight">leadership visibility</span> across the procurement pipeline.</p>
                     </div>
                 </div>
                 
@@ -1332,7 +1825,7 @@
         <div class="project-container">
             <h2 class="section-label">Design Process</h2>
             <div class="process-intro fade-in-section">
-                I approached this project by aligning early with stakeholders, mapping workflows, and iterating quickly through sketches and wireframes before moving into detailed UI.
+                I approached this project by aligning early with stakeholders, mapping workflows, and iterating quickly through sketches and wireframes before moving into detailed UI. Regular design critiques helped refine the solution through ongoing feedback.
             </div>
             <div class="process-steps">
                 <div class="process-step fade-in-section">
@@ -1364,10 +1857,10 @@
                     </div>
                 </div>
                 <div class="process-step fade-in-section">
-                    <div class="step-icon">✅</div>
+                    <div class="step-icon">💭</div>
                     <div class="step-content">
-                        <div class="step-title">Handoff</div>
-                        <div class="step-description">Documentation & developer support</div>
+                        <div class="step-title">Design Critique</div>
+                        <div class="step-description">Collaborative feedback and iteration with cross-functional teams</div>
                     </div>
                 </div>
             </div>
@@ -1377,8 +1870,9 @@
     <section class="discovery-section">
         <div class="project-container">
             <h2 class="section-label">Discover & Research</h2>
+            <p class="section-subtitle">Insights gathered from procurement professionals guided every design decision.</p>
             <div class="discovery-intro fade-in-section">
-                <p>I led the discovery, research, and ideation process to understand user needs and expectations. I conducted stakeholder interviews, distributed user surveys, and mapped emotional responses across teams in procurement, operations, and finance. These early insights revealed usability gaps, trust concerns, and workflow inefficiencies, which shaped the foundation of the design direction.</p>
+                <p>I led the discovery, research, and ideation process to understand user needs and expectations. I conducted stakeholder interviews, distributed user surveys, and mapped emotional responses from the procurement team. These early insights revealed usability gaps, trust concerns, and workflow inefficiencies, which shaped the foundation of the design direction.</p>
             </div>
             
             <div class="sticky-grid fade-in-section">
@@ -1522,40 +2016,229 @@
         </div>
     </section>
 
-    <section class="hifi-ui-section">
+    <section class="hifi-section">
         <div class="project-container">
             <h2 class="section-label">High-Fidelity UI Design</h2>
-            <div class="hifi-full-image-block">
-                <div class="hifi-full-img-container">
-                    <img src="./images/ProcurementControlTower.svg" alt="Final Procurement Control Tower Dashboard – Full View" class="hifi-full-img" />
+            
+            <div class="hifi-hero">
+                <div class="hifi-hero-layout">
+                    <div class="hero-description">
+                        <div class="feature-block" data-section="tasks">
+                            <h3>Task Management & Reminders</h3>
+                            <p>A unified area for managing procurement workflows and deadlines. Users track key tasks, receive reminders, and stay on top of overdue reports from multiple systems.</p>
+                        </div>
+
+                        <div class="feature-block" data-section="resources">
+                            <h3>Quick Access Resources</h3>
+                            <p>Procurement teams can instantly access frequently used documents, dashboards, and reports. This includes training material, Excel templates, RFP files, and more.</p>
+                        </div>
+
+                        <div class="feature-block" data-section="insights">
+                            <h3>AI-Based Insights</h3>
+                            <p>Analytics-driven cards help users monitor KPIs and surface trends. This system is designed to evolve into AI-powered market recommendations and cost-saving suggestions.</p>
+                        </div>
+
+                        <div class="feature-block" data-section="communication">
+                            <h3>Internal Communication</h3>
+                            <p>The built-in Yammer feed keeps procurement stakeholders updated with announcements, launch details, and contextual discussions — right inside the dashboard.</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard" />
+                        <div class="section-highlight highlight-tasks"></div>
+                        <div class="section-highlight highlight-resources"></div>
+                        <div class="section-highlight highlight-insights"></div>
+                        <div class="section-highlight highlight-communication"></div>
+                    </div>
                 </div>
-                <div class="hifi-caption">Final Procurement Control Tower Dashboard – Full View</div>
             </div>
-            <div class="hifi-zoomed-row">
-                <div class="hifi-zoomed-tile">
-                    <div class="hifi-zoomed-img-container">
-                        <img src="./images/ProcurementControlTower.svg" alt="Solving Data Overload" class="hifi-zoomed-img hifi-crop1" />
-                        <div class="hifi-img-overlay"></div>
-                    </div>
-                    <div class="hifi-zoomed-title">Solving Data Overload</div>
-                    <div class="hifi-zoomed-caption">Users can now pin KPIs relevant to their role to reduce cognitive load.</div>
+        </div>
+    </section>
+
+    <section class="onboarding-section">
+        <div class="project-container">
+            <h2 class="section-label">Onboarding Experience</h2>
+            
+            <div class="onboarding-layout">
+                <div class="onboarding-image">
+                    <img src="./images/Onboarding.svg" alt="Procurement Control Tower Onboarding Interface" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3e%3crect fill=\'%23f8f9fa\' width=\'100\' height=\'100\'/%3e%3ctext fill=\'%23adb5bd\' x=\'50\' y=\'50\' font-size=\'12\' text-anchor=\'middle\' alignment-baseline=\'middle\'%3eImage Placeholder%3c/text%3e%3c/svg%3e';" />
                 </div>
-                <div class="hifi-zoomed-tile">
-                    <div class="hifi-zoomed-img-container">
-                        <img src="./images/ProcurementControlTower.svg" alt="Seamless Task Management" class="hifi-zoomed-img hifi-crop2" />
-                        <div class="hifi-img-overlay"></div>
+                
+                <div class="onboarding-content">
+                    <div class="onboarding-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <p>To help users navigate the new Procurement Control Tower with ease, the onboarding feature launches an interactive walkthrough. It highlights key parts of the platform and explains their purpose step by step.</p>
+                        </div>
                     </div>
-                    <div class="hifi-zoomed-title">Seamless Task Management</div>
-                    <div class="hifi-zoomed-caption">Quick actions and filters help users manage procurement tasks efficiently.</div>
-                </div>
-                <div class="hifi-zoomed-tile">
-                    <div class="hifi-zoomed-img-container">
-                        <img src="./images/ProcurementControlTower.svg" alt="Role-Based Insights" class="hifi-zoomed-img hifi-crop3" />
-                        <div class="hifi-img-overlay"></div>
+
+                    <div class="onboarding-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <p>When users visit a section for the first time, contextual tooltips appear. For example, hovering over "Feedback" shows a pop-up explaining how to use it for reporting issues or suggesting improvements.</p>
+                        </div>
                     </div>
-                    <div class="hifi-zoomed-title">Role-Based Insights</div>
-                    <div class="hifi-zoomed-caption">Each department sees tailored reports and analytics for their needs.</div>
+
+                    <div class="onboarding-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <p>The guided tour includes a progress tracker, "Next" and "Skip" buttons, and highlights each section of the interface. This helps reduce confusion and improves user adoption for first-time users.</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="support-section">
+        <div class="project-container">
+            <h2 class="section-label">Integrated Support System</h2>
+            
+            <div class="support-layout">
+                <div class="support-image">
+                    <img src="./images/Support.svg" alt="Procurement Control Tower Support Interface" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3e%3crect fill=\'%23f8f9fa\' width=\'100\' height=\'100\'/%3e%3ctext fill=\'%23adb5bd\' x=\'50\' y=\'50\' font-size=\'12\' text-anchor=\'middle\' alignment-baseline=\'middle\'%3eImage Placeholder%3c/text%3e%3c/svg%3e';" />
+                </div>
+                
+                <div class="support-content">
+                    <div class="onboarding-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <p>Users can access the Support Center directly from the dashboard navigation, without switching tools or platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="onboarding-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <p>The support section includes searchable documentation, troubleshooting steps, and a feedback form to report issues.</p>
+                        </div>
+                    </div>
+
+                    <div class="onboarding-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <p>Live chat and help ticket features are integrated, allowing procurement staff to get assistance without leaving their workflow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="critique-section">
+        <div class="project-container">
+            <h2 class="section-label">Design Critique & Stakeholder Alignment</h2>
+            
+            <div class="critique-layout">
+                <div class="critique-visual">
+                    <div class="figjam-toolbar">
+                        <i class="fas fa-sticky-note"></i>
+                        <i class="fas fa-comment"></i>
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    
+                    <div class="sticky-feedback sticky-yellow">
+                        <div class="comment-author">
+                            <div class="author-avatar">PM</div>
+                            <span>Product Manager</span>
+                        </div>
+                        "The AI insights dashboard is intuitive and provides clear value to users"
+                    </div>
+
+                    <div class="sticky-feedback sticky-purple">
+                        <div class="comment-author">
+                            <div class="author-avatar">UX</div>
+                            <span>UX Team</span>
+                        </div>
+                        "Navigation structure matches existing mental models well"
+                    </div>
+
+                    <div class="sticky-feedback sticky-green">
+                        <div class="comment-author">
+                            <div class="author-avatar">ST</div>
+                            <span>Stakeholder</span>
+                        </div>
+                        "This aligns perfectly with our workflow requirements"
+                    </div>
+
+                    <div class="critique-comment" style="top: 45%; right: 10%;">
+                        <div class="comment-author">
+                            <div class="author-avatar">SR</div>
+                            <span>Sarah R.</span>
+                        </div>
+                        "Love how the KPIs are organized. Very clear hierarchy."
+                        <div class="connector" style="left: -40px; top: 50%;"></div>
+                    </div>
+                </div>
+                
+                <div class="critique-feedback">
+                    <p class="section-intro">
+                        To ensure the final design met real user expectations, I facilitated critique sessions with stakeholders from the procurement team. These sessions helped validate design intent, identify key usability gaps, and build alignment before handoff.
+                    </p>
+
+                    <div class="feedback-points-container">
+                        <div class="feedback-point">
+                            <div class="point-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="point-text">
+                                Validated UI decisions through collaborative feedback
+                            </div>
+                        </div>
+
+                        <div class="feedback-point">
+                            <div class="point-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="point-text">
+                                Highlighted clarity issues in task and insight modules
+                            </div>
+                        </div>
+
+                        <div class="feedback-point">
+                            <div class="point-icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <div class="point-text">
+                                Ensured stakeholder confidence before development
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="learnings-section">
+        <div class="project-container">
+            <h2 class="section-label">Learnings & Reflections</h2>
+            
+            <div class="learnings-content">
+                <p class="reflection-text">
+                    This project pushed me to design for clarity within complexity — balancing stakeholder needs, system integrations, and real-time decision-making in a single dashboard. Collaborating with cross-functional teams taught me how to communicate design intent across non-design audiences and adapt quickly to feedback.
+                </p>
+
+                <div class="takeaways-list">
+                    <div class="takeaway-item">
+                        <h3 class="takeaway-title">Designing for roles, not just features</h3>
+                        <p class="takeaway-desc">Creating meaningful experiences meant tailoring content and visibility based on user roles, not just data hierarchy.</p>
+                    </div>
+
+                    <div class="takeaway-item">
+                        <h3 class="takeaway-title">Feedback isn't just validation — it's evolution</h3>
+                        <p class="takeaway-desc">Design critique sessions uncovered small friction points that had a big impact on user understanding.</p>
+                    </div>
+
+                    <div class="takeaway-item">
+                        <h3 class="takeaway-title">A unified system improves more than tasks — it builds trust</h3>
+                        <p class="takeaway-desc">Centralizing information helped reduce tool fatigue and increased stakeholder confidence in using the platform daily.</p>
+                    </div>
+                </div>
+
+                <p class="closing-thought">
+                    This project reminded me that good design doesn't just organize — it empowers.
+                </p>
             </div>
         </div>
     </section>
