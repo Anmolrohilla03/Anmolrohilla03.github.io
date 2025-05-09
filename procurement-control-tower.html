@@ -511,8 +511,8 @@
 
         /* Discovery Section Styles */
         .discovery-section {
-            padding: 2rem 0 0; /* Add top padding, keep bottom at 0 */
-            margin-bottom: -1rem;
+            padding: 2rem 0 0; /* Reduced bottom padding to 0 */
+            margin-bottom: 0; /* Remove bottom margin */
         }
 
         .discovery-intro {
@@ -574,8 +574,8 @@
         .discovery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem; /* Reduce from 3rem */
-            margin-bottom: 1rem; /* Reduce from 2rem */
+            gap: 2rem;
+            margin-bottom: 0.5rem; /* Reduced from 1rem */
         }
 
         .discovery-list {
@@ -616,191 +616,52 @@
         }
 
         /* Moodboard Section Styles */
-        .moodboard-section {
-            padding: 0 0 2rem; /* Reduce bottom padding */
-        }
+        .moodboard-visuals { margin: 1.5rem 0 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .moodboard-section { padding: 1.5rem 0 2.5rem; background: #f8f9fa; position: relative; overflow: hidden; }
+        /* Faint geometric grid accent */
+        .moodboard-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(90deg, rgba(122,90,248,0.04) 1px, transparent 1px), linear-gradient(180deg, rgba(122,90,248,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+        .moodboard-card { background: #fff; border-radius: 20px; box-shadow: 0 4px 24px 0 rgba(122,90,248,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.04); border: 1.5px solid rgba(122,90,248,0.10); display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem 1rem 1rem; transition: box-shadow 0.2s, transform 0.2s, border 0.2s; z-index: 1; }
+        .moodboard-card:hover { box-shadow: 0 12px 32px rgba(122,90,248,0.18), 0 2px 8px rgba(0,0,0,0.08); border: 1.5px solid #7A5AF8; transform: translateY(-4px) scale(1.04); }
+        .moodboard-label { text-align: center; font-size: 1.1rem; font-weight: 500; color: #222; margin-top: 0.25rem; }
 
-        .moodboard-intro {
-            color: var(--text-light);
-            line-height: 1.8;
-            font-size: 1rem;
-            max-width: 720px;
-            margin-bottom: 1rem; /* Reduce from 1.5rem */
-        }
+        .color-swatches { display: flex; gap: 0.5rem; justify-content: center; align-items: center; margin: 1.5rem 0 1rem 0; }
+        .swatch { width: 36px; height: 36px; border-radius: 8px; }
+        .swatch1 { background: #7A5AF8; }
+        .swatch2 { background: #4ECDC4; }
+        .swatch3 { background: #FFD93D; }
+        .swatch4 { background: #FF6B6B; }
 
-        .visual-elements {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem; /* Reduce from 2rem */
-        }
+        .grid-mockup { width: 100%; max-width: 120px; margin: 1.5rem auto 1rem auto; }
+        .grid-row { display: flex; gap: 6px; margin-bottom: 6px; }
+        .grid-row div { flex: 1; height: 16px; background: #e8edfa; border-radius: 4px; }
+        .grid-row:first-child div { background: #7A5AF8; }
 
-        .visual-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem; /* Reduce from 2rem */
-        }
+        .icon-system { display: flex; gap: 0.5rem; justify-content: center; align-items: center; font-size: 1.5rem; color: #7A5AF8; margin: 1.5rem 0 1rem 0; }
 
-        .visual-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            background: rgba(122, 90, 248, 0.04);
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
+        .typography-sample { text-align: left; margin: 1.5rem 0 1rem 0; }
+        .typo-aa { font-family: 'Roboto', Arial, sans-serif; font-size: 2.2rem; font-weight: 400; color: #222; }
+        .typo-h2 { font-family: 'Roboto', Arial, sans-serif; font-size: 1.1rem; font-weight: 500; color: #7A5AF8; margin-top: 0.2rem; }
+        .typo-body { font-family: 'Roboto', Arial, sans-serif; font-size: 1rem; color: #666; margin-top: 0.2rem; }
 
-        .visual-list li:hover {
-            transform: translateX(4px);
-            background: rgba(122, 90, 248, 0.08);
-        }
+        .components-sample { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; margin: 1.5rem 0 1rem 0; }
+        .kpi-card { background: #f8f9fa; color: #222; border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; box-shadow: 0 1px 4px rgba(122,90,248,0.07); }
+        .kpi-card span { color: #4ECDC4; font-weight: 700; font-size: 1.1rem; }
+        .sample-btn { background: #7A5AF8; color: #fff; border: none; border-radius: 6px; padding: 0.4rem 1.1rem; font-size: 1rem; font-weight: 500; cursor: pointer; margin-right: 0.5rem; transition: background 0.2s; }
+        .sample-btn:hover { background: #6445E6; }
+        .sample-badge { display: inline-block; border-radius: 6px; padding: 0.2rem 0.7rem; font-size: 0.9rem; font-weight: 500; margin-right: 0.3rem; }
+        .badge-info { background: #e8edfa; color: #7A5AF8; }
+        .badge-success { background: #e6f9f2; color: #4ECDC4; }
 
-        .visual-icon {
-            font-size: 1.25rem;
-        }
+        .visual-style-gradient { width: 100%; height: 80px; border-radius: 12px; background: linear-gradient(120deg, #7A5AF8 0%, #4ECDC4 100%); margin: 1.5rem 0 1rem 0; }
 
-        .visual-text {
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        .moodboard-image {
-            margin-top: 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .moodboard-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .image-caption {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        /* Fade animation for moodboard elements */
-        .moodboard-intro, .visual-list li, .moodboard-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .moodboard-intro.is-visible, 
-        .visual-list li.is-visible, 
-        .moodboard-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .visual-list {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .visual-list li {
-                width: 100%;
-            }
-        }
-
-        /* Style for placeholder moodboard grid */
-        .moodboard-grid {
-            margin: 2rem 0 3rem; /* Add space above and below grid */
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .moodboard-card {
-            aspect-ratio: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .moodboard-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-            padding: 1rem;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .card-overlay span {
-            display: block;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .moodboard-card:hover .card-overlay span {
-            transform: translateY(-4px);
-        }
-
-        .placeholder-content {
-            text-align: center;
-            color: #adb5bd;
-        }
-
-        .placeholder-content i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .placeholder-content span {
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .moodboard-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .moodboard-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 900px) { .moodboard-visuals { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .moodboard-visuals { grid-template-columns: 1fr; } }
 
         /* Update section label spacing */
         .section-label {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem; /* Reduced from 1rem */
             margin-top: 0;
-            padding-top: 1rem; /* Add padding to section titles */
+            padding-top: 0.5rem; /* Reduced from 1rem */
         }
 
         /* Adjust heading spacing */
@@ -815,6 +676,532 @@
 
         .visual-elements {
             margin-top: 2rem; /* Add space above list */
+        }
+
+        /* User Interviews Section Styles */
+        .interviews-section {
+            padding: 4rem 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .interviews-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1rem;
+            max-width: 720px;
+            margin-bottom: 2rem;
+        }
+
+        .sticky-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 900px;
+        }
+
+        .sticky-note {
+            background: #fff;
+            padding: 1.75rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform-origin: center;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sticky-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: currentColor;
+            opacity: 0.15;
+        }
+
+        .sticky-note:nth-child(1) { color: #FFD93D; }
+        .sticky-note:nth-child(2) { color: #4CAF50; }
+        .sticky-note:nth-child(3) { color: #2196F3; }
+        .sticky-note:nth-child(4) { color: #9C27B0; }
+
+        .sticky-note:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .sticky-note.expanded {
+            height: auto;
+            min-height: 320px;
+            z-index: 10;
+        }
+
+        .sticky-question {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .sticky-insight {
+            color: var(--text-color);
+            font-style: italic;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .sticky-suggestion {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .sticky-note.expanded .sticky-suggestion {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #7A5AF8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .view-all-btn:hover {
+            background: #6445E6;
+            transform: translateY(-2px);
+        }
+
+        .view-all-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* Emotion Radar Section Styles */
+        .emotions-section {
+            margin-top: 1rem; /* Reduced from 2rem */
+            padding: 1rem 0 0.5rem;
+            background: white;
+            margin-bottom: 0;
+        }
+
+        .emotions-title {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .emotion-wheel-container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 2rem 0.5rem; /* Added small bottom padding */
+            position: relative;
+        }
+
+        .emotion-wheel {
+            display: flex;
+            gap: 3rem;
+            position: relative;
+            justify-content: space-between;
+            align-items: stretch;
+            padding: 0 1rem;
+        }
+
+        .emotion-segment {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: visible;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .emotion-segment::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: currentColor;
+            opacity: 0.05;
+            transition: opacity 0.3s ease;
+            border-radius: 16px;
+        }
+
+        .emotion-segment:nth-child(1) { color: #FF6B6B; }
+        .emotion-segment:nth-child(2) { color: #4ECDC4; }
+        .emotion-segment:nth-child(3) { color: #45B7D1; }
+        .emotion-segment:nth-child(4) { color: #96CEB4; }
+
+        .emotion-segment:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .emotion-segment:hover::before {
+            opacity: 0.1;
+        }
+
+        .emotion-emoji {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            width: 72px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #FFE8E8;
+        }
+
+        .emotion-segment:nth-child(1) .emotion-emoji {
+            background: #FFE8E8;
+            color: #FF4B4B;
+        }
+
+        .emotion-segment:nth-child(2) .emotion-emoji {
+            background: #E8F4FF;
+            color: #4B8FFF;
+        }
+
+        .emotion-segment:nth-child(3) .emotion-emoji {
+            background: #FFF4E8;
+            color: #FF8F4B;
+        }
+
+        .emotion-segment:nth-child(4) .emotion-emoji {
+            background: #F0E8FF;
+            color: #8F4BFF;
+        }
+
+        .emotion-segment:hover .emotion-emoji {
+            transform: scale(1.1);
+        }
+
+        .emotion-segment:nth-child(1):hover .emotion-emoji {
+            background: #FFD8D8;
+        }
+
+        .emotion-segment:nth-child(2):hover .emotion-emoji {
+            background: #D8E8FF;
+        }
+
+        .emotion-segment:nth-child(3):hover .emotion-emoji {
+            background: #FFE8D8;
+        }
+
+        .emotion-segment:nth-child(4):hover .emotion-emoji {
+            background: #E8D8FF;
+        }
+
+        .emotion-label {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .emotion-quote {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.5;
+            font-style: italic;
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .emotion-segment:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .emotion-segment:hover .emotion-emoji {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 1200px) {
+            .emotion-wheel {
+                gap: 2rem;
+                padding: 0;
+            }
+
+            .emotion-segment {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .emotion-wheel {
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+            }
+
+            .emotion-segment {
+                flex: 0 1 calc(50% - 2rem);
+                min-width: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .emotion-wheel-container {
+                padding: 0 1rem;
+            }
+
+            .emotion-wheel {
+                gap: 1.5rem;
+            }
+
+            .emotion-segment {
+                flex: 0 1 100%;
+                max-width: 280px;
+            }
+        }
+
+        .wireframes-section {
+            background: #f8f9fa;
+            padding: 2.5rem 0 2.5rem 0;
+        }
+        .wireframes-intro {
+            font-size: 1.08rem;
+            color: var(--text-light, #555);
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .wireframes-scroll {
+            display: flex;
+            gap: 2.2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: #e0e0e0 #f8f9fa;
+            align-items: flex-start;
+        }
+        .wireframe-tile {
+            min-width: 340px;
+            max-width: 400px;
+            flex: 1 0 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: none;
+        }
+        .wireframe-img {
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(122,90,248,0.08);
+            margin-bottom: 0.7rem;
+            overflow: hidden;
+            position: relative;
+            transition: box-shadow 0.2s, transform 0.2s;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wireframe-img img {
+            width: 100%;
+            display: block;
+            filter: grayscale(0.2) contrast(1.05);
+            height: auto;
+            max-height: 340px;
+        }
+        .wireframe-caption {
+            width: 100%;
+            text-align: center;
+            margin-top: 0.7rem;
+            font-size: 0.98rem;
+            color: #666;
+            max-width: 340px;
+            min-width: 0;
+            flex: 1 0 340px;
+        }
+        .paper-bg {
+            background: repeating-linear-gradient(135deg, #fff, #fff 18px, #f3f3f3 20px, #fff 22px);
+            border: 1.5px solid #e0e0e0;
+        }
+        .sketch-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: url('https://www.transparenttextures.com/patterns/sketch.png');
+            opacity: 0.18;
+            mix-blend-mode: multiply;
+        }
+        @media (max-width: 900px) {
+            .wireframes-scroll, .wireframe-captions-row { gap: 1.2rem; }
+            .wireframe-tile, .wireframe-caption { min-width: 260px; max-width: 320px; }
+        }
+        @media (max-width: 600px) {
+            .wireframes-scroll, .wireframe-captions-row { gap: 0.7rem; }
+            .wireframe-tile, .wireframe-caption { min-width: 180px; max-width: 98vw; }
+            .wireframe-caption { font-size: 0.93rem; }
+        }
+
+        .wireframe-annotated { position: relative; }
+        .wf-label {
+            position: absolute;
+            font-family: 'Caveat', 'Indie Flower', cursive, sans-serif;
+            font-size: 1.15rem;
+            color: #444;
+            background: rgba(255,255,255,0.7);
+            padding: 0.1em 0.5em;
+            border-radius: 6px;
+            pointer-events: none;
+            box-shadow: 0 1px 4px rgba(122,90,248,0.04);
+            z-index: 2;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .wf-menu { top: 18px; left: 22px; }
+        .wf-kpi { top: 60px; left: 110px; }
+        .wf-reports { top: 120px; left: 60px; }
+        .wf-tasks { top: 180px; left: 180px; }
+        .wf-chart { top: 120px; right: 38px; }
+        .wf-user { bottom: 18px; right: 32px; }
+
+        .wireframe-tile:first-child .wireframe-img {
+            height: 340px;
+        }
+        .wireframe-tile:first-child .wireframe-img img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hifi-ui-section {
+            background: #fff;
+            padding: 2.5rem 0 2.5rem 0;
+        }
+        .hifi-full-image-block {
+            margin-bottom: 2.2rem;
+        }
+        .hifi-full-img-container {
+            width: 100%;
+            background: #f8f9fa;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(122,90,248,0.08);
+            overflow: hidden;
+        }
+        .hifi-full-img {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            transition: transform 0.25s;
+        }
+        .hifi-full-img-container:hover .hifi-full-img {
+            transform: scale(1.025);
+        }
+        .hifi-caption {
+            text-align: center;
+            color: #666;
+            font-size: 1.05rem;
+            margin-top: 0.7rem;
+        }
+        .hifi-zoomed-row {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hifi-zoomed-tile {
+            background: #f8f9fa;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(122,90,248,0.08);
+            padding: 1.1rem 1rem 1.2rem 1rem;
+            max-width: 340px;
+            min-width: 220px;
+            flex: 1 1 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .hifi-zoomed-img-container {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 0.7rem;
+            background: #fff;
+        }
+        .hifi-zoomed-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.08) contrast(1.08);
+            transition: transform 0.22s;
+            border-radius: 12px;
+        }
+        .hifi-zoomed-img-container:hover .hifi-zoomed-img {
+            transform: scale(1.06);
+        }
+        .hifi-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(122,90,248,0.08);
+            border: 2.5px solid rgba(122,90,248,0.18);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+        .hifi-zoomed-title {
+            font-weight: 700;
+            font-size: 1.08rem;
+            color: #222;
+            margin-bottom: 0.2rem;
+            text-align: center;
+        }
+        .hifi-zoomed-caption {
+            font-size: 0.98rem;
+            color: #666;
+            text-align: center;
+        }
+        .hifi-crop1 { object-position: 0% 0%; }
+        .hifi-crop2 { object-position: 60% 30%; }
+        .hifi-crop3 { object-position: 80% 80%; }
+        @media (max-width: 900px) {
+            .hifi-zoomed-row { gap: 1.1rem; }
+            .hifi-zoomed-tile { max-width: 98vw; }
+        }
+        @media (max-width: 600px) {
+            .hifi-zoomed-row { flex-direction: column; gap: 0.7rem; }
+            .hifi-zoomed-tile { max-width: 100vw; min-width: 0; }
         }
     </style>
 </head>
@@ -989,15 +1376,68 @@
 
     <section class="discovery-section">
         <div class="project-container">
-            <h2 class="section-label">Discovery & Ideation</h2>
+            <h2 class="section-label">Discover & Research</h2>
             <div class="discovery-intro fade-in-section">
-                To ground the design in user needs, I conducted interviews with stakeholders from procurement, operations, and finance. This phase helped identify usability gaps and opened up opportunities to streamline daily workflows across teams.
+                <p>I led the discovery, research, and ideation process to understand user needs and expectations. I conducted stakeholder interviews, distributed user surveys, and mapped emotional responses across teams in procurement, operations, and finance. These early insights revealed usability gaps, trust concerns, and workflow inefficiencies, which shaped the foundation of the design direction.</p>
             </div>
-            <div class="placeholder-board fade-in-section">
-                <i class="fas fa-image"></i>
-                <div class="placeholder-title">User Interview Notes – Sticky Board View</div>
-                <div class="placeholder-text">Insert interview board image here</div>
+            
+            <div class="sticky-grid fade-in-section">
+                <div class="sticky-note">
+                    <div class="sticky-question">Which areas of the dashboard do you rely on most?</div>
+                    <div class="sticky-insight">"The KPI card gives me a pulse check every morning. I wish I could rearrange or hide the ones not relevant to my role."</div>
+                    <div class="sticky-suggestion">→ Add customizable KPI modules.</div>
+                </div>
+                
+                <div class="sticky-note">
+                    <div class="sticky-question">Do you find any part of the dashboard confusing or hard to locate?</div>
+                    <div class="sticky-insight">"I wasn't sure at first where the RFP templates or pipeline analysis were. The links are there, but the titles could be more action-oriented."</div>
+                    <div class="sticky-suggestion">→ Use contextual link labels like 'Open Template' and add icons.</div>
+                </div>
+                
+                <div class="sticky-note">
+                    <div class="sticky-question">How does the workflow/task area help your daily work?</div>
+                    <div class="sticky-insight">"It's great to see tasks and systems linked — but a filter to see 'Overdue Only' would save me clicks."</div>
+                    <div class="sticky-suggestion">→ Add task filters and sorting features.</div>
+                </div>
+                
+                <div class="sticky-note">
+                    <div class="sticky-question">Has this dashboard improved your team collaboration?</div>
+                    <div class="sticky-insight">"The Yammer updates and reminders section are super helpful. It'd be even better if I could @tag someone in reminders."</div>
+                    <div class="sticky-suggestion">→ Enable @mentions in notes or reminders.</div>
+                </div>
             </div>
+
+            <div class="emotions-section fade-in-section">
+                <h3 class="emotions-title">What Users Felt</h3>
+                <div class="emotion-wheel-container">
+                    <div class="emotion-wheel">
+                        <div class="emotion-segment">
+                            <div class="emotion-emoji">😔</div>
+                            <div class="emotion-label">Intimidated</div>
+                            <div class="emotion-quote">"I won't know how to use the AI."</div>
+                        </div>
+                        
+                        <div class="emotion-segment">
+                            <div class="emotion-emoji">😟</div>
+                            <div class="emotion-label">Anxious</div>
+                            <div class="emotion-quote">"Sensitive files might be visible to the wrong people."</div>
+                        </div>
+                        
+                        <div class="emotion-segment">
+                            <div class="emotion-emoji">😐</div>
+                            <div class="emotion-label">Lost</div>
+                            <div class="emotion-quote">"Will I be able to navigate this new platform?"</div>
+                        </div>
+                        
+                        <div class="emotion-segment">
+                            <div class="emotion-emoji">🤔</div>
+                            <div class="emotion-label">Uncertain</div>
+                            <div class="emotion-quote">"Where do I even start or ask for help?"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="discovery-grid">
                 <div class="fade-in-section">
                     <h3>Research Focus Areas</h3>
@@ -1053,81 +1493,69 @@
         </div>
     </section>
 
-    <section class="moodboard-section">
+    <section class="wireframes-section">
         <div class="project-container">
-            <h2 class="section-label">Moodboard & Visual Direction</h2>
-            <div class="moodboard-intro fade-in-section">
-                <p>To align the visual tone and design consistency, I crafted a moodboard that reflects the themes of clarity, efficiency, and professionalism. These early visual explorations helped guide the color palette, iconography, and layout language for the control tower interface.</p>
+            <h2 class="section-label">Wireframes & Explorations</h2>
+            <div class="wireframes-intro">
+                Based on research insights and user needs across departments, I began exploring low-fidelity wireframes to validate structure, hierarchy, and modular layout options. These explorations focused on simplifying access to KPIs, workflows, and department-specific reports — all from a unified dashboard view.
             </div>
-            <div class="moodboard-grid fade-in-section">
-                <div class="moodboard-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?w=400&h=400&fit=crop" alt="Color Palette Example">
-                        <div class="card-overlay">
-                            <span>Color Palette</span>
-                        </div>
+            <div class="wireframes-scroll">
+                <div class="wireframe-tile">
+                    <div class="wireframe-img paper-bg sketch-overlay">
+                        <img src="./images/wireframe.svg" alt="Early dashboard wireframe" />
                     </div>
+                    <div class="wireframe-caption">Early layout sketch exploring dashboard hierarchy and modular structure.</div>
                 </div>
-                <div class="moodboard-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400&h=400&fit=crop" alt="Grid Layout Example">
-                        <div class="card-overlay">
-                            <span>Grid Layout</span>
-                        </div>
+                <div class="wireframe-tile">
+                    <div class="wireframe-img paper-bg sketch-overlay">
+                        <img src="./images/Control Tower - Reporting.svg" alt="Role-based data visibility exploration" />
                     </div>
+                    <div class="wireframe-caption">Role-based data visibility exploration</div>
                 </div>
-                <div class="moodboard-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=400&fit=crop" alt="Icon System Example">
-                        <div class="card-overlay">
-                            <span>Icon System</span>
-                        </div>
+                <div class="wireframe-tile">
+                    <div class="wireframe-img paper-bg sketch-overlay">
+                        <img src="./images/Control Tower - Support.svg" alt="Training & support materials for onboarding and ongoing help" />
                     </div>
-                </div>
-                <div class="moodboard-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=400&h=400&fit=crop" alt="Typography Example">
-                        <div class="card-overlay">
-                            <span>Typography</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="moodboard-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" alt="Components Example">
-                        <div class="card-overlay">
-                            <span>Components</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="moodboard-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=400&h=400&fit=crop" alt="Visual Style Example">
-                        <div class="card-overlay">
-                            <span>Visual Style</span>
-                        </div>
-                    </div>
+                    <div class="wireframe-caption">Training & support materials for onboarding and ongoing help</div>
                 </div>
             </div>
-            <div class="visual-elements fade-in-section">
-                <ul class="visual-list">
-                    <li>
-                        <span class="visual-icon">📐</span>
-                        <span class="visual-text">Clean grid structures</span>
-                    </li>
-                    <li>
-                        <span class="visual-icon">🎨</span>
-                        <span class="visual-text">Muted, enterprise-friendly colors</span>
-                    </li>
-                    <li>
-                        <span class="visual-icon">🔣</span>
-                        <span class="visual-text">Simplified icon language</span>
-                    </li>
-                    <li>
-                        <span class="visual-icon">✨</span>
-                        <span class="visual-text">Subtle accents to draw attention to key KPIs</span>
-                    </li>
-                </ul>
+        </div>
+    </section>
+
+    <section class="hifi-ui-section">
+        <div class="project-container">
+            <h2 class="section-label">High-Fidelity UI Design</h2>
+            <div class="hifi-full-image-block">
+                <div class="hifi-full-img-container">
+                    <img src="./images/ProcurementControlTower.svg" alt="Final Procurement Control Tower Dashboard – Full View" class="hifi-full-img" />
+                </div>
+                <div class="hifi-caption">Final Procurement Control Tower Dashboard – Full View</div>
+            </div>
+            <div class="hifi-zoomed-row">
+                <div class="hifi-zoomed-tile">
+                    <div class="hifi-zoomed-img-container">
+                        <img src="./images/ProcurementControlTower.svg" alt="Solving Data Overload" class="hifi-zoomed-img hifi-crop1" />
+                        <div class="hifi-img-overlay"></div>
+                    </div>
+                    <div class="hifi-zoomed-title">Solving Data Overload</div>
+                    <div class="hifi-zoomed-caption">Users can now pin KPIs relevant to their role to reduce cognitive load.</div>
+                </div>
+                <div class="hifi-zoomed-tile">
+                    <div class="hifi-zoomed-img-container">
+                        <img src="./images/ProcurementControlTower.svg" alt="Seamless Task Management" class="hifi-zoomed-img hifi-crop2" />
+                        <div class="hifi-img-overlay"></div>
+                    </div>
+                    <div class="hifi-zoomed-title">Seamless Task Management</div>
+                    <div class="hifi-zoomed-caption">Quick actions and filters help users manage procurement tasks efficiently.</div>
+                </div>
+                <div class="hifi-zoomed-tile">
+                    <div class="hifi-zoomed-img-container">
+                        <img src="./images/ProcurementControlTower.svg" alt="Role-Based Insights" class="hifi-zoomed-img hifi-crop3" />
+                        <div class="hifi-img-overlay"></div>
+                    </div>
+                    <div class="hifi-zoomed-title">Role-Based Insights</div>
+                    <div class="hifi-zoomed-caption">Each department sees tailored reports and analytics for their needs.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1153,7 +1581,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Update selector to include moodboard section elements
             const fadeElements = document.querySelectorAll(
-                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card'
+                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card, .interviews-intro, .sticky-grid, .sticky-note, .view-all-btn, .emotions-section, .emotion-item'
             );
             
             const observer = new IntersectionObserver((entries) => {
@@ -1164,7 +1592,7 @@
                             setTimeout(() => {
                                 entry.target.classList.add('is-visible');
                             }, delay);
-                        } else if (entry.target.matches('.discovery-list li, .visual-list li, .moodboard-card')) {
+                        } else if (entry.target.matches('.discovery-list li, .visual-list li, .moodboard-card, .sticky-note, .emotion-item')) {
                             // Add staggered delay for list items and cards
                             const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
                             setTimeout(() => {
@@ -1180,6 +1608,51 @@
             fadeElements.forEach(element => {
                 element.classList.add('fade-in-section');
                 observer.observe(element);
+            });
+
+            // Sticky note interactions
+            const stickyNotes = document.querySelectorAll('.sticky-note');
+            stickyNotes.forEach(note => {
+                note.addEventListener('click', () => {
+                    // Close any other expanded notes
+                    stickyNotes.forEach(otherNote => {
+                        if (otherNote !== note && otherNote.classList.contains('expanded')) {
+                            otherNote.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Toggle current note
+                    note.classList.toggle('expanded');
+                });
+            });
+
+            // Close expanded notes when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.sticky-note')) {
+                    stickyNotes.forEach(note => {
+                        note.classList.remove('expanded');
+                    });
+                }
+            });
+
+            const emotionSegments = document.querySelectorAll('.emotion-segment');
+            
+            emotionSegments.forEach(segment => {
+                segment.addEventListener('click', () => {
+                    // Remove active class from all segments
+                    emotionSegments.forEach(s => s.classList.remove('active'));
+                    // Add active class to clicked segment
+                    segment.classList.add('active');
+                });
+            });
+
+            // Close expanded segment when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.emotion-segment')) {
+                    emotionSegments.forEach(segment => {
+                        segment.classList.remove('active');
+                    });
+                }
             });
         });
     </script>
