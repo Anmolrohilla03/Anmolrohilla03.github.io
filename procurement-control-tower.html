@@ -13,7 +13,7 @@
 
         /* Project-specific styles */
         .project-header {
-            padding: 80px 0 30px;
+            padding: 2rem 0 1rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
@@ -138,11 +138,11 @@
 
         /* Intro Section Styles */
         .intro-section {
-            padding: 20px 0 30px;
+            padding: 1rem 0;
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: calc(100vh - 200px);
+            min-height: auto;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .intro-grid {
@@ -150,6 +150,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             align-items: center;
+            padding: 0;
         }
 
         .intro-content {
@@ -157,6 +158,10 @@
             transform: translateY(20px);
             animation: slideUpFade 0.8s ease-out forwards;
             padding-right: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
 
         .intro-text {
@@ -164,7 +169,13 @@
             line-height: 1.8;
             font-size: 1.1rem;
             max-width: 540px;
-            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .intro-text p {
+            margin: 0;
         }
 
         .intro-visual {
@@ -175,6 +186,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            height: 100%;
+            align-self: center;
         }
 
         .placeholder-visual {
@@ -210,6 +223,7 @@
             color: var(--text-light);
             font-size: 0.9rem;
             margin-top: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         /* Add scroll-based animation */
@@ -277,7 +291,7 @@
 
         /* Updated Project Snapshot Styles */
         .project-snapshot {
-            padding: 40px 0 80px;
+            padding: 4rem 0;
             background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
         }
 
@@ -396,7 +410,7 @@
 
         /* Minimal Team Section */
         .team-section {
-            padding: 3rem 0;
+            padding: 2rem 4rem;
             background: white;
         }
 
@@ -519,8 +533,7 @@
 
         /* Discovery Section Styles */
         .discovery-section {
-            padding: 2rem 0 0; /* Reduced bottom padding to 0 */
-            margin-bottom: 0; /* Remove bottom margin */
+            padding: 2rem 4rem;
         }
 
         .discovery-intro {
@@ -1002,7 +1015,7 @@
 
         .wireframes-section {
             background: #f8f9fa;
-            padding: 2.5rem 0 2.5rem 0;
+            padding: 2rem 4rem;
         }
         .wireframes-intro {
             font-size: 1.08rem;
@@ -1022,8 +1035,8 @@
         }
         .wireframe-tile {
             min-width: 340px;
-            max-width: 400px;
-            flex: 1 0 340px;
+            max-width: 340px;
+            flex: 0 0 340px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1031,6 +1044,9 @@
         }
         .wireframe-img {
             width: 100%;
+            height: auto;
+            min-height: 200px;
+            max-height: 340px;
             border-radius: 18px;
             box-shadow: 0 2px 12px rgba(122,90,248,0.08);
             margin-bottom: 0.7rem;
@@ -1039,25 +1055,29 @@
             transition: box-shadow 0.2s, transform 0.2s;
             background: #fff;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
         .wireframe-img img {
             width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
             display: block;
             filter: grayscale(0.2) contrast(1.05);
-            height: auto;
-            max-height: 340px;
+            padding: 1rem;
         }
         .wireframe-caption {
             width: 100%;
             text-align: center;
-            margin-top: 0.7rem;
-            font-size: 0.98rem;
+            padding: 0.5rem;
+            font-size: 0.9rem;
             color: #666;
-            max-width: 340px;
-            min-width: 0;
-            flex: 1 0 340px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            position: relative;
+            bottom: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
         .paper-bg {
             background: repeating-linear-gradient(135deg, #fff, #fff 18px, #f3f3f3 20px, #fff 22px);
@@ -1105,11 +1125,14 @@
         .wf-user { bottom: 18px; right: 32px; }
 
         .wireframe-tile:first-child .wireframe-img {
-            height: 340px;
+            height: auto;
+            max-height: none;
         }
+
         .wireframe-tile:first-child .wireframe-img img {
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
+            max-height: none;
         }
 
         .section-subtitle {
@@ -1121,7 +1144,7 @@
 
         /* High-Fidelity UI Section */
         .hifi-section {
-            padding: 4rem 0;
+            padding: 2rem 4rem;
             background: #fff;
         }
 
@@ -1297,8 +1320,8 @@
 
         /* Onboarding Section Styles */
         .onboarding-section {
-            padding: 6rem 0;
-            background: #fff;
+            padding: 2rem 4rem;
+            background: #f8f9fa;
         }
 
         .onboarding-layout {
@@ -1376,7 +1399,7 @@
 
         /* Support Section Styles */
         .support-section {
-            padding: 6rem 0;
+            padding: 2rem 4rem;
             background: #fff;
         }
 
@@ -1414,8 +1437,8 @@
 
         /* Design Critique Section Styles */
         .critique-section {
-            padding: 6rem 0;
-            background: #fff;
+            padding: 2rem 4rem;
+            background: #f8f9fa;
         }
 
         .critique-layout {
@@ -1635,7 +1658,7 @@
         }
 
         .learnings-section {
-            padding: 6rem 0;
+            padding: 2rem 4rem;
             background: #fff;
         }
 
@@ -1714,8 +1737,8 @@
             padding: 12px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             position: relative;
-            transform: scale(0.65); /* 65% aspect ratio */
-            transform-origin: top center;
+            transform: scale(0.95);
+            transform-origin: center;
         }
 
         .imac-screen {
@@ -1821,24 +1844,19 @@
     <section class="intro-section">
         <div class="project-container">
             <div class="intro-grid">
-                <div class="intro-content">
+                <div class="intro-content fade-in-section is-visible">
                     <div class="intro-text">
                         <p>I designed a <span class="sketch-highlight">centralized control tower</span> to unify procurement operations across internal teams — bringing together <span class="sketch-highlight">KPI dashboards</span>, task tracking, training materials, and reporting tools into a single, scalable interface. This platform was tailored to support collaboration within the procurement department, simplify daily workflows, and increase <span class="sketch-highlight">leadership visibility</span> across the procurement pipeline.</p>
                     </div>
                 </div>
                 
-                <div class="intro-visual">
+                <div class="intro-visual fade-in-section is-visible">
                     <div class="imac-mockup">
                         <div class="imac-frame">
                             <div class="imac-screen">
-                                <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard" />
+                                <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard">
                             </div>
-                        </div>
-                        <div class="imac-stand">
-                            <div class="imac-stand-neck"></div>
-                            <div class="imac-stand-base"></div>
-                        </div>
-                    </div>
+                       
                     <p class="visual-caption">Pycube Procurement Control Tower – Landing View</p>
                 </div>
             </div>
@@ -2036,59 +2054,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="discovery-grid">
-                <div class="fade-in-section">
-                    <h3>Research Focus Areas</h3>
-                    <ul class="discovery-list">
-                        <li>
-                            <span class="discovery-icon">🎯</span>
-                            <span class="discovery-text">Understanding business goals and roles</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">🧭</span>
-                            <span class="discovery-text">Mapping current user flows and common tasks</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">⚠️</span>
-                            <span class="discovery-text">Spotting friction points and inefficiencies</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">🔍</span>
-                            <span class="discovery-text">Auditing underused vs. valuable features</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">💡</span>
-                            <span class="discovery-text">Collecting future-focused feature ideas</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fade-in-section">
-                    <h3>Top User Needs Identified</h3>
-                    <ul class="discovery-list">
-                        <li>
-                            <span class="discovery-icon">✅</span>
-                            <span class="discovery-text">Task management that's flexible and clear</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">📁</span>
-                            <span class="discovery-text">Structured document access</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">📰</span>
-                            <span class="discovery-text">Procurement-specific news and updates</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">🤖</span>
-                            <span class="discovery-text">AI-powered insights to boost decision-making</span>
-                        </li>
-                        <li>
-                            <span class="discovery-icon">🎓</span>
-                            <span class="discovery-text">In-app training modules for new users</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2102,20 +2067,20 @@
                 <div class="wireframe-tile">
                     <div class="wireframe-img paper-bg sketch-overlay">
                         <img src="./images/wireframe.svg" alt="Early dashboard wireframe" />
+                        <p class="wireframe-caption">Early layout sketch exploring dashboard hierarchy and modular structure.</p>
                     </div>
-                    <div class="wireframe-caption">Early layout sketch exploring dashboard hierarchy and modular structure.</div>
                 </div>
                 <div class="wireframe-tile">
                     <div class="wireframe-img paper-bg sketch-overlay">
                         <img src="./images/Control Tower - Reporting.svg" alt="Role-based data visibility exploration" />
+                        <p class="wireframe-caption">Role-based data visibility exploration</p>
                     </div>
-                    <div class="wireframe-caption">Role-based data visibility exploration</div>
                 </div>
                 <div class="wireframe-tile">
                     <div class="wireframe-img paper-bg sketch-overlay">
                         <img src="./images/Control Tower - Support.svg" alt="Training & support materials for onboarding and ongoing help" />
+                        <p class="wireframe-caption">Training & support materials for onboarding and ongoing help</p>
                     </div>
-                    <div class="wireframe-caption">Training & support materials for onboarding and ongoing help</div>
                 </div>
             </div>
         </div>
