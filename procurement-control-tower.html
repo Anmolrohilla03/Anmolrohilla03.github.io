@@ -138,7 +138,7 @@
 
         /* Intro Section Styles */
         .intro-section {
-            padding: 1rem 0;
+            padding: 4rem 0 2rem; /* Adjusted padding */
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
             min-height: auto;
             display: flex;
@@ -149,7 +149,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            align-items: center;
+            align-items: flex-start; /* Changed from center to flex-start */
             padding: 0;
         }
 
@@ -159,8 +159,8 @@
             animation: slideUpFade 0.8s ease-out forwards;
             padding-right: 2rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start; /* Changed from center to flex-start */
+            justify-content: flex-start; /* Changed from center to flex-start */
             height: 100%;
         }
 
@@ -185,9 +185,13 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Changed from center to flex-start */
             height: 100%;
-            align-self: center;
+            align-self: flex-start; /* Changed from center to flex-start */
+            margin: 0 auto;
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden; /* Add this to prevent overflow */
         }
 
         .placeholder-visual {
@@ -1031,7 +1035,7 @@
             padding-bottom: 0.5rem;
             scrollbar-width: thin;
             scrollbar-color: #e0e0e0 #f8f9fa;
-            align-items: flex-start;
+            align-items: stretch; /* Make all items stretch to same height */
         }
         .wireframe-tile {
             min-width: 340px;
@@ -1041,12 +1045,11 @@
             flex-direction: column;
             align-items: center;
             background: none;
+            height: 100%; /* Ensure full height */
         }
         .wireframe-img {
             width: 100%;
-            height: auto;
-            min-height: 200px;
-            max-height: 340px;
+            height: 450px; /* Set fixed height */
             border-radius: 18px;
             box-shadow: 0 2px 12px rgba(122,90,248,0.08);
             margin-bottom: 0.7rem;
@@ -1060,12 +1063,18 @@
         }
         .wireframe-img img {
             width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: contain;
+            height: 100%;
+            object-fit: contain; /* Maintain aspect ratio while filling container */
             display: block;
             filter: grayscale(0.2) contrast(1.05);
             padding: 1rem;
+        }
+        
+        /* Remove any specific overrides that might affect first tile */
+        .wireframe-tile:first-child .wireframe-img,
+        .wireframe-tile:first-child .wireframe-img img {
+            height: 100%;
+            max-height: none;
         }
         .wireframe-caption {
             width: 100%;
@@ -1816,12 +1825,166 @@
                 width: 80px;
             }
         }
+
+        /* Add these styles for MacBook mockup */
+        .macbook-mockup {
+            width: 100%;
+            max-width: 900px;
+            margin: 0;
+            position: relative;
+        }
+
+        .macbook-screen {
+            background: #252525;
+            border-radius: 16px 16px 0 0;
+            padding: 16px 16px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .macbook-frame {
+            background: #fff;
+            aspect-ratio: 16/10;
+            border-radius: 4px 4px 0 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .macbook-frame img {
+            width: 100%;
+            height: 120%; /* Increase height to show more content */
+            object-fit: cover;
+            object-position: top; /* Align to top of image */
+            display: block;
+            transform-origin: top;
+        }
+
+        .macbook-base {
+            background: linear-gradient(to bottom, #252525, #444444);
+            height: 12px;
+            margin: 0 auto;
+            border-radius: 0 0 12px 12px;
+            position: relative;
+        }
+
+        .macbook-bottom {
+            background: #252525;
+            height: 4px;
+            width: 120px;
+            margin: 0 auto;
+            border-radius: 0 0 6px 6px;
+        }
+
+        /* Update existing styles */
+        .intro-visual {
+            margin: 0 auto;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .visual-caption {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .menu {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 400;
+            position: relative;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .menu a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo">AR</div>
+            <a href="index.html" class="logo">AR</a>
             <div class="menu">
                 <a href="index.html#work">Work</a>
                 <a href="about.html">About</a>
@@ -1851,13 +2014,17 @@
                 </div>
                 
                 <div class="intro-visual fade-in-section is-visible">
-                    <div class="imac-mockup">
-                        <div class="imac-frame">
-                            <div class="imac-screen">
+                    <div class="macbook-mockup">
+                        <div class="macbook-screen">
+                            <div class="macbook-frame">
                                 <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard">
                             </div>
-                       
-                    <p class="visual-caption">Pycube Procurement Control Tower – Landing View</p>
+                        </div>
+                        <div class="macbook-base">
+                            <div class="macbook-bottom"></div>
+                        </div>
+                    </div>
+                    <p class="visual-caption">Procurement Control Tower - Landing Page</p>
                 </div>
             </div>
         </div>
@@ -2072,13 +2239,13 @@
                 </div>
                 <div class="wireframe-tile">
                     <div class="wireframe-img paper-bg sketch-overlay">
-                        <img src="./images/Control Tower - Reporting.svg" alt="Role-based data visibility exploration" />
+                        <img src="./images/Reporting Low-fi.svg" alt="Role-based data visibility exploration" />
                         <p class="wireframe-caption">Role-based data visibility exploration</p>
                     </div>
                 </div>
                 <div class="wireframe-tile">
                     <div class="wireframe-img paper-bg sketch-overlay">
-                        <img src="./images/Control Tower - Support.svg" alt="Training & support materials for onboarding and ongoing help" />
+                        <img src="./images/Support Low-fi.svg" alt="Training & support materials for onboarding and ongoing help" />
                         <p class="wireframe-caption">Training & support materials for onboarding and ongoing help</p>
                     </div>
                 </div>
