@@ -1246,4 +1246,25 @@
     .tile-icon {
         margin-bottom: 1rem;
     }
+}
+
+.dashboard-preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8f9fa;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-preview:hover .dashboard-video {
+    transform: scale(1.02);
 } 

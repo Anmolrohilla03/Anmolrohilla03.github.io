@@ -236,10 +236,10 @@
                     <!-- Right Column -->
                     <div class="visual-column">
                         <div class="dashboard-preview">
-                            <div class="preview-placeholder">
-                                <img src="images/Financial%20Datahub.svg" alt="Finance Datahub Dashboard Mockup" />
-                            </div>
-                            <p class="preview-caption">High-level view of the Finance Datahub components explained below.</p>
+                            <video class="dashboard-video" muted loop playsinline>
+                                <source src="Videos/db.mov" type="video/quicktime">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
@@ -1408,6 +1408,24 @@
                 // Add your lightbox/modal implementation here
                 console.log('Opening dashboard preview...');
             }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dashboardVideo = document.querySelector('.dashboard-video');
+            
+            if (dashboardVideo) {
+                // Start loading the video
+                dashboardVideo.load();
+                
+                // Play/pause on hover
+                dashboardVideo.closest('.dashboard-preview').addEventListener('mouseenter', () => {
+                    dashboardVideo.play();
+                });
+                
+                dashboardVideo.closest('.dashboard-preview').addEventListener('mouseleave', () => {
+                    dashboardVideo.pause();
+                });
+            }
+        });
     </script>
     </main>
 
