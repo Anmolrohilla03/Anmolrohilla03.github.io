@@ -250,10 +250,18 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .read-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .read-card:hover .read-image img {
+            transform: scale(1.05);
         }
 
         .read-image {
@@ -266,7 +274,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.3s ease;
         }
 
         .read-content {
@@ -276,6 +284,11 @@
         .read-content h3 {
             margin-bottom: 1rem;
             color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .read-card:hover .read-content h3 {
+            color: var(--accent-color);
         }
 
         .read-content p {
@@ -298,19 +311,27 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            height: 300px;
+            height: 400px;
         }
 
         .hobby-image {
             width: 100%;
             height: 100%;
+            position: relative;
+            overflow: hidden;
         }
 
         .hobby-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 30%;
             transition: var(--transition);
+            transform: scale(1.05); /* Default slight zoom */
+        }
+
+        .hobby-card:hover .hobby-image img {
+            transform: scale(1.1); /* Increased hover zoom */
         }
 
         .hobby-title {
@@ -398,13 +419,6 @@
         </div>
     </nav>
 
-    <header class="page-header">
-        <div class="section-container">
-            <h1>About Me</h1>
-            <p class="page-description">Learn more about my journey, skills, and interests</p>
-        </div>
-    </header>
-
     <section class="about-section">
         <div class="section-container">
             <div class="about-content">
@@ -434,23 +448,23 @@
                     <h3>Figma</h3>
                 </div>
                 <div class="tool-item">
-                    <img src="images/sketch-logo.png" alt="Sketch" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Sketch'">
-                    <h3>Sketch</h3>
-                </div>
-                <div class="tool-item">
-                    <img src="images/adobe-xd.png" alt="Adobe XD" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Adobe+XD'">
-                    <h3>Adobe XD</h3>
-                </div>
-                <div class="tool-item">
-                    <img src="images/photoshop.png" alt="Photoshop" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Photoshop'">
+                    <img src="images/adobe-ps-logo.jpeg" alt="Photoshop" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Photoshop'">
                     <h3>Photoshop</h3>
                 </div>
                 <div class="tool-item">
-                    <img src="images/illustrator.png" alt="Illustrator" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Illustrator'">
+                    <img src="images/adobe-logo.png" alt="Adobe XD" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Adobe+XD'">
+                    <h3>Adobe XD</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/adobe-ai-logo.png" alt="Illustrator" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Illustrator'">
                     <h3>Illustrator</h3>
                 </div>
                 <div class="tool-item">
-                    <img src="images/pendo.png" alt="Pendo" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Pendo'">
+                    <img src="images/canva-logo.jpeg" alt="Canva" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Canva'">
+                    <h3>Canva</h3>
+                </div>
+                <div class="tool-item">
+                    <img src="images/pendo-logo.jpeg" alt="Pendo" class="tool-logo" onerror="this.src='https://via.placeholder.com/80x80?text=Pendo'">
                     <h3>Pendo</h3>
                 </div>
             </div>
@@ -461,33 +475,33 @@
         <div class="section-container">
             <h2 class="section-title">Favorite Reads</h2>
             <div class="reads-grid">
-                <div class="read-card">
+                <a href="https://www.smashingmagazine.com/category/emotional-design/" class="read-card" target="_blank" rel="noopener noreferrer">
                     <div class="read-image">
-                        <img src="images/emotional-design.jpg" alt="Emotional Design" onerror="this.src='https://via.placeholder.com/400x200?text=Emotional+Design'">
+                        <img src="images/emotional-about-card.png" alt="Emotional Design" onerror="this.src='https://via.placeholder.com/400x200?text=Emotional+Design'" loading="lazy">
                     </div>
                     <div class="read-content">
                         <h3>Emotional Design</h3>
                         <p>This article dives into the emotional side of design and how UX can go beyond functionality to create meaningful, emotionally engaging experiences.</p>
                     </div>
-                </div>
-                <div class="read-card">
+                </a>
+                <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" class="read-card" target="_blank" rel="noopener noreferrer">
                     <div class="read-image">
-                        <img src="images/usability-heuristics.jpg" alt="Usability Heuristics" onerror="this.src='https://via.placeholder.com/400x200?text=Usability+Heuristics'">
+                        <img src="images/heuristsics-about-card.png" alt="Usability Heuristics" onerror="this.src='https://via.placeholder.com/400x200?text=Usability+Heuristics'" loading="lazy">
                     </div>
                     <div class="read-content">
                         <h3>10 Usability Heuristics for User Interface Design</h3>
                         <p>Nielsen Norman Group is one of the leading voices in UX research. This article outlines Heuristics for UI.</p>
                     </div>
-                </div>
-                <div class="read-card">
+                </a>
+                <a href="https://uxdesign.cc/even-before-we-understood-the-meaning-of-the-word-interaction-we-were-already-using-it-in-its-c95dd88e0864?gi=1d5b72ea2dc1" class="read-card" target="_blank" rel="noopener noreferrer">
                     <div class="read-image">
-                        <img src="images/microinteractions.jpg" alt="Microinteractions" onerror="this.src='https://via.placeholder.com/400x200?text=Microinteractions'">
+                        <img src="images/3rd-card-about.png" alt="Microinteractions" onerror="this.src='https://via.placeholder.com/400x200?text=Microinteractions'" loading="lazy">
                     </div>
                     <div class="read-content">
                         <h3>The Power of Microinteractions in UX Design</h3>
                         <p>Microinteractions are small but powerful tools that enhance user experience by offering feedback, guidance, and delight. This article explains how to incorporate them effectively in UI design.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -498,19 +512,19 @@
             <div class="hobbies-grid">
                 <div class="hobby-card">
                     <div class="hobby-image">
-                        <img src="images/gaming.jpg" alt="Gaming" onerror="this.src='https://via.placeholder.com/400x300?text=Gaming'">
+                        <img src="images/gaming.png" alt="Gaming" onerror="this.src='https://via.placeholder.com/400x300?text=Gaming'">
                     </div>
                     <div class="hobby-title">Gaming</div>
                 </div>
                 <div class="hobby-card">
                     <div class="hobby-image">
-                        <img src="images/dancing.jpg" alt="Dancing" onerror="this.src='https://via.placeholder.com/400x300?text=Dancing'">
+                        <img src="images/dancing.png" alt="Dancing" onerror="this.src='https://via.placeholder.com/400x300?text=Dancing'">
                     </div>
                     <div class="hobby-title">Dancing</div>
                 </div>
                 <div class="hobby-card">
                     <div class="hobby-image">
-                        <img src="images/painting.jpg" alt="Painting" onerror="this.src='https://via.placeholder.com/400x300?text=Painting'">
+                        <img src="images/painting.png" alt="Painting" onerror="this.src='https://via.placeholder.com/400x300?text=Painting'">
                     </div>
                     <div class="hobby-title">Painting</div>
                 </div>
