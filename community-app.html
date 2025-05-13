@@ -143,16 +143,19 @@
 
         .phone-frame {
             width: 100%;
-            max-width: 340px;
-            aspect-ratio: 9/19;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 40px;
-            padding: 12px;
+            max-width: 360px;
+            aspect-ratio: 9/19.6;
+            background: linear-gradient(145deg, #2A2A2A, #1A1A1A);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 60px;
+            padding: 14px;
             position: relative;
             transform: translateZ(0);
             transition: transform 0.3s ease-out;
-            box-shadow: var(--card-shadow);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
 
         .phone-frame::before {
@@ -160,8 +163,8 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.08) 0%,
+                145deg,
+                rgba(255, 255, 255, 0.1) 0%,
                 transparent 50%,
                 rgba(0, 0, 0, 0.2) 100%
             );
@@ -169,57 +172,67 @@
             z-index: 1;
         }
 
-        .phone-frame::after {
-            content: '';
-            position: absolute;
-            bottom: -60%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120%;
-            height: 100%;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(0, 0, 0, 0.4) 0%,
-                transparent 70%
-            );
-            filter: blur(20px);
-            z-index: -1;
-        }
-
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: #181A20;
-            border-radius: 32px;
+            background: #000;
+            border-radius: 50px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
             position: relative;
-            box-shadow: 0 0 0 1px #E5E7EB, inset 0 0 30px rgba(0,0,0,0.04);
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
             color: #F3F4F6;
         }
 
-        /* iOS Status Bar */
+        .dynamic-island {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 45px;
+            background: #000;
+            border-radius: 24px;
+            z-index: 11;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dynamic-island-camera {
+            width: 14px;
+            height: 14px;
+            background: #1A1A1A;
+            border-radius: 50%;
+            border: 2px solid #2A2A2A;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .dynamic-island-sensor {
+            width: 10px;
+            height: 10px;
+            background: #1A1A1A;
+            border-radius: 50%;
+            border: 2px solid #2A2A2A;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
         .status-bar {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 44px;
-            padding: 0 16px;
+            height: 54px;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: var(--text-primary);
+            color: #fff;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            background: #181A20;
+            background: transparent;
             z-index: 10;
-            border-bottom: 1px solid var(--border-color);
         }
 
         .status-bar-left {
@@ -236,12 +249,45 @@
 
         .status-bar-time {
             font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
         }
 
         .status-bar-icons {
             display: flex;
             align-items: center;
             gap: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+        }
+
+        .app-content {
+            width: 100%;
+            height: 100%;
+            padding-top: 44px;
+            background: #000;
+        }
+
+        @media (max-width: 968px) {
+            .phone-frame {
+                max-width: 300px;
+                border-radius: 45px;
+            }
+            .phone-screen {
+                border-radius: 38px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .phone-frame {
+                max-width: 260px;
+                border-radius: 40px;
+            }
+            .phone-screen {
+                border-radius: 34px;
+            }
+            .dynamic-island {
+                width: 110px;
+                height: 32px;
+            }
         }
 
         /* Login Screen Content */
@@ -428,19 +474,6 @@
             background: #23242A;
             border-radius: 3px;
             animation: fadeInUp 0.6s ease-out 0.8s both;
-        }
-
-        /* Dynamic Island */
-        .dynamic-island {
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 126px;
-            height: 37px;
-            background: #23242A;
-            border-radius: 20px;
-            z-index: 11;
         }
 
         .hero-content {
@@ -2576,17 +2609,36 @@
         <div class="location-pin"></div>
         <div class="location-pin"></div>
         <div class="hero-container">
-            <div class="hero-image-placeholder">
-                <div class="placeholder-icon">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#A0AEC0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 17l6-6a2 2 0 0 1 2.8 0l7.2 7"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
+            <div class="phone-container">
+                <div class="phone-frame">
+                    <div class="dynamic-island">
+                        <div class="dynamic-island-camera"></div>
+                        <div class="dynamic-island-sensor"></div>
+                    </div>
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <div class="status-bar-left">
+                                <span class="status-bar-time">9:41</span>
+                            </div>
+                            <div class="status-bar-right">
+                                <div class="status-bar-icons">
+                                    <i class="fas fa-signal" style="font-size: 0.8rem;"></i>
+                                    <i class="fas fa-wifi" style="font-size: 0.8rem;"></i>
+                                    <i class="fas fa-battery-full" style="font-size: 0.8rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-content">
+                            <img src="images/Home.svg" alt="Community Help App Home Screen" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                    </div>
                 </div>
-                <div class="placeholder-text">App Preview</div>
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">Community Help</h1>
                 <p class="hero-description">Community Help is an iOS application built for our community in aspects of safety and health. A lot of us live independently and with that comes safety. Community Help is an app which considers any medical or safety conditions which need immediate attention.</p>
-                </div>
-                </div>
+            </div>
+        </div>
     </section>
     <section class="features-section">
         <div class="features-container">

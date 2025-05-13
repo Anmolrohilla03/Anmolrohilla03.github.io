@@ -237,8 +237,8 @@
                     <div class="visual-column">
                         <div class="dashboard-preview">
                             <div class="preview-placeholder">
-                                <span class="placeholder-text">Finance Dashboard Overview – Replace with mockup later</span>
-            </div>
+                                <img src="images/Financial%20Datahub.svg" alt="Finance Datahub Dashboard Mockup" />
+                            </div>
                             <p class="preview-caption">High-level view of the Finance Datahub components explained below.</p>
                         </div>
                     </div>
@@ -370,8 +370,8 @@
                                         <span></span>
                                     </div>
                                 </div>
-                                <div class="frame-content">
-                                    <img src="images/hospital-dashboard.jpg" alt="Hospital Admin Dashboard" class="dashboard-image">
+                                <div>
+                                    <img src="images/hospital.svg" alt="Hospital Admin Dashboard" class="dashboard-image">
                                     <!-- Animated Highlights -->
                                     <div class="highlight-dot" style="top: 30%; left: 25%;" data-tooltip="Hospital Performance Trends">
                                         <div class="pulse"></div>
@@ -629,26 +629,30 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 100%;
-                min-height: 500px;
+                width: 100%;
+                height: 800px;
                 position: relative;
-                top: 0;
             }
 
             .preview-placeholder {
                 background: #e2e8f0;
                 border-radius: 12px;
-                width: 600px;
-                height: 600px;
-                aspect-ratio: 1 / 1;
-                max-width: 100%;
+                width: 100%;
+                height: 100%;
                 position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 overflow: hidden;
-                margin-top: auto;
-                margin-bottom: auto;
+            }
+
+            .preview-placeholder img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 10px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+                background: #f8f9fa;
             }
 
             .preview-caption {
