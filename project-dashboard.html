@@ -16,11 +16,13 @@
 <!-- Rest of your content -->
 <!-- ... (all the sections we created) ... -->
 
-    <nav class="navbar">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">AR</a>
-            <div class="nav-links">
-                <a href="index.html">Back to Portfolio</a>
+            <a href="index.html" class="logo">AR</a>
+            <div class="menu">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -235,162 +237,93 @@
 
                     <!-- Right Column -->
                     <div class="visual-column">
-                        <div class="dashboard-preview">
-                            <video class="dashboard-video" muted loop playsinline>
-                                <source src="Videos/db.mov" type="video/quicktime">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dashboard Breakdown Section -->
-                <div class="dashboard-breakdown">
-                    <h2 class="breakdown-title">Dashboard Components</h2>
-                    
-                    <div class="breakdown-grid">
-                        <div class="breakdown-card">
-                            <div class="card-image">
-                                <span class="placeholder-text">Score Tile UI</span>
-            </div>
-                            <h3 class="card-title">Metric Tile UI</h3>
-                            <p class="card-caption">Live KPI cards for sample counts, missing metrics, and SLA breaches</p>
-                        </div>
-
-                        <div class="breakdown-card">
-                            <div class="card-image">
-                                <span class="placeholder-text">Incident Tracker</span>
-            </div>
-                            <h3 class="card-title">Escalation Panel</h3>
-                            <p class="card-caption">Delayed sample tagging + last known location view</p>
-                        </div>
-
-                        <div class="breakdown-card">
-                            <div class="card-image">
-                                <span class="placeholder-text">AI Insight Bot</span>
-                            </div>
-                            <h3 class="card-title">Forecast Assistant</h3>
-                            <p class="card-caption">AI chatbot widget for answering finance queries</p>
-                        </div>
-
-                        <div class="breakdown-card">
-                            <div class="card-image">
-                                <span class="placeholder-text">Trend Analytics</span>
-                            </div>
-                            <h3 class="card-title">Drilldown Graphs</h3>
-                            <p class="card-caption">Trends, alerts, and root cause visualizations</p>
-                        </div>
-
-                        <div class="breakdown-card">
-                            <div class="card-image">
-                                <span class="placeholder-text">Workflow View</span>
-                            </div>
-                            <h3 class="card-title">Task Stream View</h3>
-                            <p class="card-caption">Active issues and team workload visualizations</p>
-                        </div>
+                        <img src="images/Financial Datahub.svg" alt="Finance Datahub Dashboard" class="dashboard-image">
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Add the Hospital Dashboard section here -->
-            <section class="hospital-dashboard">
-                <div class="viewport overview-viewport">
-                    <div class="viewport-grid">
-                        <!-- Left Column -->
-                        <div class="content-column">
-                            <h2 class="section-title">Simplifying Hospital Oversight: A Unified Admin Dashboard</h2>
-                            
-                            <div class="intro-text">
-                                <p>
-                                    Hospital administrators often struggle with fragmented tools and disconnected data. I designed this dashboard to bring critical hospital operations into one centralized view, helping admins make faster, smarter decisions.
-                                </p>
-                                <p>
-                                    This dashboard combines metrics from all key navigation tabs—like 
-                                    <span class="chip chip-violet">Hospital Management</span>, 
-                                    <span class="chip chip-violet">Security</span>, 
-                                    <span class="chip chip-violet">RFID Infrastructure</span>, and 
-                                    <span class="chip chip-violet">System Analytics</span>
-                                    —into one seamless interface.
-                                </p>
-                            </div>
+        <!-- Add the Hospital Dashboard section here -->
+        <section class="hospital-dashboard">
+            <div class="viewport overview-viewport">
+                <div class="viewport-grid">
+                    <!-- Left Column -->
+                    <div class="content-column">
+                        <h2 class="section-title">Simplifying Hospital Oversight: A Unified Admin Dashboard</h2>
+                        
+                        <div class="intro-text">
+                            <p>
+                                Hospital administrators often struggle with fragmented tools and disconnected data. I designed this dashboard to bring critical hospital operations into one centralized view, helping admins make faster, smarter decisions.
+                            </p>
+                            <p>
+                                This dashboard combines metrics from all key navigation tabs—like 
+                                <span class="chip chip-violet">Hospital Management</span>, 
+                                <span class="chip chip-violet">Security</span>, 
+                                <span class="chip chip-violet">RFID Infrastructure</span>, and 
+                                <span class="chip chip-violet">System Analytics</span>
+                                —into one seamless interface.
+                            </p>
+                        </div>
 
-                            <div class="process-block">
-                                <h3>What I Did</h3>
-                                <ul class="process-list">
-                                    <li>Conducted stakeholder interviews with hospital admins</li>
-                                    <li>Identified key KPIs from across 7 core admin functions</li>
-                                    <li>Designed a dashboard layout that surfaces the most important info in a single view</li>
-                                    <li>Focused on clarity, speed of understanding, and visual prioritization</li>
-                                    <li>Built using Pycube's design system to maintain accessibility and consistency</li>
+                        <div class="process-block">
+                            <h3>What I Did</h3>
+                            <ul class="process-list">
+                                <li>Conducted stakeholder interviews with hospital admins</li>
+                                <li>Identified key KPIs from across 7 core admin functions</li>
+                                <li>Designed a dashboard layout that surfaces the most important info in a single view</li>
+                                <li>Focused on clarity, speed of understanding, and visual prioritization</li>
+                                <li>Built using Pycube's design system to maintain accessibility and consistency</li>
                 </ul>
-                            </div>
-
-                            <div class="metrics-block">
-                                <h3>Highlighted Metrics</h3>
-                                <div class="metrics-grid">
-                                    <div class="metric-item">
-                                        <span class="metric-icon">📈</span>
-                                        <span>Hospital performance trends</span>
-                                    </div>
-                                    <div class="metric-item">
-                                        <span class="metric-icon">⚠️</span>
-                                        <span>Compliance violation rate</span>
-                                    </div>
-                                    <div class="metric-item">
-                                        <span class="metric-icon">🔧</span>
-                                        <span>RFID hardware status</span>
-                                    </div>
-                                    <div class="metric-item">
-                                        <span class="metric-icon">🚫</span>
-                                        <span>Unauthorized access attempts</span>
-                                    </div>
-                                    <div class="metric-item">
-                                        <span class="metric-icon">⚡</span>
-                                        <span>System performance</span>
-                                    </div>
-                                    <div class="metric-item">
-                                        <span class="metric-icon">🎫</span>
-                                        <span>Ticket resolution speed</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button class="cta-button" onclick="openDashboardPreview()">
-                                🔍 View Interactive Dashboard
-                            </button>
                         </div>
 
-                        <!-- Right Column -->
-                        <div class="visual-column">
-                            <div class="dashboard-frame">
-                                <div class="frame-header">
-                                    <div class="frame-dots">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
+                        <div class="metrics-block">
+                            <h3>Highlighted Metrics</h3>
+                            <div class="metrics-grid">
+                                <div class="metric-item">
+                                    <span class="metric-icon">📈</span>
+                                    <span>Hospital performance trends</span>
                                 </div>
-                                <div>
-                                    <img src="images/hospital.svg" alt="Hospital Admin Dashboard" class="dashboard-image">
-                                    <!-- Animated Highlights -->
-                                    <div class="highlight-dot" style="top: 30%; left: 25%;" data-tooltip="Hospital Performance Trends">
-                                        <div class="pulse"></div>
-                                    </div>
-                                    <div class="highlight-dot" style="top: 45%; left: 70%;" data-tooltip="RFID Status Overview">
-                                        <div class="pulse"></div>
-                                    </div>
-                                    <div class="highlight-dot" style="top: 60%; left: 40%;" data-tooltip="Compliance Metrics">
-                                        <div class="pulse"></div>
-                                    </div>
-                                    <div class="highlight-dot" style="top: 75%; left: 80%;" data-tooltip="Security Alerts">
-                                        <div class="pulse"></div>
-                                    </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">⚠️</span>
+                                    <span>Compliance violation rate</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">🔧</span>
+                                    <span>RFID hardware status</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">🚫</span>
+                                    <span>Unauthorized access attempts</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">⚡</span>
+                                    <span>System performance</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">🎫</span>
+                                    <span>Ticket resolution speed</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Right Column -->
+                    <div class="visual-column">
+                        <div class="dashboard-frame">
+                            <div class="frame-header">
+                                <div class="frame-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="images/hospital.svg" alt="Hospital Admin Dashboard" class="dashboard-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </section>
         </section>
 
         <!-- Add after the Hospital Dashboard section -->
@@ -440,55 +373,6 @@
                                 <h3>Enhanced Reporting</h3>
                                 <p>Streamlined executive insights for weekly stakeholder meetings</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Update the Design System section -->
-        <section class="design-system">
-            <div class="container">
-                <!-- Center-aligned content -->
-                <div class="design-content">
-                    <h2 class="design-title">Design System & Reusability</h2>
-                    <p class="design-description">
-                        To ensure scalability and visual consistency across industries, I leveraged the Pycube Design System—building reusable components, tokenized typography and color systems, and flexible variants. This helped streamline design workflows and enabled quick implementation by engineering teams across healthcare, finance, and procurement dashboards.
-                    </p>
-                </div>
-
-                <!-- Horizontal card layout -->
-                <div class="design-visuals">
-                    <div class="visual-card" data-scroll>
-                        <div class="card-image">
-                            <span class="placeholder-text">Reusable Component System</span>
-                            <!-- <img src="images/components.gif" alt="Reusable Components in Figma"> -->
-                        </div>
-                        <div class="card-overlay">
-                            <h3>Reusable Component System</h3>
-                            <p>Modular components built with Auto Layout and variants</p>
-                        </div>
-                    </div>
-
-                    <div class="visual-card" data-scroll>
-                        <div class="card-image">
-                            <span class="placeholder-text">Design Tokens</span>
-                            <!-- <img src="images/tokens.png" alt="Design Token System"> -->
-                        </div>
-                        <div class="card-overlay">
-                            <h3>Design Tokens</h3>
-                            <p>Systematic color, typography, and spacing scales</p>
-                        </div>
-                    </div>
-
-                    <div class="visual-card" data-scroll>
-                        <div class="card-image">
-                            <span class="placeholder-text">Dashboard Consistency</span>
-                            <!-- <img src="images/consistency.png" alt="Cross-Industry Dashboard Consistency"> -->
-                        </div>
-                        <div class="card-overlay">
-                            <h3>Dashboard Consistency</h3>
-                            <p>Unified layouts across different industry solutions</p>
                         </div>
                     </div>
                 </div>
@@ -576,12 +460,13 @@
 
             .viewport-grid {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
+                grid-template-columns: 45% 55%;
+                gap: 0;
                 max-width: 1400px;
                 margin: 0 auto;
-                padding: 0 2rem;
-                align-items: stretch;
+                padding-left: 2rem;
+                align-items: start;
+                min-height: 100vh;
             }
 
             .section-title {
@@ -617,21 +502,17 @@
             }
 
             .visual-column {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
+                position: sticky;
+                top: 2rem;
                 height: 100%;
             }
 
-            .dashboard-preview {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+            .dashboard-image {
                 width: 100%;
-                height: 800px;
-                position: relative;
+                height: auto;
+                max-height: calc(100vh - 4rem);
+                object-fit: contain;
+                display: block;
             }
 
             .preview-placeholder {
@@ -691,127 +572,20 @@
             }
 
             /* Dashboard Breakdown Styles */
-            .dashboard-breakdown {
-                margin-top: 1rem;
-                padding: 0 2rem;
-            }
-
-            .breakdown-title {
-                font-size: 2rem;
-                font-weight: 700;
-                color: #2d3748;
-                margin-bottom: 3rem;
-                text-align: center;
-            }
-
-            .breakdown-grid {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                gap: 2rem;
-                max-width: 1400px;
-                margin: 0 auto;
-            }
-
-            .breakdown-card {
-                background: white;
-                border-radius: 12px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-                overflow: hidden;
-                transition: all 0.3s ease;
-                cursor: pointer;
-                position: relative;
-            }
-
-            .breakdown-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .card-image {
-                aspect-ratio: 1;
-                background: #f7fafc;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-bottom: 1px solid #e2e8f0;
-            }
-
+            .dashboard-breakdown,
+            .breakdown-title,
+            .breakdown-grid,
+            .breakdown-card,
+            .card-image,
+            .card-title,
+            .card-caption,
             .placeholder-text {
-                color: #718096;
-                font-family: monospace;
-                font-size: 0.875rem;
-                text-align: center;
-                padding: 1rem;
-            }
-
-            .card-title {
-                font-size: 1.125rem;
-                font-weight: 600;
-                color: #2d3748;
-                padding: 1rem;
-                margin: 0;
-            }
-
-            .card-caption {
-                font-size: 0.875rem;
-                color: #4a5568;
-                padding: 0 1rem 1rem;
-                margin: 0;
-                opacity: 0;
-                transform: translateY(10px);
-                transition: all 0.3s ease;
-            }
-
-            .breakdown-card:hover .card-caption {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            @media (max-width: 1200px) {
-                .breakdown-grid {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-                .visual-column, .dashboard-preview {
-                    min-height: unset;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .breakdown-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media (max-width: 480px) {
-                .breakdown-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            @media (max-width: 1024px) {
-                .viewport-grid {
-                    grid-template-columns: 1fr;
-                    gap: 2rem;
-                }
-
-                .grid-container {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media (max-width: 768px) {
-                .grid-container {
-                    grid-template-columns: 1fr;
-                }
+                display: none;
             }
 
             /* Update existing styles */
             .content-column {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                max-width: 1100px;
-                margin: 0 auto;
+                padding-right: 2rem;
             }
 
             .priorities-grid {
@@ -979,52 +753,43 @@
             }
 
             .highlight-dot {
-                position: absolute;
-                width: 12px;
-                height: 12px;
-                background: #7e22ce;
-                border-radius: 50%;
-                cursor: pointer;
-                z-index: 10;
+                display: none;
             }
 
             .pulse {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: rgba(126, 34, 206, 0.3);
-                border-radius: 50%;
-                animation: pulse 2s infinite;
+                display: none;
             }
 
             @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                    opacity: 0.8;
-                }
-                70% {
-                    transform: scale(2.5);
-                    opacity: 0;
-                }
-                100% {
-                    transform: scale(1);
-                    opacity: 0;
-                }
+                0% { opacity: 0; }
             }
 
-            .highlight-dot:hover::after {
-                content: attr(data-tooltip);
-                position: absolute;
-                bottom: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                padding: 0.5rem 1rem;
-                background: #1e293b;
-                color: white;
-                font-size: 0.875rem;
-                border-radius: 4px;
-                white-space: nowrap;
-                z-index: 10;
+            .frame-header {
+                background: #f1f5f9;
+                padding: 0.75rem;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .frame-dots {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .frame-dots span {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #cbd5e1;
+            }
+
+            .frame-content {
+                position: relative;
+                padding: 1rem;
+            }
+
+            .dashboard-image {
+                width: 100%;
+                border-radius: 8px;
             }
 
             .cta-button {
@@ -1143,122 +908,6 @@
 
                 .impact-metrics {
                     grid-template-columns: 1fr;
-                }
-            }
-
-            .design-system {
-                padding: 6rem 0;
-                background: #fafafa;
-                border-top: 1px solid #e2e8f0;
-            }
-
-            .design-content {
-                max-width: 800px;
-                margin: 0 auto 4rem;
-                text-align: center;
-            }
-
-            .design-title {
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: #1a202c;
-                margin-bottom: 1.5rem;
-            }
-
-            .design-description {
-                font-size: 1.125rem;
-                line-height: 1.7;
-                color: #4a5568;
-            }
-
-            .design-visuals {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 2rem;
-            }
-
-            .visual-card {
-                position: relative;
-                border-radius: 12px;
-                overflow: hidden;
-                background: white;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                opacity: 0;
-                transform: translateY(20px);
-                height: 100%;
-            }
-
-            .visual-card.is-visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .visual-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            }
-
-            .card-image {
-                aspect-ratio: 16/9;
-                background: #f1f5f9;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .card-overlay {
-                padding: 1.5rem;
-                background: white;
-            }
-
-            .card-overlay h3 {
-                font-size: 1.25rem;
-                font-weight: 600;
-                color: #2d3748;
-                margin-bottom: 0.5rem;
-            }
-
-            .card-overlay p {
-                font-size: 0.875rem;
-                color: #4a5568;
-                line-height: 1.5;
-            }
-
-            .placeholder-text {
-                color: #94a3b8;
-                font-size: 0.875rem;
-                font-style: italic;
-            }
-
-            @media (max-width: 1024px) {
-                .design-visuals {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 1.5rem;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .design-system {
-                    padding: 4rem 0;
-                }
-
-                .design-content {
-                    margin-bottom: 3rem;
-                    padding: 0 1.5rem;
-                }
-
-                .design-visuals {
-                    grid-template-columns: 1fr;
-                    gap: 1.5rem;
-                    padding: 0 1.5rem;
-                }
-
-                .design-title {
-                    font-size: 2rem;
                 }
             }
 
@@ -1381,6 +1030,112 @@
                     font-size: 2rem;
                 }
             }
+
+            /* Navigation Styles */
+            nav {
+                padding: 1.5rem 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                z-index: 1000;
+                box-shadow: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                transition: all 0.4s ease;
+            }
+
+            nav.scrolled {
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--primary-color);
+                letter-spacing: 1px;
+                position: relative;
+                overflow: hidden;
+                text-decoration: none;
+            }
+
+            .logo::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background: var(--accent-color);
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.3s ease;
+            }
+
+            .logo:hover::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+
+            .menu {
+                display: flex;
+                gap: 3rem;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: var(--text-color);
+                font-weight: 400;
+                position: relative;
+                letter-spacing: 0.5px;
+                font-size: 0.95rem;
+                transition: color 0.3s ease;
+            }
+
+            .menu a::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: -4px;
+                left: 0;
+                background: var(--accent-color);
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.3s ease;
+            }
+
+            .menu a:hover {
+                color: var(--accent-color);
+            }
+
+            .menu a:hover::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+
+            :root {
+                --primary-color: #2d3436;
+                --primary-gradient: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+                --secondary-color: #636e72;
+                --accent-color: #a48cf0;
+                --text-color: #2d3436;
+                --text-light: #636e72;
+                --background-light: #f8f9fa;
+                --white: #fff;
+                --transition: all 0.3s ease;
+                --shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            }
         </style>
 
     <script>
@@ -1424,6 +1179,16 @@
                 dashboardVideo.closest('.dashboard-preview').addEventListener('mouseleave', () => {
                     dashboardVideo.pause();
                 });
+            }
+        });
+
+        // Add scroll event listener for nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
         });
     </script>
