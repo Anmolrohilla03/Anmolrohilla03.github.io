@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unnatti Foundation - Non-Profit Organization Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Color variables */
+        :root {
+            --primary: #7A5AF8;
+            --secondary: #4ECDC4;
+            --accent: #FFD93D;
+            --alert: #FF6B6B;
+            --bg-light: #f8f9fa;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+        }
+
+        /* Navigation styles */
+        .navbar {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #a48cf0;
+        }
+
+        /* Project sections styling */
+        .intro-section {
+            padding-top: 120px;
+            padding-bottom: 4rem;
+            background: #fff;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .intro-content {
+            display: flex;
+            flex-direction: column;
+            padding-top: 3rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #636e72;
+        }
+
+        .sketch-highlight {
+            color: #a48cf0;
+            font-weight: 500;
+        }
+
+        .intro-visual {
+            position: relative;
+        }
+
+        .imac-mockup {
+            width: 100%;
+            transform: scale(0.85);
+            transform-origin: center;
+        }
+
+        .imac-frame {
+            background: #2a2a2a;
+            border-radius: 20px;
+            padding: 20px 20px 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .imac-screen {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+
+        .imac-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .visual-caption {
+            text-align: center;
+            color: #636e72;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Project snapshot section */
+        .project-snapshot {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .snapshot-item {
+            position: relative;
+            overflow: hidden;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .snapshot-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transition: height 0.3s ease;
+        }
+
+        .snapshot-item:hover::before {
+            height: 100%;
+        }
+
+        .snapshot-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(122, 90, 248, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .snapshot-item:hover .snapshot-number {
+            color: rgba(122, 90, 248, 0.2);
+            transform: scale(1.1);
+        }
+
+        .snapshot-item h3 {
+            color: #2d3436;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .snapshot-item p {
+            color: #636e72;
+        }
+
+        /* Discovery section */
+        .discovery-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.8rem;
+            color: #2d3436;
+            margin-bottom: 2rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .discovery-item {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .discovery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .discovery-item h3 {
+            color: #2d3436;
+            margin-bottom: 1rem;
+        }
+
+        .discovery-item p {
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .discovery-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .discovery-item:hover .discovery-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .discovery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .discovery-item:hover::after {
+            width: 80%;
+        }
+
+        /* Brochure and Business Cards sections */
+        .brochure-section,
+        .business-cards-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .brochure-content,
+        .cards-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .brochure-text,
+        .cards-text {
+            color: #636e72;
+        }
+
+        .brochure-text ul,
+        .cards-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .brochure-text li,
+        .cards-text li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .brochure-text li::before,
+        .cards-text li::before {
+            content: '→';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .brochure-text li:hover::before,
+        .cards-text li:hover::before {
+            transform: translateX(5px);
+        }
+
+        .brochure-visual img,
+        .cards-visual img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Impact section */
+        .impact-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .impact-item {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .impact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .impact-item h3 {
+            color: #2d3436;
+            margin-bottom: 1rem;
+        }
+
+        .impact-item p {
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .impact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .impact-item:hover .impact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .impact-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(122, 90, 248, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .impact-item:hover .impact-number {
+            color: rgba(122, 90, 248, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Fade in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .intro-grid,
+            .brochure-content,
+            .cards-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .snapshot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .discovery-grid,
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .snapshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Add or update these CSS rules */
+        .snapshot-item i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .snapshot-item:hover i {
+            transform: scale(1.1);
+        }
+
+        .discovery-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .discovery-item:hover .discovery-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .impact-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .impact-item:hover .impact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        
+        /* Enhanced card styles */
+        .snapshot-item, .discovery-item, .impact-item {
+            border: 1px solid rgba(122, 90, 248, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .snapshot-item:hover, .discovery-item:hover, .impact-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(122, 90, 248, 0.1);
+        }
+
+        .children-impact-section {
+            padding: 6rem 0;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .children-impact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg, rgba(122,90,248,0.04) 1px, transparent 1px),
+                            linear-gradient(180deg, rgba(122,90,248,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .children-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .children-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(122,90,248,0.15);
+            border: 1.5px solid rgba(122,90,248,0.10);
+            transition: all 0.3s ease;
+        }
+
+        .children-image-wrapper:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(122,90,248,0.2);
+            border: 1.5px solid var(--primary);
+        }
+
+        .children-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .children-image-wrapper:hover .children-image {
+            transform: scale(1.05);
+        }
+
+        .children-text {
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .children-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .children-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .children-image-wrapper {
+                max-height: 400px;
+            }
+
+            .children-text {
+                padding: 1rem 0;
+            }
+        }
+
+        /* Add these new styles */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(122,90,248,0.15);
+            border: 1.5px solid rgba(122,90,248,0.10);
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(122,90,248,0.2);
+            border: 1.5px solid var(--primary);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-card:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">AR</a>
+            <div class="menu">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="intro-section">
+        <div class="project-container">
+            <div class="intro-grid">
+                <div class="intro-content fade-in-section">
+                    <div class="intro-text">
+                        <p>I collaborated with <span class="sketch-highlight">Unnatti Foundation</span>, a non-profit organization dedicated to empowering underprivileged children through education and supporting senior citizens. The goal was to increase their <span class="sketch-highlight">brand awareness</span> and boost community involvement through the design of business cards, visiting cards, and brochures. These materials helped raise the organization's profile and attracted more <span class="sketch-highlight">volunteers and donations</span>, positively impacting the lives of both the children and seniors they serve.</p>
+                    </div>
+                </div>
+                <div class="intro-visual fade-in-section">
+                    <div class="image-grid">
+                        <div class="image-card">
+                            <img src="./images/child1.png" alt="Child participating in Unnatti Foundation activities">
+                        </div>
+                        <div class="image-card">
+                            <img src="./images/child2.png" alt="Child learning at Unnatti Foundation">
+                        </div>
+                        <div class="image-card">
+                            <img src="./images/child3.png" alt="Child engaged in creative activities">
+                        </div>
+                        <div class="image-card">
+                            <img src="./images/vchild.png" alt="Volunteer working with child">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-snapshot">
+        <div class="project-container">
+            <div class="snapshot-grid">
+                <div class="snapshot-item fade-in-section">
+                    <h3><i class="fas fa-building"></i> Organization</h3>
+                    <p>Non-Profit Organization</p>
+                </div>
+                <div class="snapshot-item fade-in-section">
+                    <h3><i class="fas fa-clock"></i> Timeline</h3>
+                    <p>Est. 2016</p>
+                </div>
+                <div class="snapshot-item fade-in-section">
+                    <h3><i class="fas fa-tasks"></i> Deliverables</h3>
+                    <p>Branding, Business Cards, Brochures</p>
+                </div>
+                <div class="snapshot-item fade-in-section">
+                    <h3><i class="fas fa-chart-line"></i> Impact</h3>
+                    <p>Increased volunteer engagement and donations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discovery-section">
+        <div class="project-container">
+            <h2 class="section-label">What They Do</h2>
+            <div class="discovery-grid">
+                <div class="discovery-item fade-in-section">
+                    <i class="fas fa-graduation-cap discovery-icon"></i>
+                    <h3>Life Skills Workshops</h3>
+                    <p>Teach practical skills such as financial literacy, communication, leadership, and decision-making to help prepare children for the future.</p>
+                </div>
+                <div class="discovery-item fade-in-section">
+                    <i class="fas fa-atom discovery-icon"></i>
+                    <h3>STEM Workshop</h3>
+                    <p>Offer hands-on science, technology, engineering, and math activities to spark interest in these fields.</p>
+                </div>
+                <div class="discovery-item fade-in-section">
+                    <i class="fas fa-users discovery-icon"></i>
+                    <h3>Mentorship Programs</h3>
+                    <p>Pair children with mentors to guide and support their personal and academic growth.</p>
+                </div>
+                <div class="discovery-item fade-in-section">
+                    <i class="fas fa-palette discovery-icon"></i>
+                    <h3>Arts and Creativity Programs</h3>
+                    <p>Offer arts and crafts, music, dance, and theater workshops to encourage creative expression.</p>
+                </div>
+                <div class="discovery-item fade-in-section">
+                    <i class="fas fa-heartbeat discovery-icon"></i>
+                    <h3>Medical Care</h3>
+                    <p>Provide regular check-ups, on-site nursing care, and access to specialists such as geriatricians, physical therapists, and mental health professionals.</p>
+                </div>
+                <div class="discovery-item fade-in-section">
+                    <i class="fas fa-dice discovery-icon"></i>
+                    <h3>Social Activities</h3>
+                    <p>Organize social events like movie nights, bingo, board games, or reading groups to foster interaction among residents and reduce isolation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brochure-section">
+        <div class="project-container">
+            <h2 class="section-label">Brochure Design</h2>
+            <div class="brochure-content">
+                <div class="brochure-text fade-in-section">
+                    <ul>
+                        <li>Designed a modern tri-fold brochure that effectively communicates the organization's mission, vision, and services.</li>
+                        <li>Used a clean layout with strategic placement of text and images to highlight key programs and achievements.</li>
+                        <li>Incorporated the brand's navy blue color scheme and lotus symbol to maintain visual consistency.</li>
+                    </ul>
+                </div>
+                <div class="brochure-visual fade-in-section">
+                    <img src="./images/brochures.png" alt="Unnatti Foundation Brochure Design">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="business-cards-section">
+        <div class="project-container">
+            <h2 class="section-label">Business Cards</h2>
+            <div class="cards-content">
+                <div class="cards-visual fade-in-section">
+                    <img src="./images/businesscards.png" alt="Unnatti Foundation Business Cards">
+                </div>
+                <div class="cards-text fade-in-section">
+                    <ul>
+                        <li>Created professional business cards featuring the foundation's lotus emblem and tagline "We Rise By Lifting Others".</li>
+                        <li>Used a minimalist design approach with navy blue and white color scheme for a sophisticated look.</li>
+                        <li>Included essential contact information with clear typography and ample white space for readability.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section">
+        <div class="project-container">
+            <h2 class="section-label">Branding Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-item fade-in-section">
+                    <i class="fas fa-eye impact-icon"></i>
+                    <h3>Increased Brand Visibility</h3>
+                    <p>Established a consistent and recognizable brand identity, allowing better community engagement.</p>
+                </div>
+                <div class="impact-item fade-in-section">
+                    <i class="fas fa-hands-helping impact-icon"></i>
+                    <h3>Volunteer Growth</h3>
+                    <p>Significant increase in volunteers offering their time to teach and organize events.</p>
+                </div>
+                <div class="impact-item fade-in-section">
+                    <i class="fas fa-gift impact-icon"></i>
+                    <h3>Boost in Donations</h3>
+                    <p>Improved visual presence led to more donations from local businesses and individuals.</p>
+                </div>
+                <div class="impact-item fade-in-section">
+                    <i class="fas fa-handshake impact-icon"></i>
+                    <h3>Community Engagement</h3>
+                    <p>New partnerships established with local schools and community groups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="children-impact-section">
+        <div class="project-container">
+            <div class="children-content fade-in-section">
+                <div class="children-image-wrapper">
+                    <img src="./images/unnatichildren.avif" alt="Children enjoying activities at Unnatti Foundation" class="children-image">
+                </div>
+                <div class="children-text">
+                    <h2 class="section-label">Making a Difference</h2>
+                    <p>Every smile tells a story of hope and transformation. Through our various programs and activities, we create moments of joy and learning that last a lifetime. These children represent the heart of our mission - to empower and uplift the next generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade in sections on scroll
+            const fadeInSections = document.querySelectorAll('.fade-in-section');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeInSections.forEach(section => {
+                fadeInObserver.observe(section);
+            });
+
+            // Navbar scroll behavior
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+                    navbar.style.padding = '1rem 0';
+                } else {
+                    navbar.style.boxShadow = 'none';
+                    navbar.style.padding = '1.5rem 0';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
