@@ -1848,15 +1848,28 @@
             border-radius: 4px 4px 0 0;
             overflow: hidden;
             position: relative;
+            transition: transform 0.3s ease;
         }
 
+        /* Add hover effect to the image */
         .macbook-frame img {
             width: 100%;
-            height: 120%; /* Increase height to show more content */
+            height: 120%; /* Increased height to show more content */
             object-fit: cover;
             object-position: top; /* Align to top of image */
             display: block;
-            transform-origin: top;
+            transition: transform 0.5s ease;
+            transform-origin: top; /* Ensure zoom happens from top */
+        }
+
+        /* Add zoom effect on hover */
+        .macbook-mockup:hover .macbook-frame img {
+            transform: scale(1.1);
+        }
+
+        /* Optional: Add subtle shadow enhancement on hover */
+        .macbook-mockup:hover {
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
         }
 
         .macbook-base {
@@ -1887,7 +1900,100 @@
             margin-top: 1.5rem;
         }
 
-        
+        /* Project Snapshot Overview Styles */
+        .project-snapshot-overview {
+            padding: 5rem 0;  /* Increased padding (80px) */
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            margin: 2rem 0;
+        }
+
+        .snapshot-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;  /* Increased gap */
+            margin-top: 3rem;  /* More space after heading */
+        }
+
+        .snapshot-overview-card {
+            background: #ffffff;
+            padding: 2.5rem 2rem;  /* More vertical padding */
+            border-radius: 16px;
+            border: 1px solid #E0E0E0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);  /* Enhanced shadow */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* Center content */
+            text-align: center;
+            min-height: 240px;  /* Ensure consistent height */
+        }
+
+        .snapshot-overview-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(122, 90, 248, 0.2);
+        }
+
+        .overview-icon {
+            font-size: 3.5rem;  /* Larger icons */
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;  /* Fixed height for alignment */
+        }
+
+        /* Custom colors for each icon */
+        .snapshot-overview-card:nth-child(1) .overview-icon {
+            color: #4A6FFF;  /* Vibrant blue */
+        }
+
+        .snapshot-overview-card:nth-child(2) .overview-icon {
+            color: #2AC769;  /* Fresh green */
+        }
+
+        .snapshot-overview-card:nth-child(3) .overview-icon {
+            color: #7A5AF8;  /* Purple accent */
+        }
+
+        .overview-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .overview-text {
+            color: #2d3436;
+            font-weight: 500;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            max-width: 200px;  /* Prevent text from getting too wide */
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .project-snapshot-overview {
+                padding: 4rem 0;  /* Slightly less padding on mobile */
+            }
+
+            .snapshot-overview-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .snapshot-overview-card {
+                min-height: auto;  /* Let cards be natural height on mobile */
+                padding: 2rem;
+            }
+
+            .overview-icon {
+                font-size: 3rem;  /* Slightly smaller on mobile */
+                height: 60px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1909,7 +2015,7 @@
                 Back to Projects
             </a>
             <span class="project-category">Enterprise Operations</span>
-            <h1 class="project-title">Procurement Control Tower: Centralizing Workflows Across Teams</h1>
+            <h1 class="project-title">Designing a Unified Control Tower to Empower Procurement Teams with Data-Driven Decision Making</h1>
         </div>
     </header>
 
@@ -1918,7 +2024,7 @@
             <div class="intro-grid">
                 <div class="intro-content fade-in-section is-visible">
                     <div class="intro-text">
-                        <p>I designed a <span class="sketch-highlight">centralized control tower</span> to unify procurement operations across internal teams — bringing together <span class="sketch-highlight">KPI dashboards</span>, task tracking, training materials, and reporting tools into a single, scalable interface. This platform was tailored to support collaboration within the procurement department, simplify daily workflows, and increase <span class="sketch-highlight">leadership visibility</span> across the procurement pipeline.</p>
+                        <p>Procurement teams lacked a centralized way to monitor operations, suppliers, and financial performance. With fragmented dashboards and delayed insights, strategic decision-making was reactive and inefficient. This platform brings together KPIs, market signals, and task alerts into a single interface — enabling teams to act faster, smarter, and with greater confidence.</p>
                     </div>
                 </div>
                 
@@ -1934,6 +2040,32 @@
                         </div>
                     </div>
                     <p class="visual-caption">Procurement Control Tower - Landing Page</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-snapshot-overview">
+        <div class="project-container">
+            <h2 class="section-label">Project Snapshot</h2>
+            
+            <div class="snapshot-overview-grid">
+                <div class="snapshot-overview-card">
+                    <div class="overview-icon">🧩</div>
+                    <div class="overview-label">PLATFORM</div>
+                    <div class="overview-text">Enterprise Dashboard</div>
+                </div>
+
+                <div class="snapshot-overview-card">
+                    <div class="overview-icon">👥</div>
+                    <div class="overview-label">USERS</div>
+                    <div class="overview-text">Procurement Managers, Analysts</div>
+                </div>
+
+                <div class="snapshot-overview-card">
+                    <div class="overview-icon">⚙️</div>
+                    <div class="overview-label">FOCUS</div>
+                    <div class="overview-text">Insights, Efficiency, Oversight</div>
                 </div>
             </div>
         </div>
@@ -2410,32 +2542,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Update selector to include moodboard section elements
             const fadeElements = document.querySelectorAll(
-                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card, .interviews-intro, .sticky-grid, .sticky-note, .view-all-btn, .emotions-section, .emotion-item'
+                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .snapshot-overview-card'
             );
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('snapshot-card')) {
-                            const delay = entry.target.dataset.delay || 0;
-                            setTimeout(() => {
-                                entry.target.classList.add('is-visible');
-                            }, delay);
-                        } else if (entry.target.matches('.discovery-list li, .visual-list li, .moodboard-card, .sticky-note, .emotion-item')) {
-                            // Add staggered delay for list items and cards
-                            const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
-                            setTimeout(() => {
-                                entry.target.classList.add('is-visible');
-                            }, index * 100);
-                        } else {
-                            entry.target.classList.add('is-visible');
-                        }
+                        entry.target.classList.add('is-visible');
                     }
                 });
             }, { threshold: 0.1 });
 
             fadeElements.forEach(element => {
-                element.classList.add('fade-in-section');
                 observer.observe(element);
             });
 
