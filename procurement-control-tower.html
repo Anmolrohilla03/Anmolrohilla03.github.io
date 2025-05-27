@@ -2540,9 +2540,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Update selector to include moodboard section elements
+            // Update selector to include all fade-in elements
             const fadeElements = document.querySelectorAll(
-                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .snapshot-overview-card'
+                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .snapshot-overview-card, .discovery-section .discovery-item .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card, .interviews-intro, .sticky-grid, .sticky-note, .view-all-btn, .emotions-section, .emotion-item'
             );
             
             const observer = new IntersectionObserver((entries) => {
