@@ -746,6 +746,444 @@
             background: white;
         }
 
+        #solution .problem-visual {
+            background: transparent;
+            border-radius: 0;
+            min-height: auto;
+        }
+
+        #solution .problem-visual img {
+            border-radius: 0;
+        }
+
+        .solution-impact {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-impact h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-impact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-impact li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-impact li span {
+            position: absolute;
+            left: 0;
+        }
+
+        /* Designing for Every Touchpoint Section */
+        .touchpoint-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .accordion-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .accordion-item {
+            margin-bottom: 1.5rem;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .accordion-item.expanded {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-item.expanded:hover {
+            transform: translateY(-2px);
+        }
+
+        .accordion-header {
+            padding: 1.75rem 2rem;
+            background: rgba(37, 99, 235, 0.08);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+            position: relative;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .accordion-item:not(.expanded) .accordion-header {
+            border-radius: 16px;
+        }
+
+        .accordion-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .accordion-item.expanded .accordion-header::before {
+            opacity: 1;
+        }
+
+        .accordion-header:hover {
+            background: rgba(37, 99, 235, 0.12);
+        }
+
+        .accordion-item.expanded .accordion-header {
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .accordion-header:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(122, 90, 248, 0.3);
+        }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .accordion-icon {
+            font-size: 1.75rem;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+        }
+
+        .accordion-toggle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(122, 90, 248, 0.1);
+        }
+
+        .accordion-header:hover .accordion-toggle {
+            background: rgba(122, 90, 248, 0.15);
+            color: var(--accent-color);
+        }
+
+        .accordion-item.expanded .accordion-toggle {
+            transform: rotate(180deg);
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .accordion-item.expanded .accordion-content {
+            max-height: 5000px;
+            opacity: 1;
+        }
+
+        .accordion-body {
+            padding: 2.5rem 2rem;
+            background: white;
+        }
+
+        .accordion-subsection {
+            margin-bottom: 1.5rem;
+        }
+
+        .accordion-subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .subsection-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .subsection-icon {
+            font-size: 1.5rem;
+        }
+
+        .subsection-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .subsection-two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            margin-top: 0;
+        }
+
+        .subsection-text {
+            max-width: 65ch;
+        }
+
+        .subsection-media {
+            width: 100%;
+            overflow: hidden;
+            background: transparent;
+            margin-top: 0;
+            clip-path: inset(0 0 15% 0);
+        }
+
+        .subsection-media img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            transform: translateY(0);
+        }
+
+        .subsection-media-caption {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+        .user-flow-diagram {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: transparent;
+            overflow-x: auto;
+        }
+
+        .user-flow-diagram svg {
+            width: 100%;
+            height: auto;
+            min-width: 600px;
+        }
+
+        .flow-room {
+            fill: rgba(37, 99, 235, 0.1);
+            stroke: rgba(37, 99, 235, 0.3);
+            stroke-width: 2;
+            rx: 12;
+        }
+
+        .flow-room.clean {
+            fill: rgba(34, 197, 94, 0.1);
+            stroke: rgba(34, 197, 94, 0.4);
+        }
+
+        .flow-room.in-use {
+            fill: rgba(249, 115, 22, 0.1);
+            stroke: rgba(249, 115, 22, 0.4);
+        }
+
+        .flow-room.soiled {
+            fill: rgba(239, 68, 68, 0.1);
+            stroke: rgba(239, 68, 68, 0.4);
+        }
+
+        .flow-room.repair {
+            fill: rgba(107, 114, 128, 0.1);
+            stroke: rgba(107, 114, 128, 0.4);
+        }
+
+        .flow-arrow {
+            stroke: rgba(37, 99, 235, 0.6);
+            stroke-width: 2;
+            fill: rgba(37, 99, 235, 0.6);
+        }
+
+        .flow-text {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            font-size: 14px;
+            fill: var(--text-color);
+            font-weight: 500;
+        }
+
+        .flow-label {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            font-size: 11px;
+            fill: var(--text-light);
+            font-weight: 400;
+        }
+
+        .flow-action {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            font-size: 10px;
+            fill: var(--text-light);
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .user-flow-diagram {
+                padding: 1rem 0;
+            }
+
+            .user-flow-diagram svg {
+                min-width: 600px;
+            }
+
+            .flow-text {
+                font-size: 12px;
+            }
+
+            .flow-label {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subsection-two-column {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .subsection-text {
+                max-width: 100%;
+            }
+        }
+
+        .media-placeholder {
+            width: 100%;
+            min-height: 300px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            border: 2px dashed #cbd5e0;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .media-placeholder img,
+        .media-placeholder video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .media-caption {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            padding-bottom: 1rem;
+        }
+
+        .carousel-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-wrapper::-webkit-scrollbar-track {
+            background: var(--bg-light);
+            border-radius: 4px;
+        }
+
+        .carousel-wrapper::-webkit-scrollbar-thumb {
+            background: var(--text-light);
+            border-radius: 4px;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 400px;
+            scroll-snap-align: start;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .accordion-header {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .accordion-title {
+                font-size: 1.25rem;
+            }
+
+            .accordion-body {
+                padding: 1.5rem;
+            }
+
+            .carousel-item {
+                max-width: 100%;
+            }
+        }
+
         /* Impact Section */
         .impact-section {
             padding: 4rem 0;
@@ -1057,9 +1495,10 @@
                     </p>
                 </div>
                 <div class="problem-visual">
-                    <div class="problem-placeholder">
-                        <p>🎬 Animation: nurse searching for equipment across rooms</p>
-                    </div>
+                    <video id="everyday-chaos-video" autoplay muted loop playsinline>
+                        <source src="Videos/VideoOneBaptist.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <!-- <img src="images/nurse-searching-equipment.jpg" alt="nurse searching for medical equipment across hospital rooms"> -->
                 </div>
             </div>
@@ -1073,9 +1512,10 @@
                     </p>
                 </div>
                 <div class="problem-visual">
-                    <div class="problem-placeholder">
-                        <p>🎬 Animation: spreadsheet fading into asset icons</p>
-                    </div>
+                    <video id="invisible-trail-video" autoplay muted loop playsinline>
+                        <source src="Videos/VideoTwoBaptist.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <!-- <img src="images/spreadsheet-to-assets.jpg" alt="paper log fading into lost medical asset icons"> -->
                 </div>
             </div>
@@ -1089,9 +1529,10 @@
                     </p>
                 </div>
                 <div class="problem-visual">
-                    <div class="problem-placeholder">
-                        <p>🎬 Animation: RFID waves linking tablet → cube → dashboard</p>
-                    </div>
+                    <video id="challenge-video" autoplay muted loop playsinline>
+                        <source src="Videos/VideoThreeBaptist.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <!-- <img src="images/rfid-connectivity.jpg" alt="RFID data flow between tablet, cube reader, and dashboard"> -->
                 </div>
             </div>
@@ -1100,7 +1541,436 @@
 
         <!-- Mission Strip -->
         <div class="mission-strip">
-            <p>Our mission: Turn every room, device, and interaction into one connected story—where equipment never goes missing, and care never has to wait.</p>
+            <p>Mission: Turn every room, device, and interaction into one connected story—where equipment never goes missing, and care never has to wait.</p>
+        </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section id="solution" class="problem-section">
+        <div class="section-container">
+            <h2 class="section-title">The Solution</h2>
+            <p class="section-text">To solve the challenges I uncovered, I designed SmartTrack — a connected ecosystem that automatically tracks, validates, and locates hospital equipment in real time. My goal was to create a simple yet powerful experience that helps hospital staff save time, stay compliant, and maintain complete visibility of every asset.</p>
+
+            <!-- Block 1: Tablet -->
+            <div class="problem-block">
+                <div class="problem-content">
+                    <h3>Tablet – Room-Level Tracking</h3>
+                    <p>I designed the tablet interface to be used in every room for checking assets in and out and logging sanitization status. Each action is RFID-enabled — allowing staff to complete tasks with a quick scan instead of manual typing.</p>
+                </div>
+                <div class="problem-visual">
+                    <img src="images/TabletMockup.svg" alt="tablet UI scanning RFID tag for check-in/out" style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+            </div>
+
+            <!-- Block 2: Cube Reader -->
+            <div class="problem-block reverse">
+                <div class="problem-visual">
+                    <img src="images/Cube.svg" alt="cube reader detects asset at entry/exit" style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+                <div class="problem-content">
+                    <h3>Cube Reader – Entry/Exit Validation</h3>
+                    <p>I defined how cube readers work at hallway entry and exit points to automatically record when an asset moves between floors. This eliminated the need for manual logging and reduced tracking errors caused by missed handoffs.</p>
+                </div>
+            </div>
+
+            <!-- Block 3: Handheld -->
+            <div class="problem-block">
+                <div class="problem-content">
+                    <h3>Handheld Device – Asset Locator</h3>
+                    <p>I designed the handheld experience to help staff locate misplaced or critical assets using RFID scanning. It displays proximity strength and direction, allowing users to pinpoint equipment within seconds anywhere in the hospital.</p>
+                </div>
+                <div class="problem-visual">
+                    <img src="images/Handheld.png" alt="handheld RFID locator interface" style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+            </div>
+
+            <!-- Block 4: TV Dashboard -->
+            <div class="problem-block reverse">
+                <div class="problem-visual">
+                    <img src="images/TVDashboard.svg" alt="TV dashboard with floor-wise asset KPIs" style="width: 100%; height: auto; object-fit: contain;">
+                </div>
+                <div class="problem-content">
+                    <h3>TV Dashboard – Real-Time Visibility</h3>
+                    <p>I created a TV dashboard for admin teams to monitor assets across all floors. It provides quick visibility into which equipment is available, in use, in repair, or delayed — helping teams make faster, data-driven decisions.</p>
+                </div>
+            </div>
+
+            <!-- Impact Subsection -->
+            <div class="solution-impact">
+                <h3>Impact</h3>
+                <ul>
+                    <li>
+                        <span>•</span>
+                        Reduced manual data entry and errors by ≈ 40%
+                    </li>
+                    <li>
+                        <span>•</span>
+                        Enabled quick equipment location using RFID scanning
+                    </li>
+                    <li>
+                        <span>•</span>
+                        Improved transparency between clinical and maintenance teams
+                    </li>
+                    <li>
+                        <span>•</span>
+                        Built a scalable foundation for predictive insights in asset management
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designing for Every Touchpoint Section -->
+    <section id="designing-for-every-touchpoint" class="touchpoint-section">
+        <div class="accordion-container">
+            <h2 class="section-title">Designing for Every Touchpoint</h2>
+            <p class="section-text">Each SmartTrack module was designed with its own workflow and user context in mind. I explored what I already knew, what I learned through research, and how those insights shaped my wireframes and final designs for every touchpoint — tablet, cube, handheld, and dashboard.</p>
+
+            <!-- Accordion 1: Tablet -->
+            <div class="accordion-item" data-accordion="tablet">
+                <button class="accordion-header" aria-expanded="false" aria-controls="tablet-content">
+                    <h3 class="accordion-title">
+                        <span class="accordion-icon">🩺</span>
+                        Tablet – Room-Level Tracking
+                    </h3>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content" id="tablet-content">
+                    <div class="accordion-body">
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🧠</span>
+                                <h4>What I Knew</h4>
+                            </div>
+                            <div class="subsection-two-column">
+                                <div class="subsection-text">
+                                    <p class="subsection-content">I observed that staff were <mark style="background-color:#E1F0FF;">manually logging assets using paper checklists</mark> across multiple rooms. This process was <mark style="background-color:#E1F0FF;">slow, error-prone</mark>, and often skipped when workloads were high.</p>
+                                    <p class="subsection-content">Each time an <mark style="background-color:#E1F0FF;">infusion pump, monitor, or wheelchair</mark> moved between areas, someone had to write down its <mark style="background-color:#E1F0FF;">ID, location, and time</mark> — which meant <mark style="background-color:#E1F0FF;">lost records were common</mark>. Manual tracking also made it difficult to identify which equipment was <mark style="background-color:#E1F0FF;">available, in use, or missing</mark>, leading to <mark style="background-color:#E1F0FF;">unnecessary delays and reordering</mark>.</p>
+                                </div>
+                                <div>
+                                    <div class="subsection-media">
+                                        <img src="images/tabletwhatIknew.png" alt="Nurse manually logging medical equipment on paper forms in a hospital room">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🔍</span>
+                                <h4>What I Researched</h4>
+                            </div>
+                            <div class="subsection-two-column">
+                                <div class="subsection-text">
+                                    <p class="subsection-content">Through observation, I noticed that staff spent unnecessary time <mark style="background-color:#E1F0FF;">switching between multiple screens or forms</mark> to record each asset. When nurses were busy, they often skipped steps — not because of neglect, but because <mark style="background-color:#E1F0FF;">the process demanded too much cognitive effort</mark> during peak hours.</p>
+                                    <p class="subsection-content">I mapped their workflow across <mark style="background-color:#E1F0FF;">clean, soiled, and in-use rooms</mark> to understand when and why tracking dropped off. This revealed an opportunity to design a <mark style="background-color:#E1F0FF;">single-screen, guided scanning flow</mark> that could <mark style="background-color:#E1F0FF;">reduce the number of taps</mark> and <mark style="background-color:#E1F0FF;">simplify the entire check-in/out process</mark> without disrupting their routine.</p>
+                                </div>
+                                <div>
+                                    <div class="subsection-media">
+                                        <img src="images/whatiresearched.png" alt="Nurse switching between multiple digital forms on a tablet in hospital">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🗺️</span>
+                                <h4>User Flow</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>User flow image/animation placeholder</p>
+                                <p class="media-caption">User flow showing Scan → Validate → Assign → Confirm steps for Clean Room tracking.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">✏️</span>
+                                <h4>Low-Fidelity Wireframes</h4>
+                            </div>
+                            <div class="carousel-container">
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 2</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 3</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 4</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="media-caption">Early wireframes exploring fast scanning and confirmation flow.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🎨</span>
+                                <h4>Final Design</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>Final design image/video placeholder</p>
+                                <p class="media-caption">Final tablet UI showing RFID-enabled room-level tracking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion 2: Cube Reader -->
+            <div class="accordion-item" data-accordion="cube">
+                <button class="accordion-header" aria-expanded="false" aria-controls="cube-content">
+                    <h3 class="accordion-title">
+                        <span class="accordion-icon">🧊</span>
+                        Cube Reader – Entry/Exit Validation
+                    </h3>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content" id="cube-content">
+                    <div class="accordion-body">
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🧠</span>
+                                <h4>What I Knew</h4>
+                            </div>
+                            <p class="subsection-content">Asset movement between rooms was rarely logged, breaking the sanitization cycle.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🔍</span>
+                                <h4>What I Researched</h4>
+                            </div>
+                            <p class="subsection-content">RFID signal range testing revealed ideal cube placement near hallway entries to detect movement automatically.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🗺️</span>
+                                <h4>User Flow</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>User flow animation/image placeholder</p>
+                                <p class="media-caption">Asset passes doorway → Cube detects tag → Status updated automatically.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">✏️</span>
+                                <h4>Low-Fidelity Wireframes</h4>
+                            </div>
+                            <div class="carousel-container">
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 2</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="media-caption">Wireframes testing instant feedback and error alert states.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🎨</span>
+                                <h4>Final Design</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>Final design image/animation placeholder</p>
+                                <p class="media-caption">Final design visualizing cube validation feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion 3: Handheld -->
+            <div class="accordion-item" data-accordion="handheld">
+                <button class="accordion-header" aria-expanded="false" aria-controls="handheld-content">
+                    <h3 class="accordion-title">
+                        <span class="accordion-icon">📱</span>
+                        Handheld – Asset Locator
+                    </h3>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content" id="handheld-content">
+                    <div class="accordion-body">
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🧠</span>
+                                <h4>What I Knew</h4>
+                            </div>
+                            <p class="subsection-content">Even with RFID tagging, finding missing assets took too long.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🔍</span>
+                                <h4>What I Researched</h4>
+                            </div>
+                            <p class="subsection-content">Studied proximity-based scanning and signal fluctuation in busy hospital environments. The design had to work one-handed for mobility.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🗺️</span>
+                                <h4>User Flow</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>User flow animation placeholder</p>
+                                <p class="media-caption">Flow for locating assets using RFID signal proximity: Search → Signal Strength → Found → Confirm.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">✏️</span>
+                                <h4>Low-Fidelity Wireframes</h4>
+                            </div>
+                            <div class="carousel-container">
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 2</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="media-caption">Exploring signal strength visualization and search states.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🎨</span>
+                                <h4>Final Design</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>Final design animation placeholder</p>
+                                <p class="media-caption">Final handheld interface for real-time asset locating (signal bar increases as asset nears).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion 4: Dashboard -->
+            <div class="accordion-item" data-accordion="dashboard">
+                <button class="accordion-header" aria-expanded="false" aria-controls="dashboard-content">
+                    <h3 class="accordion-title">
+                        <span class="accordion-icon">📊</span>
+                        Dashboard – Real-Time Visibility
+                    </h3>
+                    <span class="accordion-toggle">▼</span>
+                </button>
+                <div class="accordion-content" id="dashboard-content">
+                    <div class="accordion-body">
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🧠</span>
+                                <h4>What I Knew</h4>
+                            </div>
+                            <p class="subsection-content">Admins needed clear, high-level visibility without complex charts.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🔍</span>
+                                <h4>What I Researched</h4>
+                            </div>
+                            <p class="subsection-content">Found that focusing on hierarchy and alerts improved clarity over dense analytics.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🗺️</span>
+                                <h4>User Flow</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>User flow image placeholder</p>
+                                <p class="media-caption">User flow for live dashboard synchronization: Assets update → Data syncs → Dashboard refreshes KPIs.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">✏️</span>
+                                <h4>Low-Fidelity Wireframes</h4>
+                            </div>
+                            <div class="carousel-container">
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 2</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 3</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="media-placeholder">
+                                            <p>Wireframe 4</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="media-caption">Wireframes exploring floor cards, KPIs, and alert hierarchy.</p>
+                        </div>
+
+                        <div class="accordion-subsection">
+                            <div class="subsection-header">
+                                <span class="subsection-icon">🎨</span>
+                                <h4>Final Design</h4>
+                            </div>
+                            <div class="media-placeholder">
+                                <p>Final design image/animation placeholder</p>
+                                <p class="media-caption">Final dashboard providing cross-floor visibility and live status updates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1151,6 +2021,77 @@
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
+        });
+
+        // Video hover pause/resume effect
+        const everydayChaosVideo = document.getElementById('everyday-chaos-video');
+        if (everydayChaosVideo) {
+            everydayChaosVideo.addEventListener('mouseenter', () => {
+                everydayChaosVideo.pause();
+            });
+            everydayChaosVideo.addEventListener('mouseleave', () => {
+                everydayChaosVideo.play();
+            });
+        }
+
+        const invisibleTrailVideo = document.getElementById('invisible-trail-video');
+        if (invisibleTrailVideo) {
+            invisibleTrailVideo.addEventListener('mouseenter', () => {
+                invisibleTrailVideo.pause();
+            });
+            invisibleTrailVideo.addEventListener('mouseleave', () => {
+                invisibleTrailVideo.play();
+            });
+        }
+
+        const challengeVideo = document.getElementById('challenge-video');
+        if (challengeVideo) {
+            challengeVideo.addEventListener('mouseenter', () => {
+                challengeVideo.pause();
+            });
+            challengeVideo.addEventListener('mouseleave', () => {
+                challengeVideo.play();
+            });
+        }
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionItem = this.closest('.accordion-item');
+                const isExpanded = accordionItem.classList.contains('expanded');
+                const contentId = this.getAttribute('aria-controls');
+                const content = document.getElementById(contentId);
+
+                // Close all accordions on mobile (optional behavior)
+                if (window.innerWidth <= 768) {
+                    document.querySelectorAll('.accordion-item').forEach(item => {
+                        if (item !== accordionItem) {
+                            item.classList.remove('expanded');
+                            const otherHeader = item.querySelector('.accordion-header');
+                            const otherContentId = otherHeader.getAttribute('aria-controls');
+                            const otherContent = document.getElementById(otherContentId);
+                            otherHeader.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+
+                // Toggle current accordion
+                if (isExpanded) {
+                    accordionItem.classList.remove('expanded');
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    accordionItem.classList.add('expanded');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            // Keyboard accessibility
+            header.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
         });
     </script>
 </body>
