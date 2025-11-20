@@ -1128,15 +1128,18 @@
             position: relative;
             width: 100%;
             margin: 1.5rem 0;
+            overflow: visible;
         }
 
         .carousel-wrapper {
             display: flex;
             gap: 1rem;
             overflow-x: auto;
+            overflow-y: visible;
             scroll-snap-type: x mandatory;
             scrollbar-width: thin;
-            padding-bottom: 1rem;
+            padding: 1rem;
+            margin: -1rem;
         }
 
         .carousel-wrapper::-webkit-scrollbar {
@@ -1158,12 +1161,30 @@
             width: 100%;
             max-width: 400px;
             scroll-snap-align: start;
+            overflow: visible;
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+            margin: -1rem;
+        }
+
+        .carousel-item:hover {
+            z-index: 10;
         }
 
         .carousel-item img {
             width: 100%;
             height: auto;
             border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: block;
+            transform-origin: center center;
+        }
+
+        .carousel-item img:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -1692,24 +1713,16 @@
                             <div class="carousel-container">
                                 <div class="carousel-wrapper">
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 1</p>
-                                        </div>
+                                        <img src="images/New Wireframe 1 copy.png" alt="Low-fidelity wireframe 1" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 2</p>
-                                        </div>
+                                        <img src="images/New Wireframe 1 copy 2.png" alt="Low-fidelity wireframe 2" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 3</p>
-                                        </div>
+                                        <img src="images/New Wireframe 1 copy 3.png" alt="Low-fidelity wireframe 3" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 4</p>
-                                        </div>
+                                        <img src="images/New Wireframe 1 copy 4.png" alt="Low-fidelity wireframe 4" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                 </div>
                             </div>
@@ -1721,10 +1734,26 @@
                                 <span class="subsection-icon">🎨</span>
                                 <h4>Final Design</h4>
                             </div>
-                            <div class="media-placeholder">
-                                <p>Final design image/video placeholder</p>
-                                <p class="media-caption">Final tablet UI showing RFID-enabled room-level tracking.</p>
+                            <div class="carousel-container">
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-item">
+                                        <img src="images/Hi-fi1.png" alt="High-fidelity mockup 1" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/Hi-fi2.svg" alt="High-fidelity mockup 2" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/Hi-fi 3.svg" alt="High-fidelity mockup 3" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/Hi-fi 4.svg" alt="High-fidelity mockup 4" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/Hi-fi 5.svg" alt="High-fidelity mockup 5" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                </div>
                             </div>
+                            <p class="media-caption">Final tablet UI showing RFID-enabled room-level tracking.</p>
                         </div>
                     </div>
                 </div>
