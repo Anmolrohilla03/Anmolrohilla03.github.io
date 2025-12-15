@@ -1381,6 +1381,69 @@
             font-weight: 500;
         }
 
+        /* Horizontal Impact Grid */
+        .impact-grid-horizontal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .impact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .impact-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(122, 90, 248, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .impact-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        @media (max-width: 968px) {
+            .impact-grid-horizontal {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .impact-grid-horizontal {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Visual Section */
         .visual-section {
             padding: 4rem 0;
@@ -1439,6 +1502,134 @@
 
             .section-container {
                 padding: 0 1.5rem;
+            }
+        }
+
+        /* TV Dashboard Mockup with Callouts */
+        .tv-mockup-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .dashboard-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .dashboard-callout {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .callout-text {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(122, 90, 248, 0.2);
+            white-space: nowrap;
+        }
+
+        .callout-line {
+            position: absolute;
+            background: rgba(122, 90, 248, 0.4);
+        }
+
+        .callout-line::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            right: -3px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Callout 1 - Left sidebar */
+        .callout-1 {
+            top: 20%;
+            left: -15%;
+        }
+
+        .callout-1 .callout-line {
+            width: 100px;
+            height: 2px;
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+        }
+
+        /* Callout 2 - Top left data cards */
+        .callout-2 {
+            top: 25%;
+            left: -18%;
+        }
+
+        .callout-2 .callout-line {
+            width: 120px;
+            height: 2px;
+            top: 50%;
+            right: -120px;
+            transform: translateY(-50%);
+        }
+
+        /* Callout 3 - Top right graph */
+        .callout-3 {
+            top: 22%;
+            right: -18%;
+        }
+
+        .callout-3 .callout-line {
+            width: 130px;
+            height: 2px;
+            top: 50%;
+            left: -130px;
+            transform: translateY(-50%);
+        }
+
+        /* Callout 4 - Bottom left donut chart */
+        .callout-4 {
+            bottom: 30%;
+            left: -16%;
+        }
+
+        .callout-4 .callout-line {
+            width: 110px;
+            height: 2px;
+            top: 50%;
+            right: -110px;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 968px) {
+            .tv-mockup-container {
+                padding: 1rem;
+                max-width: 100%;
+            }
+
+            .callout-text {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.8rem;
+            }
+
+            .callout-1, .callout-2, .callout-3, .callout-4 {
+                position: static;
+                margin: 0.5rem 0;
+                left: auto;
+                right: auto;
+            }
+
+            .callout-line {
+                display: none;
             }
         }
     </style>
@@ -1615,29 +1806,6 @@
                     <p>I created a TV dashboard for admin teams to monitor assets across all floors. It provides quick visibility into which equipment is available, in use, in repair, or delayed — helping teams make faster, data-driven decisions.</p>
                 </div>
             </div>
-
-            <!-- Impact Subsection -->
-            <div class="solution-impact">
-                <h3>Impact</h3>
-                <ul>
-                    <li>
-                        <span>•</span>
-                        Reduced manual data entry and errors by ≈ 40%
-                    </li>
-                    <li>
-                        <span>•</span>
-                        Enabled quick equipment location using RFID scanning
-                    </li>
-                    <li>
-                        <span>•</span>
-                        Improved transparency between clinical and maintenance teams
-                    </li>
-                    <li>
-                        <span>•</span>
-                        Built a scalable foundation for predictive insights in asset management
-                    </li>
-                </ul>
-            </div>
         </div>
     </section>
 
@@ -1691,17 +1859,6 @@
                                         <img src="images/whatiresearched.png" alt="Nurse switching between multiple digital forms on a tablet in hospital">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-subsection">
-                            <div class="subsection-header">
-                                <span class="subsection-icon">🗺️</span>
-                                <h4>User Flow</h4>
-                            </div>
-                            <div class="media-placeholder">
-                                <p>User flow image/animation placeholder</p>
-                                <p class="media-caption">User flow showing Scan → Validate → Assign → Confirm steps for Clean Room tracking.</p>
                             </div>
                         </div>
 
@@ -1788,17 +1945,6 @@
 
                         <div class="accordion-subsection">
                             <div class="subsection-header">
-                                <span class="subsection-icon">🗺️</span>
-                                <h4>User Flow</h4>
-                            </div>
-                            <div class="media-placeholder">
-                                <p>User flow animation/image placeholder</p>
-                                <p class="media-caption">Asset passes doorway → Cube detects tag → Status updated automatically.</p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-subsection">
-                            <div class="subsection-header">
                                 <span class="subsection-icon">✏️</span>
                                 <h4>Low-Fidelity Wireframes</h4>
                             </div>
@@ -1877,51 +2023,29 @@
 
                         <div class="accordion-subsection">
                             <div class="subsection-header">
-                                <span class="subsection-icon">🗺️</span>
-                                <h4>User Flow</h4>
-                            </div>
-                            <div class="media-placeholder">
-                                <p>User flow animation placeholder</p>
-                                <p class="media-caption">Flow for locating assets using RFID signal proximity: Search → Signal Strength → Found → Confirm.</p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-subsection">
-                            <div class="subsection-header">
-                                <span class="subsection-icon">✏️</span>
-                                <h4>Low-Fidelity Wireframes</h4>
+                                <span class="subsection-icon">🎨</span>
+                                <h4>High-Fidelity Mockups</h4>
                             </div>
                             <div class="carousel-container">
                                 <div class="carousel-wrapper">
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 1</p>
-                                        </div>
+                                        <img src="images/handheld1.png" alt="High-fidelity mockup 1" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 2</p>
-                                        </div>
+                                        <img src="images/handheld2.png" alt="High-fidelity mockup 2" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                     <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 3</p>
-                                        </div>
+                                        <img src="images/handheld3.png" alt="High-fidelity mockup 3" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/handheld4.png" alt="High-fidelity mockup 4" style="width: 100%; height: auto; border-radius: 8px;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/Handheld5.png" alt="High-fidelity mockup 5" style="width: 100%; height: auto; border-radius: 8px;">
                                     </div>
                                 </div>
                             </div>
-                            <p class="media-caption">Exploring signal strength visualization and search states.</p>
-                        </div>
-
-                        <div class="accordion-subsection">
-                            <div class="subsection-header">
-                                <span class="subsection-icon">🎨</span>
-                                <h4>Final Design</h4>
-                            </div>
-                            <div class="media-placeholder">
-                                <p>Final design animation placeholder</p>
-                                <p class="media-caption">Final handheld interface for real-time asset locating (signal bar increases as asset nears).</p>
-                            </div>
+                            <p class="media-caption">Final handheld interface for real-time asset locating (signal bar increases as asset nears).</p>
                         </div>
                     </div>
                 </div>
@@ -1956,57 +2080,61 @@
 
                         <div class="accordion-subsection">
                             <div class="subsection-header">
-                                <span class="subsection-icon">🗺️</span>
-                                <h4>User Flow</h4>
-                            </div>
-                            <div class="media-placeholder">
-                                <p>User flow image placeholder</p>
-                                <p class="media-caption">User flow for live dashboard synchronization: Assets update → Data syncs → Dashboard refreshes KPIs.</p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-subsection">
-                            <div class="subsection-header">
-                                <span class="subsection-icon">✏️</span>
-                                <h4>Low-Fidelity Wireframes</h4>
-                            </div>
-                            <div class="carousel-container">
-                                <div class="carousel-wrapper">
-                                    <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 1</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 2</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 3</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="media-placeholder">
-                                            <p>Wireframe 4</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="media-caption">Wireframes exploring floor cards, KPIs, and alert hierarchy.</p>
-                        </div>
-
-                        <div class="accordion-subsection">
-                            <div class="subsection-header">
                                 <span class="subsection-icon">🎨</span>
                                 <h4>Final Design</h4>
                             </div>
-                            <div class="media-placeholder">
-                                <p>Final design image/animation placeholder</p>
-                                <p class="media-caption">Final dashboard providing cross-floor visibility and live status updates.</p>
+                            <div class="tv-mockup-container">
+                                <div class="dashboard-wrapper">
+                                    <img src="images/TVDashboard.svg" alt="TV Dashboard final design" style="width: 100%; height: auto; display: block;">
+                                </div>
                             </div>
+                            <p class="media-caption">Final dashboard providing cross-floor visibility and live status updates.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="section-container">
+            <h2 class="section-title">Impact</h2>
+            <div class="impact-grid-horizontal">
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Reduced Errors</h3>
+                        <p>Reduced manual data entry and errors by ≈ 40%</p>
+                    </div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Quick Location</h3>
+                        <p>Enabled quick equipment location using RFID scanning</p>
+                    </div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Better Transparency</h3>
+                        <p>Improved transparency between clinical and maintenance teams</p>
+                    </div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Scalable Foundation</h3>
+                        <p>Built a scalable foundation for predictive insights in asset management</p>
                     </div>
                 </div>
             </div>
@@ -2132,7 +2260,10 @@
                 }
             });
         });
+
     </script>
 </body>
 </html>
+
+
 
