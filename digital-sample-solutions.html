@@ -533,6 +533,16 @@
             justify-content: center;
         }
 
+        .problem-visual.system-visual {
+            background: transparent;
+            padding: 0;
+        }
+
+        .problem-visual .system-overview {
+            min-height: auto;
+            background: #f0f9ff;
+        }
+
         .problem-visual img,
         .problem-visual video {
             width: 100%;
@@ -559,6 +569,52 @@
         .problem-placeholder p {
             color: var(--text-light);
             font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .system-overview {
+            width: 100%;
+            background: #f0f9ff;
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .system-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(122, 90, 248, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .system-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .system-card-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-light);
             margin: 0;
         }
 
@@ -1632,6 +1688,72 @@
                 display: none;
             }
         }
+
+        /* My Role Section Scroll Reveal Animation */
+        .my-role-section {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 500ms ease-out, transform 500ms ease-out;
+        }
+
+        .my-role-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Highlight Phrases with Animated Underline */
+        .highlight-phrase {
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-phrase::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            width: 0;
+            height: 2px;
+            background: rgba(122, 90, 248, 0.3);
+            transition: width 600ms ease-out;
+        }
+
+        .my-role-section.revealed .highlight-phrase::after {
+            width: 100%;
+        }
+
+        /* System Together Section Scroll Reveal Animation */
+        .system-together-section {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 500ms ease-out, transform 500ms ease-out;
+        }
+
+        .system-together-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .my-role-section,
+            .system-together-section {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .my-role-section.revealed,
+            .system-together-section.revealed {
+                opacity: 1;
+                transform: none;
+            }
+
+            .highlight-phrase::after {
+                transition: none;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body style="margin: 0; padding: 0; font-family: 'Roboto', sans-serif;">
@@ -1754,6 +1876,53 @@
         <!-- Mission Strip -->
         <div class="mission-strip">
             <p>Mission: Turn every room, device, and interaction into one connected story—where equipment never goes missing, and care never has to wait.</p>
+        </div>
+    </section>
+
+    <!-- My Role Section -->
+    <section id="my-role" class="problem-section my-role-section">
+        <div class="section-container">
+            <h2 class="section-title">My Role</h2>
+            <p class="section-text">I led the <span class="highlight-phrase">end-to-end design</span> of this system — defining asset workflows, mapping the <span class="highlight-phrase">asset lifecycle</span> across rooms, and designing the <span class="highlight-phrase">tablet, handheld, and dashboard</span> experiences.</p>
+            <p class="section-text">My work included user flow definition, <span class="highlight-phrase">low-fidelity wireframes</span>, interaction design, and <span class="highlight-phrase">high-fidelity UI</span>. I collaborated closely with engineering and clinical stakeholders to ensure the solution worked in real hospital environments.</p>
+        </div>
+    </section>
+
+    <!-- How the System Comes Together Section -->
+    <section id="system-together" class="problem-section system-together-section">
+        <div class="section-container">
+            <h2 class="section-title">How the System Comes Together</h2>
+            <div class="problem-block">
+                <div class="problem-content">
+                    <p class="section-text">This problem couldn't be solved with a single interface. I designed SmartTrack as a connected system of touchpoints, each supporting a different moment in the hospital workflow.</p>
+                    <p class="section-text">Room-based tablets capture check-ins and check-outs, handheld devices help staff locate assets in motion, and dashboards provide real-time visibility across floors. Together, these interfaces make every handoff traceable, reliable, and easy to complete under pressure.</p>
+                </div>
+                <div class="problem-visual system-visual">
+                    <div class="system-overview">
+                        <div class="system-card">
+                            <div class="system-icon">
+                                <i class="fas fa-tablet-alt"></i>
+                            </div>
+                            <h3 class="system-card-title">Tablet</h3>
+                            <p class="system-card-description">Room-based interface for asset check-ins and check-outs during handoffs</p>
+                        </div>
+                        <div class="system-card">
+                            <div class="system-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="system-card-title">Handheld</h3>
+                            <p class="system-card-description">Mobile device for locating assets and tracking movement across rooms</p>
+                        </div>
+                        <div class="system-card">
+                            <div class="system-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="system-card-title">Dashboard</h3>
+                            <p class="system-card-description">Real-time operational visibility across floors and departments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2189,6 +2358,48 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+        // My Role Section Scroll Reveal Animation
+        const myRoleSection = document.getElementById('my-role');
+        if (myRoleSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const myRoleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        myRoleObserver.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            myRoleObserver.observe(myRoleSection);
+        } else if (myRoleSection) {
+            // If reduced motion is preferred, show immediately
+            myRoleSection.classList.add('revealed');
+        }
+
+        // System Together Section Scroll Reveal Animation
+        const systemTogetherSection = document.getElementById('system-together');
+        if (systemTogetherSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const systemTogetherObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        systemTogetherObserver.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            systemTogetherObserver.observe(systemTogetherSection);
+        } else if (systemTogetherSection) {
+            // If reduced motion is preferred, show immediately
+            systemTogetherSection.classList.add('revealed');
+        }
 
         // Video hover pause/resume effect
         const everydayChaosVideo = document.getElementById('everyday-chaos-video');
