@@ -11,6 +11,48 @@
         /* Import your existing styles */
         @import url('styles.css');
 
+
+        /* Framer embed spacing reset:
+           Framer already provides outer spacing, so avoid adding extra page-level
+           left/right padding inside this embedded page. */
+        html,
+        body {
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .project-container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        /* Keep sections flush horizontally inside Framer */
+        .team-section,
+        .discovery-section,
+        .wireframes-section,
+        .hifi-section,
+        .onboarding-section,
+        .support-section,
+        .critique-section,
+        .learnings-section {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+
         /* Project-specific styles */
         .project-header {
             padding: 2rem 0 1rem;
@@ -33,7 +75,7 @@
         .project-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0;
         }
 
         .back-to-home {
@@ -414,7 +456,7 @@
 
         /* Minimal Team Section */
         .team-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             background: white;
         }
 
@@ -537,7 +579,7 @@
 
         /* Discovery Section Styles */
         .discovery-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
         }
 
         .discovery-intro {
@@ -841,7 +883,7 @@
         .emotion-wheel-container {
             max-width: 100%;
             margin: 0;
-            padding: 0 2rem 0.5rem; /* Added small bottom padding */
+            padding: 0 0 0.5rem; /* Added small bottom padding */
             position: relative;
         }
 
@@ -851,7 +893,7 @@
             position: relative;
             justify-content: space-between;
             align-items: stretch;
-            padding: 0 1rem;
+            padding: 0;
         }
 
         .emotion-segment {
@@ -1004,7 +1046,7 @@
 
         @media (max-width: 768px) {
             .emotion-wheel-container {
-                padding: 0 1rem;
+                padding: 0;
             }
 
             .emotion-wheel {
@@ -1019,7 +1061,7 @@
 
         .wireframes-section {
             background: #f8f9fa;
-            padding: 2rem 4rem;
+            padding: 2rem 0;
         }
         .wireframes-intro {
             font-size: 1.08rem;
@@ -1153,7 +1195,7 @@
 
         /* High-Fidelity UI Section */
         .hifi-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             background: #fff;
         }
 
@@ -1329,7 +1371,7 @@
 
         /* Onboarding Section Styles */
         .onboarding-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             background: #f8f9fa;
         }
 
@@ -1408,7 +1450,7 @@
 
         /* Support Section Styles */
         .support-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             background: #fff;
         }
 
@@ -1446,7 +1488,7 @@
 
         /* Design Critique Section Styles */
         .critique-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             background: #f8f9fa;
         }
 
@@ -1667,7 +1709,7 @@
         }
 
         .learnings-section {
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             background: #fff;
         }
 
