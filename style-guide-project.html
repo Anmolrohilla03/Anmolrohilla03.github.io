@@ -2122,202 +2122,32 @@
             }
         }
 
-        /* Design Tokens Section -->
-        #design-tokens {
-            padding-top: 48px;
-            padding-bottom: 48px;
-            margin-top: 24px;
-            background: linear-gradient(135deg, #f8f9ff 0%, #f1f1f1 100%);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        nav {
+            display: none !important;
         }
 
-        #design-tokens .typography-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        #design-tokens .typography-intro-content {
-            margin-bottom: 32px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        #design-tokens .typography-eyebrow {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #805AD5;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        #design-tokens h2 {
-            font-size: 2.25rem;
-            margin-bottom: 0.75rem;
-            color: #1A202C;
-        }
-
-        #design-tokens p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #4A5568;
-        }
-
-        #design-tokens .token-single-carousel-container {
-            position: relative;
-            width: 100%;
-            margin: 0 auto 48px;
-            max-width: 1200px;
-        }
-
-        #design-tokens .token-single-carousel {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        #design-tokens .token-slide {
-            width: 100%;
-            display: none;
-            animation: fadeIn 0.6s ease;
-        }
-
-        #design-tokens .token-slide.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        #design-tokens .token-slide-content {
-            display: flex;
-            flex-direction: row;
-            gap: 40px;
-            padding: 32px 0;
-        }
-
-        #design-tokens .token-slide-text {
-            flex: 1;
-        }
-
-        #design-tokens .token-slide-text h3 {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            color: #1A202C;
-            position: relative;
-        }
-
-        #design-tokens .token-slide-text h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: #805AD5;
-        }
-
-        #design-tokens .token-slide-text p {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: #4A5568;
-            margin-bottom: 24px;
-        }
-
-        #design-tokens .token-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #design-tokens .token-features li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            color: #4A5568;
-        }
-
-        #design-tokens .token-features li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #805AD5;
-        }
-
-        #design-tokens .token-slide-image {
-            flex: 1;
-            min-height: 380px;
-        }
-
-        #design-tokens .token-carousel-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 32px;
-            gap: 16px;
-        }
-
-        #design-tokens .token-indicators {
-            display: flex;
-            gap: 12px;
-        }
-
-        #design-tokens .token-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: none;
-            background-color: #E2E8F0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        #design-tokens .token-indicator.active {
-            background-color: #805AD5;
-            transform: scale(1.2);
-        }
-
-        #design-tokens .token-nav-button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: none;
+        .hero-section {
+            padding-top: 3rem;
+            padding-bottom: 60px;
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #4A5568;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        #design-tokens .token-nav-button:hover {
-            background: #805AD5;
-            color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        .container,
+        .typography-container,
+        .tokens-container,
+        .color-system-container,
+        .token-single-carousel-container,
+        .tokens-carousel,
+        .component-content {
+            width: min(100%, 1400px) !important;
+            max-width: 1400px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
-
-        @media (max-width: 768px) {
-            #design-tokens .token-slide-content {
-                flex-direction: column;
-            }
-            
-            #design-tokens .token-slide-image {
-                min-height: 300px;
-            }
-        }
-
+       
         /* Carousel Styles */
         #design-tokens .tokens-carousel {
             position: relative;
@@ -2425,7 +2255,6 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <span class="project-tag">Design System</span>
                 <h1>Design Style Guide – Pycube</h1>
                 <p>At Pycube, I led the development of a unified design style guide to solve inconsistencies across the product ecosystem. I built a system of scalable foundations — typography, colors, components, tokens — and collaborated with developers to bring a robust React component library to life. This project streamlined design workflows, improved accessibility, and accelerated our product delivery.</p>
             </div>
