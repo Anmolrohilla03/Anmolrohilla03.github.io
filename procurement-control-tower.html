@@ -30,15 +30,6 @@
             box-sizing: border-box;
         }
 
-        .project-container {
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 0;
-            padding-right: 0;
-        }
-
         /* Keep sections flush horizontally inside Framer */
         .team-section,
         .discovery-section,
@@ -73,9 +64,12 @@
         }
 
         .project-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0;
+        width: min(100%, 1400px) !important;
+        max-width: 1400px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         }
 
         .back-to-home {
