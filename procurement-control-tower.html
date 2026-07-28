@@ -34,10 +34,12 @@
         .team-section,
         .discovery-section,
         .wireframes-section,
+        .final-product-section,
         .hifi-section,
+        .ai-insights-section,
         .onboarding-section,
         .support-section,
-        .critique-section,
+        .tradeoffs-section,
         .learnings-section {
             padding-left: 0;
             padding-right: 0;
@@ -46,13 +48,13 @@
 
         /* Project-specific styles */
         .project-header {
-        padding: 3rem 0 1rem;
+        padding: 1.5rem 0 0;
         background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .project-title {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             color: var(--text-color);
         }
 
@@ -174,7 +176,7 @@
 
         /* Intro Section Styles */
         .intro-section {
-            padding: 4rem 0 1rem;
+            padding: 1.25rem 0 1.5rem;
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
             min-height: auto;
             display: flex;
@@ -183,9 +185,9 @@
 
         .intro-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 40fr 60fr;
             gap: 2rem;
-            align-items: flex-start; /* Changed from center to flex-start */
+            align-items: center;
             padding: 0;
         }
 
@@ -195,21 +197,21 @@
             animation: slideUpFade 0.8s ease-out forwards;
             padding-right: 2rem;
             display: flex;
-            align-items: flex-start; /* Changed from center to flex-start */
-            justify-content: flex-start; /* Changed from center to flex-start */
+            align-items: center;
+            justify-content: flex-start;
+            align-self: stretch;
             height: 100%;
         }
 
         .intro-text {
             color: var(--text-light);
-            line-height: 1.8;
-            font-size: calc(1.1rem + 4px);
+            line-height: 1.7;
+            font-size: calc(1.05rem + 2px);
             max-width: 540px;
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1rem;
             align-items: flex-start;
-            height: 100%;
         }
 
         .intro-text p {
@@ -223,13 +225,35 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Changed from center to flex-start */
-            height: 100%;
-            align-self: flex-start; /* Changed from center to flex-start */
-            margin: 0 auto;
-            max-width: 900px;
+            justify-content: center;
+            align-self: center;
+            margin: 0;
             width: 100%;
-            overflow: hidden; /* Add this to prevent overflow */
+            overflow: visible;
+        }
+
+        .hero-product-showcase {
+            width: 100%;
+            max-width: 1060px;
+            margin-left: auto;
+            aspect-ratio: 1440 / 1020;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow:
+                0 1px 2px rgba(15, 23, 42, 0.04),
+                0 10px 30px rgba(15, 23, 42, 0.08),
+                0 24px 48px rgba(15, 23, 42, 0.05);
+            line-height: 0;
+        }
+
+        .hero-product-showcase img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: top center;
         }
 
         .placeholder-visual {
@@ -265,7 +289,7 @@
             color: var(--text-light);
             font-size: 0.9rem;
             margin-top: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
         }
 
         /* Add scroll-based animation */
@@ -282,7 +306,7 @@
 
         @media (max-width: 768px) {
             .intro-section {
-                padding: 30px 0 16px;
+                padding: 1rem 0 1rem;
             }
 
             .intro-grid {
@@ -292,11 +316,20 @@
 
             .intro-content {
                 padding-right: 0;
-                order: 2; /* Move text below image on mobile */
+                order: 2;
+                align-items: flex-start;
+                align-self: auto;
+                height: auto;
             }
 
             .intro-visual {
-                order: 1; /* Move image above text on mobile */
+                order: 1;
+                max-width: 100%;
+            }
+
+            .hero-product-showcase {
+                max-width: 100%;
+                margin-left: 0;
             }
 
             .intro-text {
@@ -454,7 +487,7 @@
             }
             
             .intro-section {
-                padding: 30px 0 16px;
+                padding: 1rem 0 1rem;
             }
 
             .snapshot-row {
@@ -529,19 +562,20 @@
         .process-section {
             padding: 4rem 0;
             background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            font-size: calc(1rem + 2px);
         }
 
         .process-intro {
             color: var(--text-light);
             line-height: 1.8;
-            font-size: 1rem;
-            max-width: 720px;
+            font-size: calc(1rem + 2px);
+            max-width: 100%;
             margin-bottom: 3rem;
         }
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -568,7 +602,7 @@
             background: rgba(122, 90, 248, 0.04);
             border-radius: 12px;
             color: #7A5AF8;
-            font-size: 1.5rem;
+            font-size: calc(1.5rem + 2px);
         }
 
         .step-icon img {
@@ -581,11 +615,11 @@
             font-weight: 500;
             color: #7A5AF8;
             margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            font-size: calc(0.95rem + 2px);
         }
 
         .step-description {
-            font-size: 0.85rem;
+            font-size: calc(0.85rem + 2px);
             color: var(--text-light);
             line-height: 1.5;
         }
@@ -611,13 +645,18 @@
         /* Discovery Section Styles */
         .discovery-section {
             padding: 2rem 0;
+            font-size: calc(1rem + 2px);
+        }
+
+        .discovery-section .section-subtitle {
+            font-size: calc(0.95rem + 2px);
         }
 
         .discovery-intro {
             color: var(--text-light);
             line-height: 1.8;
-            font-size: 1rem;
-            max-width: 720px;
+            font-size: calc(1rem + 2px);
+            max-width: 100%;
             margin-bottom: 1.5rem;
         }
 
@@ -657,6 +696,50 @@
         .discovery-intro.is-visible, .placeholder-board.is-visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .research-insights {
+            margin: 0.5rem 0 0;
+        }
+
+        .research-insights .emotions-title {
+            margin-bottom: 1rem;
+        }
+
+        .research-insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .research-insights-grid li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--text-light);
+            font-size: calc(1rem + 2px);
+            line-height: 1.5;
+        }
+
+        .research-insights-grid li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #7A5AF8;
+            border-radius: 50%;
+            margin-top: 0.55rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .research-insights-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
         }
 
         /* Add subtle hover effect to placeholder board */
@@ -795,7 +878,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin: 2rem 0;
-            max-width: 900px;
+            max-width: 100%;
         }
 
         .sticky-note {
@@ -845,7 +928,7 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--text-color);
-            font-size: 1.1rem;
+            font-size: calc(1.1rem + 2px);
             line-height: 1.4;
         }
 
@@ -859,7 +942,7 @@
 
         .sticky-suggestion {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: calc(0.9rem + 2px);
             line-height: 1.5;
             padding-top: 1rem;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -905,7 +988,7 @@
         }
 
         .emotions-title {
-            font-size: 1.2rem;
+            font-size: calc(1.2rem + 2px);
             color: var(--text-color);
             margin-bottom: 1.5rem;
             text-align: left;
@@ -1027,13 +1110,13 @@
         .emotion-label {
             font-weight: 600;
             color: var(--text-color);
-            font-size: 1.2rem;
+            font-size: calc(1.2rem + 2px);
             margin-bottom: 1rem;
         }
 
         .emotion-quote {
             color: var(--text-light);
-            font-size: 1rem;
+            font-size: calc(1rem + 2px);
             line-height: 1.5;
             font-style: italic;
             margin-top: 0.75rem;
@@ -1091,97 +1174,122 @@
         }
 
         .wireframes-section {
-            background: #f8f9fa;
-            padding: 2rem 0;
-        }
-        .wireframes-intro {
-            font-size: 1.08rem;
-            color: var(--text-light, #555);
-            max-width: 700px;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        .wireframes-scroll {
-            display: flex;
-            gap: 2.2rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            scrollbar-width: thin;
-            scrollbar-color: #e0e0e0 #f8f9fa;
-            align-items: stretch; /* Make all items stretch to same height */
-        }
-        .wireframe-tile {
-            min-width: 340px;
-            max-width: 340px;
-            flex: 0 0 340px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: none;
-            height: 100%; /* Ensure full height */
-        }
-        .wireframe-img {
-            width: 100%;
-            height: 450px; /* Set fixed height */
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(122,90,248,0.08);
-            margin-bottom: 0.7rem;
-            overflow: hidden;
-            position: relative;
-            transition: box-shadow 0.2s, transform 0.2s;
             background: #fff;
+            padding: 4rem 0;
+        }
+
+        .wireframes-intro {
+            font-size: calc(1.08rem + 2px);
+            color: var(--text-light, #555);
+            max-width: 100%;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .wireframes-section .wireframes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            column-gap: 1.75rem;
+            row-gap: 0;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        .wireframes-section .wireframe-tile {
             display: flex;
             flex-direction: column;
-            align-items: center;
-        }
-        .wireframe-img img {
+            align-items: stretch;
             width: 100%;
-            height: 100%;
-            object-fit: contain; /* Maintain aspect ratio while filling container */
-            display: block;
-            filter: grayscale(0.2) contrast(1.05);
-            padding: 1rem;
+            min-width: 0;
+            gap: 0.75rem;
         }
-        
-        /* Remove any specific overrides that might affect first tile */
-        .wireframe-tile:first-child .wireframe-img,
-        .wireframe-tile:first-child .wireframe-img img {
-            height: 100%;
-            max-height: none;
-        }
-        .wireframe-caption {
+
+        .wireframes-section .wireframe-img {
             width: 100%;
-            text-align: center;
-            padding: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
-            background: rgba(255, 255, 255, 0.9);
-            margin: 0;
             position: relative;
-            bottom: 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            flex: 0 0 auto;
         }
-        .paper-bg {
-            background: repeating-linear-gradient(135deg, #fff, #fff 18px, #f3f3f3 20px, #fff 22px);
-            border: 1.5px solid #e0e0e0;
+
+        .wireframes-section .wireframe-img::before {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-bottom: 125%;
         }
-        .sketch-overlay::after {
-            content: '';
+
+        .wireframes-section .wireframe-img img {
             position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background: url('https://www.transparenttextures.com/patterns/sketch.png');
-            opacity: 0.18;
-            mix-blend-mode: multiply;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            padding: 0;
+            margin: 0;
         }
+
+        .wireframes-section .wireframe-caption {
+            width: 100%;
+            max-width: none;
+            flex: 0 0 auto;
+            text-align: left;
+            padding: 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            background: none;
+            margin: 0;
+            border: none;
+            line-height: 1.55;
+            overflow: visible;
+            box-sizing: border-box;
+        }
+
+        .wireframes-section .wireframe-caption strong {
+            display: block;
+            width: 100%;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1rem;
+            margin: 0 0 0.25rem;
+            white-space: normal;
+            overflow: visible;
+            text-align: left;
+        }
+
+        .wireframes-section .wireframe-caption span {
+            display: block;
+            width: 100%;
+            max-width: none;
+            white-space: normal;
+            overflow: visible;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: left;
+        }
+
         @media (max-width: 900px) {
-            .wireframes-scroll, .wireframe-captions-row { gap: 1.2rem; }
-            .wireframe-tile, .wireframe-caption { min-width: 260px; max-width: 320px; }
+            .wireframes-section .wireframes-grid {
+                grid-template-columns: 1fr;
+                row-gap: 1.25rem;
+            }
         }
+
         @media (max-width: 600px) {
-            .wireframes-scroll, .wireframe-captions-row { gap: 0.7rem; }
-            .wireframe-tile, .wireframe-caption { min-width: 180px; max-width: 98vw; }
-            .wireframe-caption { font-size: 0.93rem; }
+            .wireframes-section {
+                padding: 3rem 0;
+            }
+
+            .wireframe-caption strong {
+                white-space: normal;
+            }
         }
 
         .wireframe-annotated { position: relative; }
@@ -1206,17 +1314,6 @@
         .wf-chart { top: 120px; right: 38px; }
         .wf-user { bottom: 18px; right: 32px; }
 
-        .wireframe-tile:first-child .wireframe-img {
-            height: auto;
-            max-height: none;
-        }
-
-        .wireframe-tile:first-child .wireframe-img img {
-            height: auto;
-            object-fit: contain;
-            max-height: none;
-        }
-
         .section-subtitle {
             color: var(--text-light);
             font-size: 0.95rem;
@@ -1225,35 +1322,92 @@
         }
 
         /* High-Fidelity UI Section */
+        .final-product-section {
+            padding: 2rem 0 0;
+            background: #fff;
+            font-size: calc(1rem + 2px);
+        }
+
+        .final-product-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: calc(1rem + 2px);
+            max-width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .subsection-label {
+            margin-top: 0;
+        }
+
+        .subsection-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: calc(1rem + 2px);
+            max-width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .onboarding-step .step-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+            font-weight: 600;
+        }
+
         .hifi-section {
-            padding: 2rem 0;
             background: #fff;
         }
 
         .hifi-hero {
-            margin-bottom: 6rem;
+            margin-bottom: 0;
         }
 
-        .hifi-hero-layout {
+        /* Final Product Experience — unified subsection layout */
+        .hifi-subsection {
+            padding: 3rem 0;
+        }
+
+        .hifi-subsection-layout {
             display: grid;
-            grid-template-columns: 35% 65%; /* Swap ratio and put description first */
-            gap: 4rem;
-            align-items: stretch; /* Make both columns same height */
+            grid-template-columns: 40fr 60fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hifi-subsection-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+
+        .hifi-product-viewport {
+            width: 100%;
+            aspect-ratio: 1440 / 1788;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            line-height: 0;
+        }
+
+        .hifi-product-viewport img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            object-position: center;
         }
 
         .hero-image {
             width: 100%;
             position: relative;
-            height: 100%; /* Fill full height */
         }
 
         .hero-image img {
-            width: 100%;
-            height: 100%; /* Fill container height */
-            display: block;
-            border-radius: 12px;
+            border-radius: 0;
             transition: all 0.3s ease;
-            object-fit: contain; /* Maintain aspect ratio */
         }
 
         /* Adjust highlight positions for larger image */
@@ -1307,9 +1461,13 @@
         .hero-description {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 1rem 0;
-            height: 100%;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0;
+        }
+
+        .hero-description .feature-block {
+            margin-bottom: 0;
         }
 
         .feature-block {
@@ -1327,21 +1485,137 @@
             font-weight: 600;
         }
 
-        .feature-block p {
+        .final-product-section .feature-block p {
             color: var(--text-light);
             line-height: 1.6;
-            font-size: 0.95rem;
+            font-size: calc(0.95rem + 2px);
+        }
+
+        /* AI Insights Section */
+        .ai-insights-section {
+            background: #f8f9fa;
+        }
+
+        .ai-insights-section .subsection-label {
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-insights-intro {
+            margin: 0 0 1.75rem;
+            line-height: 1.6;
+            font-size: calc(1rem + 2px);
+        }
+
+        .ai-insights-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .ai-insights-section .ai-feature-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ai-insights-section .ai-callout-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: rgba(122, 90, 248, 0.1);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+
+        .ai-insights-section .ai-callout-text h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .ai-insights-section .ai-callout-text p {
+            color: var(--text-light);
+            line-height: 1.45;
+            font-size: calc(0.95rem + 2px);
+            margin: 0;
+        }
+
+        .ai-insights-section.hifi-subsection {
+            padding: 2rem 0;
+        }
+
+        .ai-insights-section .hifi-subsection-layout {
+            align-items: center;
+        }
+
+        .ai-insights-section .ai-insights-image {
+            aspect-ratio: 1440 / 900;
+            width: 100%;
+            max-width: 100%;
+            max-height: none;
+            height: auto;
+            margin: 0 auto;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .ai-insights-section .ai-insights-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transform: scale(1);
+            transform-origin: 50% 50%;
+            will-change: transform;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .ai-insights-image {
+                cursor: zoom-in;
+            }
+
+            .ai-insights-image.is-zoomed {
+                cursor: grab;
+            }
+
+            .ai-insights-image.is-zoomed img {
+                cursor: grab;
+            }
         }
 
         @media (max-width: 1024px) {
-            .hifi-hero-layout {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .hifi-subsection {
+                padding: 2.5rem 0;
             }
-            
-            .hero-image {
-                height: auto;
-                min-height: 500px;
+
+            .hifi-subsection-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hifi-subsection-text {
+                order: -1;
+            }
+
+            .ai-insights-section .ai-insights-image {
+                aspect-ratio: 1440 / 900;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .ai-insights-section .ai-insights-image img {
+                height: 100%;
+                object-fit: cover;
+                object-position: top center;
             }
         }
 
@@ -1381,10 +1655,6 @@
         }
 
         @media (max-width: 768px) {
-            .hifi-hero {
-                padding: 2rem 0;
-            }
-            
             .hero-description p {
                 max-width: 100%;
             }
@@ -1402,42 +1672,31 @@
 
         /* Onboarding Section Styles */
         .onboarding-section {
-            padding: 2rem 0;
             background: #f8f9fa;
         }
 
-        .onboarding-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .onboarding-section.hifi-subsection,
+        .support-section.hifi-subsection {
+            padding: 3rem 0;
         }
 
         .onboarding-image {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
             cursor: zoom-in;
         }
 
         .onboarding-image img {
-            width: 100%;
-            display: block;
             transition: all 0.5s ease;
-            transform-origin: 25% 40%; /* Slightly adjusted focus point */
+            transform-origin: 25% 40%;
         }
 
         .onboarding-image:hover img {
-            transform: scale(1.8); /* Increased zoom from 1.4 to 1.8 */
+            transform: scale(1.8);
         }
 
-        /* Remove previous overlay and other effects */
         .onboarding-image::after {
             display: none;
         }
 
-        /* Smooth transition for text */
         .onboarding-step {
             transition: all 0.3s ease;
         }
@@ -1466,42 +1725,15 @@
             opacity: 0.8;
         }
 
-        .step-content p {
+        .final-product-section .step-content p {
             color: var(--text-light);
             line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        @media (max-width: 1024px) {
-            .onboarding-layout {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
+            font-size: calc(1.05rem + 2px);
         }
 
         /* Support Section Styles */
         .support-section {
-            padding: 2rem 0;
             background: #fff;
-        }
-
-        .support-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .support-image {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .support-image img {
-            width: 100%;
-            display: block;
-            transition: transform 0.3s ease;
         }
 
         .support-content {
@@ -1510,223 +1742,79 @@
             gap: 2.5rem;
         }
 
-        @media (max-width: 1024px) {
-            .support-layout {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-        }
-
-        /* Design Critique Section Styles */
-        .critique-section {
+        /* Key Design Tradeoffs Section */
+        .tradeoffs-section {
             padding: 2rem 0;
             background: #f8f9fa;
         }
 
-        .critique-layout {
+        .tradeoffs-intro {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: calc(1rem + 2px);
+            margin-bottom: 2rem;
+            max-width: 100%;
+        }
+
+        .tradeoffs-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
         }
 
-        .critique-visual {
-            position: relative;
-            border-radius: 12px;
-            overflow: visible;
-            background: #f0f2f5; /* FigJam-like background */
-            padding: 2rem;
-        }
-
-        /* FigJam toolbar */
-        .figjam-toolbar {
-            position: absolute;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border-radius: 8px;
-            padding: 0.5rem;
-            display: flex;
-            gap: 0.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 3;
-        }
-
-        /* Sticky notes */
-        .sticky-feedback {
-            position: absolute;
-            width: 200px;
-            padding: 1rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .sticky-yellow {
-            background: #FFF8E7;
-            border: 1px solid #FFE7A3;
-            top: 20%;
-            left: 15%;
-            transform: rotate(-2deg);
-        }
-
-        .sticky-purple {
-            background: #F4F0FF;
-            border: 1px solid #E6DEFF;
-            top: 30%;
-            right: 20%;
-            transform: rotate(1deg);
-        }
-
-        .sticky-green {
-            background: #E8FFF4;
-            border: 1px solid #BFEBD7;
-            bottom: 25%;
-            left: 25%;
-            transform: rotate(1deg);
-        }
-
-        /* Comment bubbles */
-        .critique-comment {
-            position: absolute;
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            max-width: 220px;
-            font-size: 0.9rem;
-            z-index: 2;
-        }
-
-        /* Connector lines with dots */
-        .connector {
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background: #E6DEFF;
-        }
-
-        .connector::before, .connector::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #7A5AF8;
-        }
-
-        .critique-mockup {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        .critique-comment comment-1 {
-            top: 15%;
-            right: -20px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .critique-comment comment-2 {
-            bottom: 20%;
-            left: -20px;
-            border: 1px solid #e0e0e0;
-        }
-
-        /* Comment connector lines */
-        .comment-1::before, .comment-2::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: #e0e0e0;
-        }
-
-        .comment-1::before {
-            left: -20px;
-            top: 50%;
-        }
-
-        .comment-2::before {
-            right: -20px;
-            top: 50%;
-        }
-
-        /* Comment author */
-        .comment-author {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .author-avatar {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #7A5AF8;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-
-        .critique-feedback {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem; /* Reduced from 2rem to bring elements closer */
+        .tradeoff-card {
             background: #fff;
+            border: 1px solid #E5E7EB;
             border-radius: 12px;
             padding: 1.5rem;
-        }
-
-        .feedback-points-container {
             display: flex;
             flex-direction: column;
-            gap: 1rem; /* Reduced gap between points */
+            gap: 0;
+            height: 100%;
         }
 
-        .feedback-point {
+        .tradeoff-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 1rem;
+            line-height: 1.35;
+        }
+
+        .tradeoff-block {
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border-left: 2px solid transparent; /* For hover effect */
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 0.875rem 0;
         }
 
-        .feedback-point:hover {
-            background: rgba(122, 90, 248, 0.05);
-            border-left-color: var(--accent-color);
+        .tradeoff-block:first-of-type {
+            padding-top: 0;
         }
 
-        .point-icon {
-            width: 28px; /* Slightly smaller icons */
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            background: rgba(122, 90, 248, 0.1);
+        .tradeoff-block + .tradeoff-block {
+            border-top: 1px solid rgba(122, 90, 248, 0.1);
+        }
+
+        .tradeoff-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
             color: var(--accent-color);
         }
 
-        .point-text {
+        .tradeoff-block p {
             color: var(--text-light);
-            line-height: 1.6;
-            font-size: 1rem;
-            padding-top: 0.25rem; /* Align text with icon */
+            font-size: calc(0.95rem + 2px);
+            line-height: 1.5;
+            margin: 0;
         }
 
         @media (max-width: 1024px) {
-            .critique-layout {
+            .tradeoffs-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
             }
         }
 
@@ -1744,62 +1832,70 @@
             background: #fff;
         }
 
-        .learnings-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .learnings-section .learnings-content {
+            max-width: 100%;
+            margin: 0;
+            text-align: left;
         }
 
-        .reflection-text {
+        .learnings-section .reflection-text {
             color: var(--text-light);
             line-height: 1.8;
             font-size: 1.05rem;
-            margin-bottom: 3rem;
-            text-align: left; /* Ensure left alignment */
+            margin-bottom: 2.5rem;
+            text-align: left;
         }
 
-        .takeaways-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .learnings-section .takeaways-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
-        .takeaway-item {
+        .learnings-section .takeaway-item {
             padding: 1.5rem;
             background: rgba(122, 90, 248, 0.02);
             border-radius: 12px;
             border-left: 2px solid var(--accent-color);
             transition: all 0.3s ease;
-            text-align: left; /* Ensure left alignment */
+            text-align: left;
+            height: 100%;
         }
 
-        .takeaway-item:hover {
+        .learnings-section .takeaway-item:hover {
             background: rgba(122, 90, 248, 0.05);
             transform: translateX(5px);
         }
 
-        .takeaway-title {
+        .learnings-section .takeaway-title {
             color: var(--text-color);
             font-weight: 500;
             margin-bottom: 0.75rem;
             font-size: 1.1rem;
-            text-align: left; /* Ensure left alignment */
+            text-align: left;
         }
 
-        .takeaway-desc {
+        .learnings-section .takeaway-desc {
             color: var(--text-light);
             line-height: 1.7;
-            text-align: left; /* Ensure left alignment */
+            text-align: left;
         }
 
-        .closing-thought {
+        .learnings-section .closing-thought {
             color: var(--text-color);
             font-size: 1.1rem;
             font-weight: 500;
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(122, 90, 248, 0.1);
-            text-align: left; /* Changed from center to left */
+            text-align: left;
             font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .learnings-section .takeaways-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         .imac-mockup {
@@ -1899,79 +1995,7 @@
             }
         }
 
-        /* Add these styles for MacBook mockup */
-        .macbook-mockup {
-            width: 100%;
-            max-width: 900px;
-            margin: 0;
-            position: relative;
-        }
-
-        .macbook-screen {
-            background: #252525;
-            border-radius: 16px 16px 0 0;
-            padding: 16px 16px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            position: relative;
-        }
-
-        .macbook-frame {
-            background: #fff;
-            aspect-ratio: 16/10;
-            border-radius: 4px 4px 0 0;
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        /* Add hover effect to the image */
-        .macbook-frame img {
-            width: 100%;
-            height: 120%; /* Increased height to show more content */
-            object-fit: cover;
-            object-position: top; /* Align to top of image */
-            display: block;
-            transition: transform 0.5s ease;
-            transform-origin: top; /* Ensure zoom happens from top */
-        }
-
-        /* Add zoom effect on hover */
-        .macbook-mockup:hover .macbook-frame img {
-            transform: scale(1.1);
-        }
-
-        /* Optional: Add subtle shadow enhancement on hover */
-        .macbook-mockup:hover {
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
-        }
-
-        .macbook-base {
-            background: linear-gradient(to bottom, #252525, #444444);
-            height: 12px;
-            margin: 0 auto;
-            border-radius: 0 0 12px 12px;
-            position: relative;
-        }
-
-        .macbook-bottom {
-            background: #252525;
-            height: 4px;
-            width: 120px;
-            margin: 0 auto;
-            border-radius: 0 0 6px 6px;
-        }
-
-        /* Update existing styles */
-        .intro-visual {
-            margin: 0 auto;
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .visual-caption {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
+        /* Hero product showcase */
 
         /* Project Snapshot Overview Styles */
         .project-snapshot-overview {
@@ -2101,17 +2125,9 @@
                 </div>
                 
                 <div class="intro-visual fade-in-section is-visible">
-                    <div class="macbook-mockup">
-                        <div class="macbook-screen">
-                            <div class="macbook-frame">
-                                <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard">
-                            </div>
-                        </div>
-                        <div class="macbook-base">
-                            <div class="macbook-bottom"></div>
-                        </div>
+                    <div class="hero-product-showcase">
+                        <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard">
                     </div>
-                    <p class="visual-caption">Procurement Control Tower - Landing Page</p>
                 </div>
             </div>
         </div>
@@ -2286,42 +2302,49 @@
         <div class="project-container">
             <h2 class="section-label">Design Process</h2>
             <div class="process-intro fade-in-section">
-                I approached this project by aligning early with stakeholders, mapping workflows, and iterating quickly through sketches and wireframes before moving into detailed UI. Regular design critiques helped refine the solution through ongoing feedback.
+                The design process focused on understanding procurement workflows, validating assumptions with stakeholders, and iteratively refining solutions to create a centralized experience that balanced user needs, business goals, and technical feasibility.
             </div>
             <div class="process-steps">
                 <div class="process-step fade-in-section">
                     <div class="step-icon">🔍</div>
                     <div class="step-content">
-                        <div class="step-title">Discovery</div>
-                        <div class="step-description">Stakeholder interviews & problem mapping</div>
+                        <div class="step-title">Discover</div>
+                        <div class="step-description">Conducted stakeholder interviews and analyzed existing procurement workflows.</div>
                     </div>
                 </div>
                 <div class="process-step fade-in-section">
                     <div class="step-icon">📊</div>
                     <div class="step-content">
-                        <div class="step-title">Research</div>
-                        <div class="step-description">User flows & competitive analysis</div>
+                        <div class="step-title">Define</div>
+                        <div class="step-description">Identified user pain points, business goals, and product requirements.</div>
                     </div>
                 </div>
                 <div class="process-step fade-in-section">
                     <div class="step-icon">✏️</div>
                     <div class="step-content">
-                        <div class="step-title">Wireframing</div>
-                        <div class="step-description">Low-fi layouts & user testing</div>
+                        <div class="step-title">Ideate</div>
+                        <div class="step-description">Explored concepts through user flows and low fidelity wireframes.</div>
                     </div>
                 </div>
                 <div class="process-step fade-in-section">
                     <div class="step-icon">🎨</div>
                     <div class="step-content">
                         <div class="step-title">Design</div>
-                        <div class="step-description">UI design & interactive prototypes</div>
+                        <div class="step-description">Created high fidelity designs and interactive prototypes.</div>
                     </div>
                 </div>
                 <div class="process-step fade-in-section">
                     <div class="step-icon">💭</div>
                     <div class="step-content">
-                        <div class="step-title">Design Critique</div>
-                        <div class="step-description">Collaborative feedback and iteration with cross-functional teams</div>
+                        <div class="step-title">Validate</div>
+                        <div class="step-description">Facilitated design reviews, gathered stakeholder feedback, and refined solutions through iteration.</div>
+                    </div>
+                </div>
+                <div class="process-step fade-in-section">
+                    <div class="step-icon">🚀</div>
+                    <div class="step-content">
+                        <div class="step-title">Deliver</div>
+                        <div class="step-description">Partnered with engineering during implementation and supported developer handoff.</div>
                     </div>
                 </div>
             </div>
@@ -2333,7 +2356,7 @@
             <h2 class="section-label">Discover & Research</h2>
             <p class="section-subtitle">Insights gathered from procurement professionals guided every design decision.</p>
             <div class="discovery-intro fade-in-section">
-                <p>I led the discovery, research, and ideation process to understand user needs and expectations. I conducted stakeholder interviews, distributed user surveys, and mapped emotional responses from the procurement team. These early insights revealed usability gaps, trust concerns, and workflow inefficiencies, which shaped the foundation of the design direction.</p>
+                <p>Before exploring solutions, I wanted to understand how procurement professionals managed their daily workflows, where existing processes created friction, and what information they needed to make confident purchasing decisions. Through stakeholder interviews, user surveys, and workflow analysis, I uncovered usability gaps, trust concerns, and operational inefficiencies that directly shaped the design strategy.</p>
             </div>
             
             <div class="sticky-grid fade-in-section">
@@ -2360,6 +2383,16 @@
                     <div class="sticky-insight">"The Yammer updates and reminders section are super helpful. It'd be even better if I could @tag someone in reminders."</div>
                     <div class="sticky-suggestion">→ Enable @mentions in notes or reminders.</div>
                 </div>
+            </div>
+
+            <div class="research-insights fade-in-section">
+                <h3 class="emotions-title">Key Research Insights</h3>
+                <ul class="research-insights-grid">
+                    <li>Procurement teams relied on multiple disconnected systems.</li>
+                    <li>Users struggled to quickly locate critical procurement information.</li>
+                    <li>Collaboration features lacked visibility and context.</li>
+                    <li>Teams wanted clearer navigation and more proactive guidance.</li>
+                </ul>
             </div>
 
             <div class="emotions-section fade-in-section">
@@ -2399,60 +2432,77 @@
         <div class="project-container">
             <h2 class="section-label">Wireframes & Explorations</h2>
             <div class="wireframes-intro">
-                Based on research insights and user needs across departments, I began exploring low-fidelity wireframes to validate structure, hierarchy, and modular layout options. These explorations focused on simplifying access to KPIs, workflows, and department-specific reports — all from a unified dashboard view.
+                Before moving into high fidelity designs, I explored multiple concepts to validate dashboard organization, onboarding, and support patterns. These early explorations helped shape the final product direction.
             </div>
-            <div class="wireframes-scroll">
+            <div class="wireframes-grid">
                 <div class="wireframe-tile">
-                    <div class="wireframe-img paper-bg sketch-overlay">
-                        <img src="./images/wireframe.svg" alt="Early dashboard wireframe" />
-                        <p class="wireframe-caption">Early layout sketch exploring dashboard hierarchy and modular structure.</p>
+                    <div class="wireframe-img">
+                        <img src="./images/Dashboardlofi.png?v=3" alt="Dashboard Foundation low fidelity wireframe" />
+                    </div>
+                    <div class="wireframe-caption">
+                        <strong>Dashboard Foundation</strong>
+                        <span>Explored dashboard hierarchy and information organization.</span>
                     </div>
                 </div>
                 <div class="wireframe-tile">
-                    <div class="wireframe-img paper-bg sketch-overlay">
-                        <img src="./images/Reporting Low-fi.svg" alt="Role-based data visibility exploration" />
-                        <p class="wireframe-caption">Role-based data visibility exploration</p>
+                    <div class="wireframe-img">
+                        <img src="./images/onboardinglofi.png?v=3" alt="Guided Onboarding low fidelity wireframe" />
+                    </div>
+                    <div class="wireframe-caption">
+                        <strong>Guided Onboarding</strong>
+                        <span>Designed a contextual onboarding experience for first time users.</span>
                     </div>
                 </div>
                 <div class="wireframe-tile">
-                    <div class="wireframe-img paper-bg sketch-overlay">
-                        <img src="./images/Support Low-fi.svg" alt="Training & support materials for onboarding and ongoing help" />
-                        <p class="wireframe-caption">Training & support materials for onboarding and ongoing help</p>
+                    <div class="wireframe-img">
+                        <img src="./images/Supportlofi.png?v=3" alt="Training and Support low fidelity wireframe" />
+                    </div>
+                    <div class="wireframe-caption">
+                        <strong>Training and Support</strong>
+                        <span>Explored embedded training and self service support.</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="hifi-section">
+    <section class="final-product-section">
         <div class="project-container">
-            <h2 class="section-label">High-Fidelity UI Design</h2>
+            <h2 class="section-label">Final Product Experience</h2>
+            <div class="final-product-intro">
+                Guided by research insights, I designed a unified procurement platform that centralized workflows, operational visibility, collaboration, onboarding, and embedded support into a single experience. Every feature was intentionally designed to reduce context switching and help procurement teams complete tasks more efficiently.
+            </div>
+        </div>
+
+    <section class="hifi-section hifi-subsection">
+        <div class="project-container">
+            <h3 class="section-label subsection-label">Unified Procurement Dashboard</h3>
             
             <div class="hifi-hero">
-                <div class="hifi-hero-layout">
-                    <div class="hero-description">
+                <div class="hifi-subsection-layout">
+                    <div class="hifi-subsection-text hero-description">
                         <div class="feature-block" data-section="tasks">
-                            <h3>Task Management & Reminders</h3>
-                            <p>A unified area for managing procurement workflows and deadlines. Users track key tasks, receive reminders, and stay on top of overdue reports from multiple systems.</p>
-                        </div>
-
-                        <div class="feature-block" data-section="resources">
-                            <h3>Quick Access Resources</h3>
-                            <p>Procurement teams can instantly access frequently used documents, dashboards, and reports. This includes training material, Excel templates, RFP files, and more.</p>
+                            <h3>Unified Workflow Management</h3>
+                            <p>Procurement teams previously relied on multiple disconnected systems to manage tasks, deadlines, and operational activities. The dashboard brings reminders, workflows, and priorities together into one centralized workspace so users can quickly understand what requires attention.</p>
                         </div>
 
                         <div class="feature-block" data-section="insights">
-                            <h3>AI-Based Insights</h3>
-                            <p>Analytics-driven cards help users monitor KPIs and surface trends. This system is designed to evolve into AI-powered market recommendations and cost-saving suggestions.</p>
+                            <h3>Operational Visibility</h3>
+                            <p>Key procurement metrics, workflow status, and business KPIs are surfaced together to provide immediate visibility into ongoing operations. Users can monitor progress, identify risks, and make informed decisions without navigating multiple reports.</p>
+                        </div>
+
+                        <div class="feature-block" data-section="resources">
+                            <h3>Centralized Resource Hub</h3>
+                            <p>Frequently used procurement documents, templates, reports, and shared resources are available directly within the dashboard, reducing search time and supporting faster execution of everyday work.</p>
                         </div>
 
                         <div class="feature-block" data-section="communication">
-                            <h3>Internal Communication</h3>
-                            <p>The built-in Yammer feed keeps procurement stakeholders updated with announcements, launch details, and contextual discussions — right inside the dashboard.</p>
+                            <h3>Embedded Collaboration</h3>
+                            <p>Announcements, discussions, and team communication are integrated directly into the dashboard, allowing procurement teams to collaborate within the context of their work instead of switching between separate applications.</p>
                         </div>
                     </div>
 
-                    <div class="hero-image">
+                    <div class="hifi-product-viewport hero-image">
                         <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower Dashboard" />
                         <div class="section-highlight highlight-tasks"></div>
                         <div class="section-highlight highlight-resources"></div>
@@ -2464,34 +2514,40 @@
         </div>
     </section>
 
-    <section class="onboarding-section">
+    <section class="onboarding-section hifi-subsection">
         <div class="project-container">
-            <h2 class="section-label">Onboarding Experience</h2>
+            <h3 class="section-label subsection-label">Guided Onboarding</h3>
+            <div class="subsection-intro">
+                Research showed that first-time users often struggled to understand where to begin within the platform. To reduce the learning curve, I designed a contextual onboarding experience that gradually introduced key workflows instead of relying on traditional training.
+            </div>
             
-            <div class="onboarding-layout">
-                <div class="onboarding-image">
+            <div class="hifi-subsection-layout">
+                <div class="hifi-product-viewport onboarding-image">
                     <img src="./images/onboarding.svg" alt="Procurement Control Tower Onboarding Interface" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3e%3crect fill=\'%23f8f9fa\' width=\'100\' height=\'100\'/%3e%3ctext fill=\'%23adb5bd\' x=\'50\' y=\'50\' font-size=\'12\' text-anchor=\'middle\' alignment-baseline=\'middle\'%3eImage Placeholder%3c/text%3e%3c/svg%3e';" />
                 </div>
                 
-                <div class="onboarding-content">
+                <div class="hifi-subsection-text onboarding-content">
                     <div class="onboarding-step">
                         <div class="step-number">01</div>
                         <div class="step-content">
-                            <p>To help users navigate the new Procurement Control Tower with ease, the onboarding feature launches an interactive walkthrough. It highlights key parts of the platform and explains their purpose step by step.</p>
+                            <h3>Interactive Walkthroughs</h3>
+                            <p>Step-by-step guidance introduces users to important features during their first experience without interrupting their workflow.</p>
                         </div>
                     </div>
 
                     <div class="onboarding-step">
                         <div class="step-number">02</div>
                         <div class="step-content">
-                            <p>When users visit a section for the first time, contextual tooltips appear. For example, hovering over "Feedback" shows a pop-up explaining how to use it for reporting issues or suggesting improvements.</p>
+                            <h3>Contextual Guidance</h3>
+                            <p>Context-sensitive tooltips explain unfamiliar functionality as users encounter different parts of the platform, making learning feel natural.</p>
                         </div>
                     </div>
 
                     <div class="onboarding-step">
                         <div class="step-number">03</div>
                         <div class="step-content">
-                            <p>The guided tour includes a progress tracker, "Next" and "Skip" buttons, and highlights each section of the interface. This helps reduce confusion and improves user adoption for first-time users.</p>
+                            <h3>Progressive Adoption</h3>
+                            <p>Users can move through onboarding at their own pace using guided steps, progress indicators, and dismissible tours, improving confidence while reducing onboarding time.</p>
                         </div>
                     </div>
                 </div>
@@ -2499,34 +2555,40 @@
         </div>
     </section>
 
-    <section class="support-section">
+    <section class="support-section hifi-subsection">
         <div class="project-container">
-            <h2 class="section-label">Integrated Support System</h2>
+            <h3 class="section-label subsection-label">Integrated Support Center</h3>
+            <div class="subsection-intro">
+                Instead of requiring users to leave the product for documentation, I designed an embedded support center that provides learning resources, FAQs, and troubleshooting directly within the platform.
+            </div>
             
-            <div class="support-layout">
-                <div class="support-image">
+            <div class="hifi-subsection-layout">
+                <div class="hifi-product-viewport support-image">
                     <img src="./images/Support.svg" alt="Procurement Control Tower Support Interface" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3e%3crect fill=\'%23f8f9fa\' width=\'100\' height=\'100\'/%3e%3ctext fill=\'%23adb5bd\' x=\'50\' y=\'50\' font-size=\'12\' text-anchor=\'middle\' alignment-baseline=\'middle\'%3eImage Placeholder%3c/text%3e%3c/svg%3e';" />
                 </div>
                 
-                <div class="support-content">
+                <div class="hifi-subsection-text support-content">
                     <div class="onboarding-step">
                         <div class="step-number">01</div>
                         <div class="step-content">
-                            <p>Users can access the Support Center directly from the dashboard navigation, without switching tools or platforms.</p>
+                            <h3>Searchable Knowledge Base</h3>
+                            <p>Training materials, documentation, and operational resources are organized in one searchable location for quick access.</p>
                         </div>
                     </div>
 
                     <div class="onboarding-step">
                         <div class="step-number">02</div>
                         <div class="step-content">
-                            <p>The support section includes searchable documentation, troubleshooting steps, and a feedback form to report issues.</p>
+                            <h3>Self-Service Support</h3>
+                            <p>Frequently asked questions help users resolve common issues independently, reducing dependency on support teams.</p>
                         </div>
                     </div>
 
                     <div class="onboarding-step">
                         <div class="step-number">03</div>
                         <div class="step-content">
-                            <p>Live chat and help ticket features are integrated, allowing procurement staff to get assistance without leaving their workflow.</p>
+                            <h3>Embedded Help Resources</h3>
+                            <p>Integrated guidance and support links allow users to find answers without leaving their current workflow, creating a smoother overall experience.</p>
                         </div>
                     </div>
                 </div>
@@ -2534,118 +2596,150 @@
         </div>
     </section>
 
-    <section class="critique-section">
+    <section class="ai-insights-section hifi-subsection">
         <div class="project-container">
-            <h2 class="section-label">Design Critique & Stakeholder Alignment</h2>
-            
-            <div class="critique-layout">
-                <div class="critique-visual">
-                    <div class="figjam-toolbar">
-                        <i class="fas fa-sticky-note"></i>
-                        <i class="fas fa-comment"></i>
-                        <i class="fas fa-pen"></i>
-                    </div>
-                    
-                    <div class="sticky-feedback sticky-yellow">
-                        <div class="comment-author">
-                            <div class="author-avatar">PM</div>
-                            <span>Product Manager</span>
-                        </div>
-                        "The AI insights dashboard is intuitive and provides clear value to users"
+            <div class="hifi-subsection-layout">
+                <div class="hifi-subsection-text ai-insights-content">
+                    <h3 class="section-label subsection-label">AI-Powered Procurement Insights</h3>
+
+                    <div class="subsection-intro ai-insights-intro">
+                        I embedded AI-powered insight cards directly into the procurement workflow to surface relevant market changes and supplier updates without requiring users to search across multiple tools.
                     </div>
 
-                    <div class="sticky-feedback sticky-purple">
-                        <div class="comment-author">
-                            <div class="author-avatar">UX</div>
-                            <span>UX Team</span>
-                        </div>
-                        "Navigation structure matches existing mental models well"
-                    </div>
-
-                    <div class="sticky-feedback sticky-green">
-                        <div class="comment-author">
-                            <div class="author-avatar">ST</div>
-                            <span>Stakeholder</span>
-                        </div>
-                        "This aligns perfectly with our workflow requirements"
-                    </div>
-
-                    <div class="critique-comment" style="top: 45%; right: 10%;">
-                        <div class="comment-author">
-                            <div class="author-avatar">SR</div>
-                            <span>Sarah R.</span>
-                        </div>
-                        "Love how the KPIs are organized. Very clear hierarchy."
-                        <div class="connector" style="left: -40px; top: 50%;"></div>
-                    </div>
-                </div>
-                
-                <div class="critique-feedback">
-                    <p class="section-intro">
-                        To ensure the final design met real user expectations, I facilitated critique sessions with stakeholders from the procurement team. These sessions helped validate design intent, identify key usability gaps, and build alignment before handoff.
-                    </p>
-
-                    <div class="feedback-points-container">
-                        <div class="feedback-point">
-                            <div class="point-icon">
-                                <i class="fas fa-comments"></i>
+                    <div class="ai-insights-features">
+                        <div class="ai-feature-block">
+                            <div class="ai-callout-icon">
+                                <i class="fas fa-chart-line" aria-hidden="true"></i>
                             </div>
-                            <div class="point-text">
-                                Validated UI decisions through collaborative feedback
+                            <div class="ai-callout-text">
+                                <h3>Market Intelligence</h3>
+                                <p>Price changes, market trends, and supply chain updates.</p>
                             </div>
                         </div>
 
-                        <div class="feedback-point">
-                            <div class="point-icon">
-                                <i class="fas fa-search"></i>
+                        <div class="ai-feature-block">
+                            <div class="ai-callout-icon">
+                                <i class="fas fa-building" aria-hidden="true"></i>
                             </div>
-                            <div class="point-text">
-                                Highlighted clarity issues in task and insight modules
+                            <div class="ai-callout-text">
+                                <h3>Supplier Monitoring</h3>
+                                <p>Upcoming agreements, supplier activity, and potential risks.</p>
                             </div>
                         </div>
 
-                        <div class="feedback-point">
-                            <div class="point-icon">
-                                <i class="fas fa-check-double"></i>
+                        <div class="ai-feature-block">
+                            <div class="ai-callout-icon">
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
                             </div>
-                            <div class="point-text">
-                                Ensured stakeholder confidence before development
+                            <div class="ai-callout-text">
+                                <h3>Transparent AI</h3>
+                                <p>Clearly labeled AI-generated insights that are easy to scan and trust.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="hifi-product-viewport ai-insights-image" id="ai-insights-image">
+                        <img src="./images/ProcurementControlTower.svg" alt="Procurement Control Tower dashboard showing embedded AI insight cards within the procurement workflow" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <section class="tradeoffs-section" id="key-design-tradeoffs">
+        <div class="project-container">
+            <h2 class="section-label">Key Design Tradeoffs</h2>
+            <p class="tradeoffs-intro">
+                The final experience was shaped by several tradeoffs between usability, stakeholder priorities, and product complexity.
+            </p>
+
+            <div class="tradeoffs-grid">
+                <article class="tradeoff-card">
+                    <h3 class="tradeoff-title">Information Density vs. Clarity</h3>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Challenge</span>
+                        <p>Stakeholders wanted more metrics, shortcuts, and resources visible on the dashboard.</p>
+                    </div>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Decision</span>
+                        <p>Prioritized high-value information and placed secondary content behind progressive disclosure.</p>
+                    </div>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Impact</span>
+                        <p>A cleaner dashboard that made important information easier to scan.</p>
+                    </div>
+                </article>
+
+                <article class="tradeoff-card">
+                    <h3 class="tradeoff-title">AI Assistance vs. User Trust</h3>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Challenge</span>
+                        <p>AI insights needed to provide value without overwhelming users or appearing to replace human judgment.</p>
+                    </div>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Decision</span>
+                        <p>Embedded concise insight cards into the existing workflow and clearly labeled AI-generated content.</p>
+                    </div>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Impact</span>
+                        <p>Relevant intelligence remained visible while preserving transparency and user control.</p>
+                    </div>
+                </article>
+
+                <article class="tradeoff-card">
+                    <h3 class="tradeoff-title">Guidance vs. Workflow Efficiency</h3>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Challenge</span>
+                        <p>First-time users needed support, while experienced users wanted immediate access to their work.</p>
+                    </div>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Decision</span>
+                        <p>Used contextual, dismissible onboarding instead of a mandatory tutorial.</p>
+                    </div>
+                    <div class="tradeoff-block">
+                        <span class="tradeoff-label">Impact</span>
+                        <p>New users received guidance without slowing down experienced procurement teams.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <section class="learnings-section">
         <div class="project-container">
-            <h2 class="section-label">Learnings & Reflections</h2>
+            <h2 class="section-label">Key Learnings</h2>
             
             <div class="learnings-content">
                 <p class="reflection-text">
-                    This project pushed me to design for clarity within complexity — balancing stakeholder needs, system integrations, and real-time decision-making in a single dashboard. Collaborating with cross-functional teams taught me how to communicate design intent across non-design audiences and adapt quickly to feedback.
+                    Designing this procurement platform reinforced that great enterprise experiences aren't about presenting more information—they're about helping users make better decisions with the right information at the right time. Working closely with stakeholders throughout the project also strengthened my ability to balance business priorities, user needs, and technical constraints.
                 </p>
 
                 <div class="takeaways-list">
                     <div class="takeaway-item">
-                        <h3 class="takeaway-title">Designing for roles, not just features</h3>
-                        <p class="takeaway-desc">Creating meaningful experiences meant tailoring content and visibility based on user roles, not just data hierarchy.</p>
+                        <h3 class="takeaway-title">Prioritize Decisions, Not Data</h3>
+                        <p class="takeaway-desc">Enterprise dashboards become more effective when information is organized around user decisions instead of simply displaying available data.</p>
                     </div>
 
                     <div class="takeaway-item">
-                        <h3 class="takeaway-title">Feedback isn't just validation — it's evolution</h3>
-                        <p class="takeaway-desc">Design critique sessions uncovered small friction points that had a big impact on user understanding.</p>
+                        <h3 class="takeaway-title">Collaboration Drives Better Outcomes</h3>
+                        <p class="takeaway-desc">Continuous collaboration with product managers, engineers, and stakeholders helped refine priorities early and reduce costly design changes later.</p>
                     </div>
 
                     <div class="takeaway-item">
-                        <h3 class="takeaway-title">A unified system improves more than tasks — it builds trust</h3>
-                        <p class="takeaway-desc">Centralizing information helped reduce tool fatigue and increased stakeholder confidence in using the platform daily.</p>
+                        <h3 class="takeaway-title">Simplicity Scales</h3>
+                        <p class="takeaway-desc">Establishing consistent interaction patterns made the platform easier to learn, easier to maintain, and better prepared for future enhancements.</p>
+                    </div>
+
+                    <div class="takeaway-item">
+                        <h3 class="takeaway-title">Systems Thinking</h3>
+                        <p class="takeaway-desc">Looking beyond individual screens helped create connected workflows that felt cohesive across the entire procurement experience.</p>
                     </div>
                 </div>
 
                 <p class="closing-thought">
-                    This project reminded me that good design doesn't just organize — it empowers.
+                    These lessons continue to shape how I approach enterprise product design—balancing user needs, business goals, and scalable system thinking to create intuitive experiences for complex workflows.
                 </p>
             </div>
         </div>
@@ -2672,7 +2766,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Update selector to include all fade-in elements
             const fadeElements = document.querySelectorAll(
-                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .snapshot-overview-card, .discovery-section .discovery-item .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card, .interviews-intro, .sticky-grid, .sticky-note, .view-all-btn, .emotions-section, .emotion-item'
+                '.intro-content, .intro-visual, .snapshot-card, .team-collaborators, .role-summary, .process-intro, .process-step, .discovery-intro, .discovery-list li, .placeholder-board, .snapshot-overview-card, .discovery-section .discovery-item .moodboard-intro, .visual-list li, .moodboard-grid, .moodboard-card, .interviews-intro, .sticky-grid, .sticky-note, .view-all-btn, .research-insights, .emotions-section, .emotion-item'
             );
             
             const observer = new IntersectionObserver((entries) => {
@@ -2731,6 +2825,55 @@
                     });
                 }
             });
+
+            const aiInsightsImage = document.getElementById('ai-insights-image');
+            if (aiInsightsImage && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                const aiInsightsImg = aiInsightsImage.querySelector('img');
+                const zoomScale = 1.75;
+                const focusX = 79.7;
+                const focusY = 35.6;
+                let isHovering = false;
+
+                const resetAiInsightsZoom = () => {
+                    aiInsightsImage.classList.remove('is-zoomed');
+                    aiInsightsImg.style.transition = 'transform 0.5s ease, transform-origin 0.5s ease';
+                    aiInsightsImg.style.transform = 'scale(1)';
+                    aiInsightsImg.style.transformOrigin = '50% 50%';
+                    window.setTimeout(() => {
+                        aiInsightsImg.style.transition = '';
+                    }, 500);
+                };
+
+                const updateAiInsightsZoom = (event, useFocusPoint) => {
+                    const bounds = aiInsightsImage.getBoundingClientRect();
+                    const cursorX = ((event.clientX - bounds.left) / bounds.width) * 100;
+                    const cursorY = ((event.clientY - bounds.top) / bounds.height) * 100;
+                    const originX = useFocusPoint ? focusX : Math.min(100, Math.max(0, cursorX));
+                    const originY = useFocusPoint ? focusY : Math.min(100, Math.max(0, cursorY));
+
+                    aiInsightsImage.classList.add('is-zoomed');
+                    aiInsightsImg.style.transition = useFocusPoint
+                        ? 'transform 0.5s ease, transform-origin 0.5s ease'
+                        : 'transform 0.15s ease-out, transform-origin 0.15s ease-out';
+                    aiInsightsImg.style.transformOrigin = `${originX}% ${originY}%`;
+                    aiInsightsImg.style.transform = `scale(${zoomScale})`;
+                };
+
+                aiInsightsImage.addEventListener('mouseenter', (event) => {
+                    isHovering = true;
+                    updateAiInsightsZoom(event, true);
+                });
+
+                aiInsightsImage.addEventListener('mousemove', (event) => {
+                    if (!isHovering) return;
+                    updateAiInsightsZoom(event, false);
+                });
+
+                aiInsightsImage.addEventListener('mouseleave', () => {
+                    isHovering = false;
+                    resetAiInsightsZoom();
+                });
+            }
         });
     </script>
 </body>
