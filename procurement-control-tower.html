@@ -174,7 +174,7 @@
 
         /* Intro Section Styles */
         .intro-section {
-            padding: 4rem 0 2rem; /* Adjusted padding */
+            padding: 4rem 0 1rem;
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
             min-height: auto;
             display: flex;
@@ -203,10 +203,12 @@
         .intro-text {
             color: var(--text-light);
             line-height: 1.8;
-            font-size: 1.1rem;
+            font-size: calc(1.1rem + 4px);
             max-width: 540px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-items: flex-start;
             height: 100%;
         }
 
@@ -280,7 +282,7 @@
 
         @media (max-width: 768px) {
             .intro-section {
-                padding: 30px 0 40px;
+                padding: 30px 0 16px;
             }
 
             .intro-grid {
@@ -333,6 +335,19 @@
         .project-snapshot {
             padding: 4rem 0;
             background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            font-size: calc(1rem + 2px);
+        }
+
+        .project-snapshot .section-label {
+            font-size: calc(1.1rem + 2px);
+        }
+
+        .project-snapshot .card-header i {
+            font-size: calc(1.25rem + 2px);
+        }
+
+        .project-snapshot .snapshot-list .icon {
+            font-size: calc(1rem + 2px);
         }
 
         .snapshot-row {
@@ -422,6 +437,16 @@
             color: var(--text-color);
         }
 
+        .project-snapshot .role-summary {
+            max-width: 100%;
+            font-size: calc(1rem + 4px);
+            padding: 1.5rem 1.75rem;
+            background: rgba(122, 90, 248, 0.04);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-color);
+            box-shadow: 0 2px 12px rgba(122, 90, 248, 0.08);
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .project-snapshot {
@@ -429,7 +454,7 @@
             }
             
             .intro-section {
-                padding: 30px 0 40px;
+                padding: 30px 0 16px;
             }
 
             .snapshot-row {
@@ -452,33 +477,45 @@
         .team-section {
             padding: 2rem 0;
             background: white;
+            font-size: calc(1rem + 2px);
         }
 
-        .team-collaborators {
+        .team-section .card-header i {
+            font-size: calc(1.25rem + 2px);
+        }
+
+        .team-section .snapshot-list .icon {
+            font-size: calc(1rem + 2px);
+        }
+
+        .team-section .snapshot-row {
+            align-items: stretch;
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+
+        .team-section .snapshot-card {
+            height: 100%;
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 2rem 0;
+            flex-direction: column;
         }
 
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
-            background: rgba(122, 90, 248, 0.04);
-            border-radius: 4px;
-            transition: all 0.2s ease;
+        .team-card-intro {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: calc(1rem + 2px);
+            margin: 0;
         }
 
-        .team-member::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: #7A5AF8;
-            border-radius: 50%;
+        .team-card-subheading {
+            font-weight: 500;
+            color: #7A5AF8;
+            margin: 1.25rem 0 0.75rem;
+            font-size: calc(0.95rem + 2px);
+        }
+
+        .team-section .snapshot-list {
+            flex: 1;
         }
 
         .role-summary {
@@ -1938,30 +1975,33 @@
 
         /* Project Snapshot Overview Styles */
         .project-snapshot-overview {
-            padding: 5rem 0;  /* Increased padding (80px) */
+            padding: 2rem 0 3rem;
             background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
-            margin: 2rem 0;
+            margin: 0;
         }
 
         .snapshot-overview-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;  /* Increased gap */
-            margin-top: 3rem;  /* More space after heading */
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: stretch;
         }
 
         .snapshot-overview-card {
             background: #ffffff;
-            padding: 2.5rem 2rem;  /* More vertical padding */
+            padding: 1.5rem 1.25rem;
             border-radius: 16px;
             border: 1px solid #E0E0E0;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);  /* Enhanced shadow */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            align-items: center;  /* Center content */
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.75rem;
             text-align: center;
-            min-height: 240px;  /* Ensure consistent height */
+            height: 100%;
         }
 
         .snapshot-overview-card:hover {
@@ -1971,12 +2011,11 @@
         }
 
         .overview-icon {
-            font-size: 3.5rem;  /* Larger icons */
-            margin-bottom: 1.5rem;
+            font-size: 2.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 80px;  /* Fixed height for alignment */
+            line-height: 1;
         }
 
         /* Custom colors for each icon */
@@ -1997,7 +2036,6 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #666666;
-            margin-bottom: 1rem;
             font-weight: 600;
         }
 
@@ -2005,9 +2043,9 @@
             color: #2d3436;
             font-weight: 500;
             font-size: 1.1rem;
-            line-height: 1.4;
-            max-width: 200px;  /* Prevent text from getting too wide */
-            margin: 0 auto;
+            line-height: 1.45;
+            width: 100%;
+            margin: 0;
         }
 
         nav {
@@ -2016,7 +2054,7 @@
 
         @media (max-width: 768px) {
             .project-snapshot-overview {
-                padding: 4rem 0;  /* Slightly less padding on mobile */
+                padding: 1.5rem 0 2.5rem;
             }
 
             .snapshot-overview-grid {
@@ -2025,13 +2063,11 @@
             }
 
             .snapshot-overview-card {
-                min-height: auto;  /* Let cards be natural height on mobile */
-                padding: 2rem;
+                padding: 1.25rem 1rem;
             }
 
             .overview-icon {
-                font-size: 3rem;  /* Slightly smaller on mobile */
-                height: 60px;
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -2059,7 +2095,8 @@
             <div class="intro-grid">
                 <div class="intro-content fade-in-section is-visible">
                     <div class="intro-text">
-                        <p>Procurement teams lacked a centralized way to monitor operations, suppliers, and financial performance. With fragmented dashboards and delayed insights, strategic decision-making was reactive and inefficient. This platform brings together KPIs, market signals, and task alerts into a single interface — enabling teams to act faster, smarter, and with greater confidence.</p>
+                        <p>Procurement teams relied on disconnected dashboards, spreadsheets, supplier portals, emails, and reports to monitor operations and make purchasing decisions. Switching between multiple systems created fragmented workflows, delayed insights, and made strategic decision-making reactive rather than proactive.</p>
+                        <p>My goal was to design a unified Procurement Control Tower that centralized operational data, AI-assisted insights, communication, and daily workflows into a single experience—helping procurement teams make faster, more informed decisions with confidence.</p>
                     </div>
                 </div>
                 
@@ -2100,7 +2137,7 @@
                 <div class="snapshot-overview-card">
                     <div class="overview-icon">⚙️</div>
                     <div class="overview-label">FOCUS</div>
-                    <div class="overview-text">Insights, Efficiency, Oversight</div>
+                    <div class="overview-text">Workflow Optimization, Decision Support, Operational Visibility</div>
                 </div>
             </div>
         </div>
@@ -2169,20 +2206,78 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="role-summary fade-in-section">
+                These challenges revealed that the core issue was not a lack of information but disconnected workflows, fragmented tools, and limited operational visibility. This shaped my design strategy to create a centralized workspace that unified decision making, collaboration, and operational insights, enabling procurement teams to work more efficiently and make informed decisions.
+            </div>
         </div>
     </section>
 
     <section class="team-section">
         <div class="project-container">
             <h2 class="section-label">Team & My Role</h2>
-            <div class="team-collaborators fade-in-section">
-                <div class="team-member">Product Manager</div>
-                <div class="team-member">Business Stakeholders</div>
-                <div class="team-member">Developers</div>
-                <div class="team-member">UX Designer (Me)</div>
-            </div>
-            <div class="role-summary fade-in-section">
-                I collaborated with stakeholders, managers, and developers throughout the design process — from discovery and wireframes to final UI handoff — ensuring clarity, feasibility, and alignment across teams.
+            <div class="snapshot-row">
+                <div class="snapshot-card" data-delay="0">
+                    <div class="card-header">
+                        <i class="fas fa-pen"></i>
+                        <h3>My Role</h3>
+                    </div>
+                    <p class="team-card-intro">I led the end to end UX design process for the Procurement Control Tower, transforming research insights into a centralized enterprise experience that streamlined procurement workflows and improved operational visibility.</p>
+                    <h4 class="team-card-subheading">Responsibilities</h4>
+                    <ul class="snapshot-list">
+                        <li>
+                            <span class="icon">🔍</span>
+                            <span>Led user research and synthesis</span>
+                        </li>
+                        <li>
+                            <span class="icon">🗺️</span>
+                            <span>Defined information architecture and user flows</span>
+                        </li>
+                        <li>
+                            <span class="icon">📐</span>
+                            <span>Created wireframes and interactive prototypes</span>
+                        </li>
+                        <li>
+                            <span class="icon">✅</span>
+                            <span>Validated concepts through usability testing</span>
+                        </li>
+                        <li>
+                            <span class="icon">🤝</span>
+                            <span>Collaborated with engineering through developer handoff</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="snapshot-card" data-delay="100">
+                    <div class="card-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Collaboration</h3>
+                    </div>
+                    <p class="team-card-intro">I partnered closely with product managers, business stakeholders, and engineers to align user needs with business goals and technical feasibility.</p>
+                    <h4 class="team-card-subheading">Key Contributions</h4>
+                    <ul class="snapshot-list">
+                        <li>
+                            <span class="icon">💬</span>
+                            <span>Facilitated design reviews and stakeholder critique sessions</span>
+                        </li>
+                        <li>
+                            <span class="icon">🔄</span>
+                            <span>Gathered and incorporated cross functional feedback</span>
+                        </li>
+                        <li>
+                            <span class="icon">📊</span>
+                            <span>Prioritized features based on user and business needs</span>
+                        </li>
+                        <li>
+                            <span class="icon">✨</span>
+                            <span>Refined solutions before development</span>
+                        </li>
+                        <li>
+                            <span class="icon">🎯</span>
+                            <span>Built alignment across teams to support implementation</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
